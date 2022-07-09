@@ -1,0 +1,22 @@
+[package]
+name = "nunomaduro_com"
+version = "1.0.0"
+edition = "2021"
+default-run = "server"
+
+[workspace]
+members = [
+    "application",
+    "domain",
+    "infrastructure",
+    "presentation",
+]
+
+[dependencies]
+application = { path = "application" }
+domain = { path = "domain" }
+infrastructure = { path = "infrastructure" }
+presentation = { path = "presentation" }
+
+hyper = { version = "0.14.20", features = ["full"] }
+tokio = { version = "1.19.2", features = ["full"] }

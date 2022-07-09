@@ -1,0 +1,12 @@
+[package]
+name = "application"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../domain" }
+infrastructure = { path = "../infrastructure" }
+presentation = { path = "../presentation" }
+
+askama = { version = "0.11.1" }
+hyper = { version = "0.14.20", features = ["full"] }

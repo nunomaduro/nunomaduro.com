@@ -1,0 +1,9 @@
+[package]
+name = "presentation"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../domain" }
+
+askama = { version = "0.11.1" }

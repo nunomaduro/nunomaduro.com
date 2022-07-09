@@ -1,0 +1,9 @@
+[package]
+name = "infrastructure"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../domain" }
+
+pulldown-cmark = { version = "0.9.1" }

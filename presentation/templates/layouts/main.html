@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include "components/meta.html" %}
+        {% include "components/styles.html" %}
+    </head>
+    <body class="bg-white">
+        <div class="relative">
+            {% block navigation %}
+                {% include "components/navigation.html" %}
+            {% endblock %}
+
+            <div class="pt-1 pb-20 px-4 sm:px-6">
+                <div class="relative max-w-7xl mx-auto">
+                    <div class="mt-12 mx-auto grid gap-5">
+                        <div class="max-w-3xl mx-auto" style="max-width: 65ch;">
+                            {% block page %}
+
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

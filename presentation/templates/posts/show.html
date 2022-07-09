@@ -1,0 +1,22 @@
+{% extends "layouts/page.html" %}
+
+{% block navigation %}
+    <div class="py-10">
+        <div class="h-full flex justify-center space-x-8 text-sm font-medium text-gray">
+            <a href="/" class="flex" >« Back</a>
+            <div>Written by <a href="https://twitter.com/enunomaduro">Nuno Maduro</a> on {{ page.published_at() }} </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title() }}</h1>
+
+    {{ page.content()|safe }}
+
+    <hr/>
+
+    <p>I hope you have enjoyed this {{ page.type() | lower }}. If yes, please consider supporting my work — my mission is to spend more time maintaining the dozens of projects that I've written/collaborated on over the years and continue developing new projects to PHP development more productive and enjoyable.</p>
+
+    <p>⇢ <a class="text-bold" href="https://github.com/sponsors/nunomaduro">github.com/sponsors/nunomaduro</a></p>
+{% endblock %}

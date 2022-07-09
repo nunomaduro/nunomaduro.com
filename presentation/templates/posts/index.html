@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block page %}
+<div class="flow-root mt-6">
+    <ul role="list" class="-my-5 divide-y divide-gray-200">
+        {% for post in page.elements() %}
+            <li class="py-5">
+                <div class="relative focus-within:ring-2 focus-within:ring-indigo-500">
+                    <h3 class="text-sm font-semibold text-gray-800">
+                        <a href="/{{ post.slug() }}" class="hover:underline focus:outline-none flex">
+                            <span class="absolute inset-0" aria-hidden="true"></span>
+                            {{ post.title() }}
+                        </a>
+                    </h3>
+                    <p class="mt-1 text-sm text-gray-600 line-clamp-2">{{ post.description() }}</p>
+                </div>
+                <div class="mt-2 text-xs text-gray-600 ">
+                    {{ post.published_at() }} | {{ post.duration() }} {{ post.type() | lower }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
