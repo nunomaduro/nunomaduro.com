@@ -22,14 +22,14 @@ impl MarkdownFile {
 
         sections.next();
 
-        let front_matter = sections.next().unwrap().split("\n");
+        let front_matter = sections.next().unwrap().split('\n');
 
         for line in front_matter {
-            if line == "" {
+            if line.is_empty() {
                 continue;
             }
 
-            let mut split = line.split(":");
+            let mut split = line.split(':');
             let potencial_key = split.next().unwrap();
 
             if potencial_key == key {

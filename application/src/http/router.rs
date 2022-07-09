@@ -39,7 +39,7 @@ impl Router {
         Self::new(routes)
     }
 
-    pub fn route(&self, method: &str, path: &str) -> &Box<dyn Route> {
+    pub fn route(&self, method: &str, path: &str) -> &dyn Route {
         let route = self
             .routes
             .iter()
@@ -53,5 +53,6 @@ impl Router {
                 .find(|route| route.method() == "GET" && route.path() == "/404")
                 .unwrap(),
         }
+        .as_ref()
     }
 }

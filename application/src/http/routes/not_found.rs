@@ -11,8 +11,10 @@ impl NotFound {
             // ..
         }
     }
+}
 
-    pub fn default() -> Self {
+impl Default for NotFound {
+    fn default() -> Self {
         Self::new()
     }
 }

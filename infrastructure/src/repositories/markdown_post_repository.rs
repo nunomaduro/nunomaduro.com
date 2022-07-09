@@ -19,14 +19,14 @@ impl MarkdownPostRepository {
 
 impl PostRepository for MarkdownPostRepository {
     fn all(&self) -> Vec<PostPage> {
-        let files = fs::read_dir(self.path.to_owned()).unwrap();
+        let files = fs::read_dir(&self.path).unwrap();
 
         let mut vec = files
             .map(|file| file.unwrap().file_name())
             .map(|file_name| self.get(file_name.to_str().unwrap().replace(".md", "").as_str()))
             .collect::<Vec<PostPage>>();
 
-        vec.sort_by(|a, b| b.id().cmp(&a.id()));
+        vec.sort_by(|a, b| b.id().cmp(a.id()));
 
         vec
     }
