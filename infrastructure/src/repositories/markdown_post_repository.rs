@@ -57,11 +57,13 @@ mod tests {
         let pages = repository.all();
 
         assert!(pages.len() >= 1);
-        assert_eq!(pages[0].title(), "How to install PHP 8.2 RC on Mac");
-        assert_eq!(pages[0].r#type(), "Tutorial");
-        assert_eq!(pages[0].published_at(), "July 20, 2022");
-        assert_eq!(pages[0].duration(), "4 min read");
-        assert!(pages[0].content().contains("<p>"));
+        let page = pages.last().unwrap();
+
+        assert_eq!(page.title(), "Laravel Podcast Season 4 Episode 10");
+        assert_eq!(page.r#type(), "Podcast");
+        assert_eq!(page.published_at(), "June 24, 2022");
+        assert_eq!(page.duration(), "25 min");
+        assert!(page.content().contains("<p>"));
     }
 
     #[test]
@@ -69,10 +71,10 @@ mod tests {
         let repository = MarkdownPostRepository::new("../content/posts".to_string());
         let page = repository.get("1");
 
-        assert_eq!(page.title(), "How to install PHP 8.2 RC on Mac");
-        assert_eq!(page.r#type(), "Tutorial");
-        assert_eq!(page.published_at(), "July 20, 2022");
-        assert_eq!(page.duration(), "4 min read");
+        assert_eq!(page.title(), "Laravel Podcast Season 4 Episode 10");
+        assert_eq!(page.r#type(), "Podcast");
+        assert_eq!(page.published_at(), "June 24, 2022");
+        assert_eq!(page.duration(), "25 min");
         assert!(page.content().contains("<p>"));
     }
 }
