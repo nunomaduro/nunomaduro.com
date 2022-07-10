@@ -42,11 +42,9 @@ impl MarkdownFile {
 
     pub fn html(&self) -> String {
         let options = Options::all();
-        let mut content = self.content.split("---");
-        content.next();
-        content.next();
-        let markdown = content.next().unwrap();
-        let parser = Parser::new_ext(markdown, options);
+        let markdown = self.content.split("---").skip(2).collect::<Vec<&str>>().join("---");
+
+        let parser = Parser::new_ext(markdown.as_str(), options);
         let mut html_output = String::new();
         html::push_html(&mut html_output, parser);
         html_output
