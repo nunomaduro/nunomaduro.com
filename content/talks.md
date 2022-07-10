@@ -1,3 +1,8 @@
+---
+title: Nuno Maduro — Talks
+description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Developer.
+---
+
 As a speaker, Nuno has spoken in dozens of countries, including India, Spain, Italy, France, and Serbia. Bellow, is a list of some of Nuno's talks.
 
 ## Types In Laravel

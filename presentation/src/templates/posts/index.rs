@@ -7,10 +7,11 @@ use domain::value_objects::PostPage;
 #[template(path = "posts/index.html")]
 pub struct IndexTemplate {
     page: ListPage<PostPage>,
+    url: String,
 }
 
 impl IndexTemplate {
-    pub fn new(page: ListPage<PostPage>) -> Self {
-        Self { page }
+    pub fn new(page: ListPage<PostPage>, url: String) -> Self {
+        Self { page, url }
     }
 }

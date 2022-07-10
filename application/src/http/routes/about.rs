@@ -32,7 +32,7 @@ impl Route for About {
 
     fn handle(&self, _request: Request<Body>) -> Response<Body> {
         let article = self.repository.get("about");
-        let template = AboutTemplate::new(article);
+        let template = AboutTemplate::new(article, self.path());
 
         Response::new(template.render().unwrap().into())
     }

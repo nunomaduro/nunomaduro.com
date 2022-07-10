@@ -71,4 +71,12 @@ impl Page for PostPage {
     fn id(&self) -> &str {
         &self.id
     }
+
+    fn title(&self) -> &str {
+        &self.title
+    }
+
+    fn description(&self) -> &str {
+        &self.description
+    }
 }

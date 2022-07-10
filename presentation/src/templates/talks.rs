@@ -6,10 +6,11 @@ use domain::value_objects::StaticPage;
 #[template(path = "talks.html")]
 pub struct TalksTemplate {
     page: StaticPage,
+    url: String,
 }
 
 impl TalksTemplate {
-    pub fn new(page: StaticPage) -> Self {
-        Self { page }
+    pub fn new(page: StaticPage, url: String) -> Self {
+        Self { page, url }
     }
 }

@@ -1,8 +1,31 @@
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+<title>{{ page.title() }}</title>
 
+<!-- Page Title and Description -->
+<meta name="title" content="{{ page.title() }}">
+<meta name="description" content="{{ page.description() }}">
+
+<!-- View Type -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Seo -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@enunomaduro" />
+<meta name="twitter:creator" content="@enunomaduro" />
+<!-- <meta name="twitter:image" content="/image-url" /> -->
+
+<meta property="og:url" content="https://nunomaduro.com{{ url }}" />
+<meta property="og:title" content="{{ page.title() }}" />
+<meta property="og:description" content="{{ page.description() }}" />
+<!-- <meta property="og:image" content="/image-url" /> -->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" >
 <link rel="icon" ype="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" href="/favicon16x16.png" sizes="16x16">
 <link rel="icon" type="image/png" href="/favicon32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512"  href="/android-icon-512x512.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" >
+<link rel="manifest" href="/site.webmanifest">

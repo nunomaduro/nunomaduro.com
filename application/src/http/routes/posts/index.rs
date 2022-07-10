@@ -1,7 +1,6 @@
 use crate::http::Route;
 use askama::Template;
 use domain::contracts::PostRepository;
-use domain::value_objects::ListPage;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MarkdownPostRepository;
 use presentation::templates::posts::IndexTemplate;
@@ -30,11 +29,9 @@ impl Route for Index {
     }
 
     fn handle(&self, _request: Request<Body>) -> Response<Body> {
-        let posts = self.repository.all();
+        let page = self.repository.all();
 
-        let page = ListPage::new("posts".to_string(), posts);
-
-        let template = IndexTemplate::new(page);
+        let template = IndexTemplate::new(page, self.path());
 
         Response::new(template.render().unwrap().into())
     }

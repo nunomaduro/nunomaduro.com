@@ -34,7 +34,7 @@ impl Route for Show {
     fn handle(&self, _request: Request<Body>) -> Response<Body> {
         let page = self.repository.get(&self.id);
 
-        let template = ShowTemplate::new(page);
+        let template = ShowTemplate::new(page, self.path());
 
         Response::new(template.render().unwrap().into())
     }

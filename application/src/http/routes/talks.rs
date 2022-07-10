@@ -32,7 +32,7 @@ impl Route for Talks {
 
     fn handle(&self, _request: Request<Body>) -> Response<Body> {
         let talk = self.repository.get("talks");
-        let template = TalksTemplate::new(talk);
+        let template = TalksTemplate::new(talk, self.path());
 
         Response::new(template.render().unwrap().into())
     }

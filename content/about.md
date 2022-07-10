@@ -1,3 +1,8 @@
+---
+title: Nuno Maduro — About
+description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Developer.
+---
+
 ![Nuno Maduro 1](https://raw.githubusercontent.com/nunomaduro/nunomaduro.com/main/content/public/about-1.jpg)
 
 Nuno Maduro is a [Speaker](/talks), [Laravel Core Team Member](https://laravel.com/team), [Open Source Developer](https://github.com/nunomaduro/).

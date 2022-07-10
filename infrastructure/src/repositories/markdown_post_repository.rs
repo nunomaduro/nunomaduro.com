@@ -1,34 +1,42 @@
 use crate::support::MarkdownFile;
 use domain::contracts::PostRepository;
+use domain::value_objects::ListPage;
 use domain::value_objects::PostPage;
 use std::fs;
 
 pub struct MarkdownPostRepository {
+    meta: String,
     path: String,
 }
 
 impl MarkdownPostRepository {
-    pub fn new(path: String) -> Self {
-        Self { path }
+    pub fn new(meta: String, path: String) -> Self {
+        Self { meta, path }
     }
 
     pub fn default() -> Self {
-        Self::new("./content/posts".to_string())
+        Self::new("./content/posts".to_string(), "./content/posts".to_string())
     }
 }
 
 impl PostRepository for MarkdownPostRepository {
-    fn all(&self) -> Vec<PostPage> {
-        let files = fs::read_dir(&self.path).unwrap();
-
-        let mut vec = files
+    fn all(&self) -> ListPage<PostPage> {
+        let mut posts = fs::read_dir(&self.path)
+            .unwrap()
             .map(|file| file.unwrap().file_name())
             .map(|file_name| self.get(file_name.to_str().unwrap().replace(".md", "").as_str()))
             .collect::<Vec<PostPage>>();
 
-        vec.sort_by(|a, b| b.id().cmp(a.id()));
+        posts.sort_by(|a, b| b.id().cmp(a.id()));
 
-        vec
+        let meta = MarkdownFile::from_file(format!("{}.md", self.meta).as_str());
+
+        ListPage::new(
+            "posts".to_string(),
+            meta.property("title").unwrap(),
+            meta.property("description").unwrap(),
+            posts,
+        )
     }
 
     fn get(&self, id: &str) -> PostPage {
@@ -53,11 +61,14 @@ mod tests {
 
     #[test]
     fn test_all() {
-        let repository = MarkdownPostRepository::new("../content/posts".to_string());
-        let pages = repository.all();
+        let repository = MarkdownPostRepository::new(
+            "../content/posts".to_string(),
+            "../content/posts".to_string(),
+        );
+        let mut pages = repository.all();
 
         assert!(pages.len() >= 1);
-        let page = pages.last().unwrap();
+        let page = pages.next().unwrap();
 
         assert_eq!(page.title(), "Laravel Podcast Season 4 Episode 10");
         assert_eq!(page.r#type(), "Podcast");
@@ -68,7 +79,10 @@ mod tests {
 
     #[test]
     fn test_get() {
-        let repository = MarkdownPostRepository::new("../content/posts".to_string());
+        let repository = MarkdownPostRepository::new(
+            "../content/posts".to_string(),
+            "../content/posts".to_string(),
+        );
         let page = repository.get("1");
 
         assert_eq!(page.title(), "Laravel Podcast Season 4 Episode 10");
