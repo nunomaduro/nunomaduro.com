@@ -3,7 +3,7 @@ title: Nuno Maduro — About
 description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Developer.
 ---
 
-![Nuno Maduro 1](https://raw.githubusercontent.com/nunomaduro/nunomaduro.com/main/content/public/about-1.jpg)
+![Nuno Maduro 1](https://nunomaduro.com/about.1.jpg)
 
 Nuno Maduro is a [Speaker](/talks), [Laravel Core Team Member](https://laravel.com/team), [Open Source Developer](https://github.com/nunomaduro/).
 
@@ -11,7 +11,7 @@ Nuno has created dozens of popular open-source projects, including [Laravel Zero
 
 Nuno has a very close relationship with the [Laravel](https://laravel.com/) community, the most popular PHP framework in the world. As a core team member, Nuno has developed and maintained multiple Laravel projects and features that are being used by companies over the world. Including The New York Times, Disney, Twitch, and more.
 
-![Nuno Maduro 2](https://raw.githubusercontent.com/nunomaduro/nunomaduro.com/main/content/public/about-2.jpg)
+![Nuno Maduro 2](https://nunomaduro.com/about.1.jpg)
 
 As a speaker, Nuno [has spoken](/talks) in dozens of countries, including Laracon India, Laracon EU, PHP Italy, Forum PHP, and PHP Serbia. Nuno's conference talks are usually around the open-source tools he built, PHP, Laravel, and the content is mostly live code.
 
