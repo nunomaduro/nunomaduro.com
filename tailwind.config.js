@@ -7,8 +7,8 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    "@tailwindcss/line-clamp",
-    "@tailwindcss/typography",
-    "cssnano",
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+    require('cssnano'),
   ],
 }
