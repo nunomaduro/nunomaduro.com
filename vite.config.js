@@ -11,6 +11,6 @@ export default defineConfig({
           name: 'main',
           fileName: (format) => `app.js`
         },
-        outDir: 'public/js',
+        outDir: 'public/dist',
     }
 })
