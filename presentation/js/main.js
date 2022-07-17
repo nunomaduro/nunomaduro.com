@@ -1,4 +1,6 @@
-import { getHighlighter } from 'shiki';
+import { getHighlighter, setCDN } from 'shiki';
+
+setCDN("/node_modules/shiki/")
 
 getHighlighter({
     theme: 'nord'
