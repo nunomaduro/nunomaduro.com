@@ -6,6 +6,8 @@ use std::net::SocketAddr;
 
 #[tokio::main]
 async fn main() {
+    dotenv::dotenv().ok();
+
     let addr = SocketAddr::from(([127, 0, 0, 1], 8000));
 
     let make_svc =
@@ -22,6 +24,16 @@ async fn handle_request(request: Request<Body>) -> Result<Response<Body>, Infall
     // remove trailing slash from path
     let path = request.uri().path().trim_end_matches('/');
     let method = request.method().as_str();
+
+    if std::env::var("APP_ENV").unwrap_or("production".to_string()) == "development".to_string() {
+        if path.starts_with("/dist/") {
+            let response = Response::new(Body::from(std::fs::read_to_string(
+                format!("./public/{}", path)
+            ).unwrap()));
+
+            return Ok(response);
+        }
+    }
 
     let response = Router::default().route(method, path).handle(request);
 
