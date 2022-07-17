@@ -1,4 +1,5 @@
 js:
+	npm ci
 	npm run build
 
 css:
