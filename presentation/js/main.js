@@ -1,10 +1,3 @@
-import { getHighlighter, setCDN } from 'shiki';
+import hljs from 'highlight.js'
 
-setCDN("/node_modules/shiki/")
-
-getHighlighter({
-    theme: 'nord'
-})
-.then(highlighter => {
-    console.log(highlighter.codeToHtml(`console.log('shiki');`, { lang: 'js' }))
-})
+hljs.highlightAll()

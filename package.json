@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "shiki": "^0.10.1"
+    "highlight.js": "^11.6.0"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.0",
