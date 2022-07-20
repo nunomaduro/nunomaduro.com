@@ -1,6 +1,6 @@
 ---
 title: Nuno Maduro — Newsletter
-description: A free newsletter about PHP, Rust, and news about author's career. It typically comprises the articles being published in this website, so you don't miss a thing.
+description: Free newsletter about PHP, Rust, and news about the author's career. Usually, it contains the articles published on this website, so you don't miss a thing.
 ---
 
-**nunomaduro.com** is a free newsletter about PHP, Rust, and news about author's career. It typically comprises the articles being published in this website, so you don't miss a thing.
+**nunomaduro.com** is a free newsletter about PHP, Rust, and news about the author's career. Usually, it contains the articles published on this website, so you don't miss a thing.
