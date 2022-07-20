@@ -1,9 +1,13 @@
 use crate::http::Route;
+use async_trait::async_trait;
 use hyper::{Body, Request, Response};
 
 pub struct NotFound {
     // ..
 }
+
+unsafe impl Send for NotFound {}
+unsafe impl Sync for NotFound {}
 
 impl NotFound {
     pub fn new() -> Self {
@@ -19,6 +23,7 @@ impl Default for NotFound {
     }
 }
 
+#[async_trait]
 impl Route for NotFound {
     fn method(&self) -> String {
         "GET".to_string()
@@ -28,7 +33,10 @@ impl Route for NotFound {
         "/404".to_string()
     }
 
-    fn handle(&self, _request: Request<Body>) -> Response<Body> {
-        Response::new("404 - not found.".into())
+    async fn handle(&self, _request: Request<Body>) -> Response<Body> {
+        Response::builder()
+            .status(404)
+            .body(Body::from("404 - Not Found"))
+            .unwrap()
     }
 }

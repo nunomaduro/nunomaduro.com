@@ -1,0 +1,19 @@
+{% extends "layouts/page.html" %}
+
+{% block content %}
+    {{ page.content()|safe }}
+
+    <div x-data="NewsletterForm()">
+        <form class="mt-8 sm:flex justify-between" @submit.prevent="submit">
+            <label for="email-address" class="sr-only">Email address</label>
+            <input x-model="data.email" id="email-address" name="email" type="email" autocomplete="email" required class="border w-full px-5 py-3 placeholder-gray-500 focus:ring-gray-500 focus:border-gray-500 border-gray-300 rounded-md flex" placeholder="Enter your email">
+            <div class="flex mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                <button class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">Subscribe</button>
+            </div>
+        </form>
+
+        <p x-show.transition="submitting" x-html="submitting_message" class="mt-3 pl-5 text-sm text-gray-500" x-transition:enter.duration.1000ms x-transition.scale.origin.left>
+            
+        </p>
+    <div>
+{% endblock %}

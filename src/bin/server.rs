@@ -10,8 +10,7 @@ async fn main() {
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 8000));
 
-    let make_svc =
-        make_service_fn(|_conn| async { Ok::<_, Infallible>(service_fn(handle_request)) });
+    let make_svc = make_service_fn(|_conn| async { Ok::<_, Infallible>(service_fn(handle)) });
 
     let server = Server::bind(&addr).serve(make_svc);
 
@@ -20,22 +19,22 @@ async fn main() {
     }
 }
 
-async fn handle_request(request: Request<Body>) -> Result<Response<Body>, Infallible> {
+async fn handle(request: Request<Body>) -> Result<Response<Body>, Infallible> {
     // remove trailing slash from path
     let path = request.uri().path().trim_end_matches('/');
     let method = request.method().as_str();
 
-    if std::env::var("APP_ENV").unwrap_or("production".to_string()) == "development".to_string() {
-        if path.starts_with("/dist/") {
-            let response = Response::new(Body::from(std::fs::read_to_string(
-                format!("./public/{}", path)
-            ).unwrap()));
+    if std::env::var("APP_ENV").unwrap_or_else(|_| "production".to_string()) == *"development"
+        && path.starts_with("/dist/")
+    {
+        let response = Response::new(Body::from(
+            std::fs::read_to_string(format!("./public/{}", path)).unwrap(),
+        ));
 
-            return Ok(response);
-        }
+        return Ok(response);
     }
 
-    let response = Router::default().route(method, path).handle(request);
+    let response = Router::default().route(method, path).handle(request).await;
 
     Ok(response)
 }

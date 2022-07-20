@@ -1,29 +1,33 @@
 use super::routes;
+use async_trait::async_trait;
 use domain::contracts::PostRepository;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MarkdownPostRepository;
 
 pub struct Router {
-    routes: Vec<Box<dyn Route>>,
+    routes: Vec<Box<dyn Route + Send + Sync>>,
 }
 
+#[async_trait]
 pub trait Route {
     fn method(&self) -> String;
     fn path(&self) -> String;
-    fn handle(&self, request: Request<Body>) -> Response<Body>;
+    async fn handle(&self, request: Request<Body>) -> Response<Body>;
 }
 
 impl Router {
-    pub fn new(routes: Vec<Box<dyn Route>>) -> Self {
+    pub fn new(routes: Vec<Box<dyn Route + Send + Sync>>) -> Self {
         Self { routes }
     }
 
     pub fn default() -> Self {
-        let mut routes: Vec<Box<dyn Route>> = vec![
+        let mut routes: Vec<Box<dyn Route + Send + Sync>> = vec![
             Box::new(routes::About::default()),
-            Box::new(routes::Talks::default()),
-            Box::new(routes::posts::Index::default()),
+            Box::new(routes::api::v1::newsletter::Post::default()),
+            Box::new(routes::Newsletter::default()),
             Box::new(routes::NotFound::default()),
+            Box::new(routes::posts::Index::default()),
+            Box::new(routes::Talks::default()),
         ];
 
         let posts = MarkdownPostRepository::default().all();
@@ -39,7 +43,7 @@ impl Router {
         Self::new(routes)
     }
 
-    pub fn route(&self, method: &str, path: &str) -> &dyn Route {
+    pub fn route(&self, method: &str, path: &str) -> &(dyn Route + Send + Sync) {
         let route = self
             .routes
             .iter()

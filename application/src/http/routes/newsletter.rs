@@ -4,40 +4,40 @@ use async_trait::async_trait;
 use domain::contracts::StaticRepository;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MarkdownStaticRepository;
-use presentation::templates::TalksTemplate;
+use presentation::templates::NewsletterTemplate;
 
-pub struct Talks {
+pub struct Newsletter {
     repository: Box<dyn StaticRepository>,
 }
 
-unsafe impl Send for Talks {}
-unsafe impl Sync for Talks {}
+unsafe impl Send for Newsletter {}
+unsafe impl Sync for Newsletter {}
 
-impl Talks {
+impl Newsletter {
     pub fn new(repository: Box<dyn StaticRepository>) -> Self {
         Self { repository }
     }
+}
 
-    pub fn default() -> Self {
-        Self {
-            repository: Box::new(MarkdownStaticRepository::default()),
-        }
+impl Default for Newsletter {
+    fn default() -> Self {
+        Self::new(Box::new(MarkdownStaticRepository::default()))
     }
 }
 
 #[async_trait]
-impl Route for Talks {
+impl Route for Newsletter {
     fn method(&self) -> String {
         "GET".to_string()
     }
 
     fn path(&self) -> String {
-        "/talks".to_string()
+        "/newsletter".to_string()
     }
 
     async fn handle(&self, _request: Request<Body>) -> Response<Body> {
-        let talk = self.repository.get("talks");
-        let template = TalksTemplate::new(talk, self.path());
+        let article = self.repository.get("newsletter");
+        let template = NewsletterTemplate::new(article, self.path());
 
         Response::new(template.render().unwrap().into())
     }

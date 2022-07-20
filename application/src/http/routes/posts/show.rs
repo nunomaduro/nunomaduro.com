@@ -1,5 +1,6 @@
 use crate::http::Route;
 use askama::Template;
+use async_trait::async_trait;
 use domain::contracts::PostRepository;
 use hyper::Body;
 use hyper::Request;
@@ -12,6 +13,9 @@ pub struct Show {
     slug: String,
 }
 
+unsafe impl Send for Show {}
+unsafe impl Sync for Show {}
+
 impl Show {
     pub fn new(repository: Box<dyn PostRepository>, id: String, slug: String) -> Self {
         Self {
@@ -22,6 +26,7 @@ impl Show {
     }
 }
 
+#[async_trait]
 impl Route for Show {
     fn method(&self) -> String {
         "GET".to_string()
@@ -31,7 +36,7 @@ impl Route for Show {
         format!("/{}", self.slug)
     }
 
-    fn handle(&self, _request: Request<Body>) -> Response<Body> {
+    async fn handle(&self, _request: Request<Body>) -> Response<Body> {
         let page = self.repository.get(&self.id);
 
         let template = ShowTemplate::new(page, self.path());
