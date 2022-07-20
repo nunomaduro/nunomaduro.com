@@ -8,15 +8,18 @@ window.NewsletterForm = function NewsletterForm() {
         submit() {
             this.submitting = true
 
+            const email = this.data.email
+            this.data.email = ''
+
             fetch('api/v1/newsletter', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
                 },
-                body: JSON.stringify(this.data),
-            }).finally(() => {
-                this.data.email = ''
+                body: JSON.stringify({
+                    email,
+                }),
             })
 
             setTimeout(() => {
