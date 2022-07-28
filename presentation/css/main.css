@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.prose pre {
+    @apply w-full overflow-x-auto;
+}
