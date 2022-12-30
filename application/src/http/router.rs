@@ -28,6 +28,7 @@ impl Router {
             Box::new(routes::NotFound::default()),
             Box::new(routes::posts::Index::default()),
             Box::new(routes::Talks::default()),
+            Box::new(routes::Support::default()),
         ];
 
         let posts = MarkdownPostRepository::default().all();

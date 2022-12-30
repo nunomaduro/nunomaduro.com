@@ -7,7 +7,7 @@ description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Dev
 
 Nuno Maduro is a [Speaker](/talks), [Laravel Core Team Member](https://laravel.com/team), [Open Source Developer](https://github.com/nunomaduro/).
 
-Nuno has created dozens of popular open-source projects, including [Laravel Zero](https://laravel-zero.com/), [Collision](https://github.com/nunomaduro/collision), [Larastan](https://github.com/nunomaduro/Larastan), [PHP Insights](https://phpinsights.com/), [Termwind](https://github.com/nunomaduro/termwind), and the second most used PHP Testing Framework in the world: [PEST](https://pestphp.com/). All these packages combined have been downloaded more than 200 million times, and all of them try to make the PHP ecosystem a better place.
+Nuno has created dozens of popular open-source projects, including [Laravel Zero](https://laravel-zero.com/), [Collision](https://github.com/nunomaduro/collision), [Larastan](https://github.com/nunomaduro/Larastan), [PHP Insights](https://phpinsights.com/), [Termwind](https://github.com/nunomaduro/termwind), and the second most used PHP Testing Framework in the world: [PEST](https://pestphp.com/). All these packages combined have been downloaded millions times, and all of them try to make the PHP ecosystem a better place.
 
 Nuno has a very close relationship with the [Laravel](https://laravel.com/) community, the most popular PHP framework in the world. As a core team member, Nuno has developed and maintained multiple Laravel projects and features that are being used by companies over the world. Including The New York Times, Disney, Twitch, and more.
 
