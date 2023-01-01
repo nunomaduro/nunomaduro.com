@@ -1,9 +1,9 @@
 ---
-title: Nuno Maduro — Support
+title: Nuno Maduro — Support Me
 description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Developer.
 ---
 
-If you’re a PHP developer, chances are you’ve encountered some of my work before. I’m [Nuno Maduro](https://twitter.com/enunomaduro), the creator and maintainer of popular open source projects such as PEST, PHP Insights, Pint, Laravel Zero, Collision, Larastan, Pint, Termwind, and more.
+If you’re a PHP developer, chances are you’ve encountered some of my work before. I’m [Nuno Maduro](https://twitter.com/enunomaduro), the creator and maintainer of popular open source projects such as PEST, PHP Insights, Laravel Zero, Collision, Larastan, Pint, Termwind, and more.
 
 These packages have been downloaded millions of times, and I’m proud to say that each and every one of them helps make the PHP ecosystem a better place. I’m also Laravel core member, and I’ve contributed to many features you’re likely using.
 
