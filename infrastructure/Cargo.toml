@@ -4,7 +4,7 @@ version = "1.0.0"
 edition = "2021"
 
 [dependencies]
-async-trait = "0.1.61"
+async-trait = "0.1.64"
 domain = { path = "../domain" }
 hyper = { version = "0.14.23", features = ["full"] }
 pulldown-cmark = { version = "0.9.1" }
