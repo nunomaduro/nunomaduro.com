@@ -24,7 +24,7 @@ impl Router {
         let mut routes: Vec<Box<dyn Route + Send + Sync>> = vec![
             Box::new(routes::About::default()),
             Box::new(routes::api::v1::newsletter::Post::default()),
-            Box::new(routes::Newsletter::default()),
+            Box::new(routes::Socials::default()),
             Box::new(routes::NotFound::default()),
             Box::new(routes::posts::Index::default()),
             Box::new(routes::Talks::default()),

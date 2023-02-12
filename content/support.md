@@ -1,15 +1,13 @@
 ---
-title: Nuno Maduro — Support Me
-description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Developer.
+title: Nuno Maduro — Support
+description: Nuno Maduro, a PHP developer, is the creator and maintainer of several popular open source projects
 ---
 
-If you’re a PHP developer, chances are you’ve encountered some of my work before. I’m [Nuno Maduro](https://twitter.com/enunomaduro), the creator and maintainer of popular open source projects such as PEST, PHP Insights, Laravel Zero, Collision, Larastan, Pint, Termwind, and more.
+Nuno Maduro, a PHP developer, is the creator and maintainer of several popular open source projects including **[PEST](https://pestphp.com)**, **[PHP Insights](https://github.com/nunomaduro/phpinsights)**, **[Laravel Zero](https://github.com/laravel-zero/laravel-zero)**, **[Collision](https://github.com/nunomaduro/collision)**, **[Larastan](https://github.com/nunomaduro/larastan)**,  **[Termwind](https://github.com/nunomaduro/termwind)**, **[OpenAI for PHP](github.com/openai-php)** and more. These projects have been downloaded millions of times and contribute to improving the PHP ecosystem. Nuno is also a **[Lararel](https://laravel.com/)** core member and has contributed to various features used by the community.
 
-These packages have been downloaded millions of times, and I’m proud to say that each and every one of them helps make the PHP ecosystem a better place. I’m also Laravel core member, and I’ve contributed to many features you’re likely using.
+Maintaining these projects is a demanding task and Nuno is dedicating more time to them while also working on new projects to make PHP development even more efficient and enjoyable. The support of the community is crucial in enabling Nuno to continue this work.
 
-But maintaining all of these projects takes a lot of work, and I’m now dedicating more of my time to them. I’m also developing new projects to make PHP development even more productive and enjoyable — and I can’t do this without your help.
+Those who have benefited from Nuno’s projects are encouraged to show their support through GitHub Sponsors or PayPal. Any amount of support is appreciated and will help Nuno continue his work.
 
-If you’ve ever benefited from one of my projects, I would love your support. You can donate to me via GitHub Sponsors or PayPal. Any amount will help me continue the work I do, and I appreciate it more than you know.
-
-- **GitHub**: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro)
-- **PayPal**: [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro)
+GitHub: **[github.com/nunomaduro/](https://github.com/nunomaduro/)**
+PayPal: **[paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro)**

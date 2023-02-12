@@ -32,7 +32,7 @@ impl Route for Support {
     }
 
     fn path(&self) -> String {
-        "/support-me".to_string()
+        "/support".to_string()
     }
 
     async fn handle(&self, _request: Request<Body>) -> Response<Body> {
