@@ -9,5 +9,5 @@ Maintaining these projects is a demanding task and Nuno is dedicating more time 
 
 Those who have benefited from Nuno’s projects are encouraged to show their support through GitHub Sponsors or PayPal. Any amount of support is appreciated and will help Nuno continue his work.
 
-GitHub: **[github.com/nunomaduro/](https://github.com/nunomaduro/)**
-PayPal: **[paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro)**
+- GitHub: **[github.com/nunomaduro/](https://github.com/nunomaduro/)**
+- PayPal: **[paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro)**
