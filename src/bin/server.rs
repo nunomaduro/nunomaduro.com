@@ -15,7 +15,7 @@ async fn main() {
     let server = Server::bind(&addr).serve(make_svc);
 
     if let Err(e) = server.await {
-        eprintln!("server error: {}", e);
+        eprintln!("server error: {e}");
     }
 }
 
@@ -28,7 +28,7 @@ async fn handle(request: Request<Body>) -> Result<Response<Body>, Infallible> {
         && path.starts_with("/dist/")
     {
         let response = Response::new(Body::from(
-            std::fs::read_to_string(format!("./public/{}", path)).unwrap(),
+            std::fs::read_to_string(format!("./public/{path}")).unwrap(),
         ));
 
         return Ok(response);

@@ -5,6 +5,7 @@ use domain::contracts::StaticRepository;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MarkdownStaticRepository;
 use presentation::templates::SupportTemplate;
+use std::default::Default;
 
 pub struct Support {
     repository: Box<dyn StaticRepository>,
@@ -17,10 +18,12 @@ impl Support {
     pub fn new(repository: Box<dyn StaticRepository>) -> Self {
         Self { repository }
     }
+}
 
-    pub fn default() -> Self {
+impl Default for Support {
+    fn default() -> Self {
         Self {
-            repository: Box::new(MarkdownStaticRepository::default()),
+            repository: Box::<MarkdownStaticRepository>::default(),
         }
     }
 }

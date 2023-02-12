@@ -1,6 +1,7 @@
 use crate::support::MarkdownFile;
 use domain::contracts::StaticRepository;
 use domain::value_objects::StaticPage;
+use std::default::Default;
 
 pub struct MarkdownStaticRepository {
     path: String,
@@ -10,8 +11,10 @@ impl MarkdownStaticRepository {
     pub fn new(path: String) -> Self {
         Self { path }
     }
+}
 
-    pub fn default() -> Self {
+impl Default for MarkdownStaticRepository {
+    fn default() -> Self {
         Self::new("./content".to_string())
     }
 }

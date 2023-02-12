@@ -5,6 +5,7 @@ use domain::contracts::PostRepository;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MarkdownPostRepository;
 use presentation::templates::posts::IndexTemplate;
+use std::default::Default;
 
 pub struct Index {
     repository: Box<dyn PostRepository>,
@@ -17,9 +18,11 @@ impl Index {
     pub fn new(repository: Box<dyn PostRepository>) -> Self {
         Self { repository }
     }
+}
 
-    pub fn default() -> Self {
-        Self::new(Box::new(MarkdownPostRepository::default()))
+impl Default for Index {
+    fn default() -> Self {
+        Self::new(Box::<MarkdownPostRepository>::default())
     }
 }
 

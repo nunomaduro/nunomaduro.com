@@ -21,7 +21,7 @@ impl Socials {
 
 impl Default for Socials {
     fn default() -> Self {
-        Self::new(Box::new(MarkdownStaticRepository::default()))
+        Self::new(Box::<MarkdownStaticRepository>::default())
     }
 }
 

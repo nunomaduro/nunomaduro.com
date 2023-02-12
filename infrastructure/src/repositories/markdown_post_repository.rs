@@ -3,6 +3,7 @@ use domain::contracts::PostRepository;
 use domain::value_objects::ListPage;
 use domain::value_objects::PostPage;
 use std::fs;
+use std::default::Default;
 
 pub struct MarkdownPostRepository {
     meta: String,
@@ -13,8 +14,10 @@ impl MarkdownPostRepository {
     pub fn new(meta: String, path: String) -> Self {
         Self { meta, path }
     }
+}
 
-    pub fn default() -> Self {
+impl Default for MarkdownPostRepository {
+    fn default() -> Self {
         Self::new("./content/posts".to_string(), "./content/posts".to_string())
     }
 }

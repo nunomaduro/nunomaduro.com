@@ -21,7 +21,7 @@ impl About {
 
 impl Default for About {
     fn default() -> Self {
-        Self::new(Box::new(MarkdownStaticRepository::default()))
+        Self::new(Box::<MarkdownStaticRepository>::default())
     }
 }
 

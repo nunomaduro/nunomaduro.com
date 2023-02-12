@@ -5,6 +5,7 @@ use domain::contracts::StaticRepository;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MarkdownStaticRepository;
 use presentation::templates::TalksTemplate;
+use std::default::Default;
 
 pub struct Talks {
     repository: Box<dyn StaticRepository>,
@@ -17,10 +18,12 @@ impl Talks {
     pub fn new(repository: Box<dyn StaticRepository>) -> Self {
         Self { repository }
     }
+}
 
-    pub fn default() -> Self {
+impl Default for Talks {
+    fn default() -> Self {
         Self {
-            repository: Box::new(MarkdownStaticRepository::default()),
+            repository: Box::<MarkdownStaticRepository>::default(),
         }
     }
 }

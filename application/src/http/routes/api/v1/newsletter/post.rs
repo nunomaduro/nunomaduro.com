@@ -4,6 +4,7 @@ use domain::contracts::NewsletterRepository;
 use hyper::body::to_bytes;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MailcoachNewsletterRepository;
+use std::default::Default;
 
 pub struct Post {
     repository: Box<dyn NewsletterRepository + Send + Sync>,
@@ -16,9 +17,11 @@ impl Post {
     pub fn new(repository: Box<dyn NewsletterRepository + Send + Sync>) -> Self {
         Self { repository }
     }
+}
 
-    pub fn default() -> Self {
-        Self::new(Box::new(MailcoachNewsletterRepository::default()))
+impl Default for Post {
+    fn default() -> Self {
+        Self::new(Box::<MailcoachNewsletterRepository>::default())
     }
 }
 
