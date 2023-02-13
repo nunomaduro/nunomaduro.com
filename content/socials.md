@@ -1,6 +1,6 @@
 ---
 title: Nuno Maduro — Socials
-description: Welcome to my socials page! This is the place where you can find all of my social media links and connect with me online.
+description: Welcome to Nuno's socials page! This is the place where you can find all of Nuno's social media links and connect with him online.
 ---
 
 Welcome to Nuno's socials page! This is the place where you can find all of Nuno's social media links and connect with him online. Whether you're interested in keeping up with his latest updates, getting behind-the-scenes peeks, or just want to say hello, Nuno has got you covered. From Twitter to Mastodon, Instagram to LinkedIn, and more, you'll find all of Nuno's social media profiles listed here. So go ahead and click around, follow Nuno, and let's stay connected!
