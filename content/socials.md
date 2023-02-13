@@ -1,5 +1,5 @@
 ---
-title: Nuno Maduro — Newsletter
+title: Nuno Maduro — Socials
 description: Welcome to my socials page! This is the place where you can find all of my social media links and connect with me online.
 ---
 
