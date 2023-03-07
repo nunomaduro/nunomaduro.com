@@ -8,7 +8,7 @@ domain = { path = "../domain" }
 infrastructure = { path = "../infrastructure" }
 presentation = { path = "../presentation" }
 
-askama = { version = "0.11.1" }
+askama = { version = "0.12.0" }
 hyper = { version = "0.14.23", features = ["full"] }
 
 serde_json = "1.0.91"
