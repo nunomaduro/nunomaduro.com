@@ -34,7 +34,7 @@ checksum = "87bf87e6e8b47264efa9bde63d6225c6276a52e05e91bf37eaa8afd0032d6b71"
 dependencies = [
  "askama_shared",
  "proc-macro2",
- "syn",
+ "syn 1.0.98",
 ]
 
 [[package]]
@@ -59,19 +59,19 @@ dependencies = [
  "proc-macro2",
  "quote",
  "serde",
- "syn",
+ "syn 1.0.98",
  "toml",
 ]
 
 [[package]]
 name = "async-trait"
-version = "0.1.61"
+version = "0.1.67"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "705339e0e4a9690e2908d2b3d049d85682cf19fbd5782494498fbf7003a6a282"
+checksum = "86ea188f25f0255d8f92797797c97ebf5631fa88178beb1a46fdf5622c9a00e4"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 2.0.2",
 ]
 
 [[package]]
@@ -581,7 +581,7 @@ checksum = "b501e44f11665960c7e7fcf062c7d96a14ade4aa98116c004b2e37b5be7d736c"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 1.0.98",
 ]
 
 [[package]]
@@ -660,9 +660,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.40"
+version = "1.0.52"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dd96a1e8ed2596c337f8eae5f24924ec83f5ad5ab21ea8e455d3566c69fbcaf7"
+checksum = "1d0e1ae9e836cc3beddd63db0df682593d7e2d3d891ae8c9083d2113e1744224"
 dependencies = [
  "unicode-ident",
 ]
@@ -681,9 +681,9 @@ dependencies = [
 
 [[package]]
 name = "quote"
-version = "1.0.20"
+version = "1.0.26"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3bcdf212e9776fbcb2d23ab029360416bb1706b1aea2d1a5ba002727cbcab804"
+checksum = "4424af4bf778aae2051a77b60283332f386554255d722233d09fbfc7e30da2fc"
 dependencies = [
  "proc-macro2",
 ]
@@ -805,7 +805,7 @@ checksum = "dc1d3230c1de7932af58ad8ffbe1d784bd55efd5a9d84ac24f69c72d83543dfb"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 1.0.98",
 ]
 
 [[package]]
@@ -874,6 +874,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "syn"
+version = "2.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59d3276aee1fa0c33612917969b5172b5be2db051232a6e4826f1a1a9191b045"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-ident",
+]
+
+[[package]]
 name = "tempfile"
 version = "3.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -930,7 +941,7 @@ checksum = "9724f9a975fb987ef7a3cd9be0350edcbe130698af5b8f7a631e23d42d052484"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 1.0.98",
 ]
 
 [[package]]
@@ -1095,7 +1106,7 @@ dependencies = [
  "log",
  "proc-macro2",
  "quote",
- "syn",
+ "syn 1.0.98",
  "wasm-bindgen-shared",
 ]
 
@@ -1129,7 +1140,7 @@ checksum = "7d94ac45fcf608c1f45ef53e748d35660f168490c10b23704c7779ab8f5c3048"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 1.0.98",
  "wasm-bindgen-backend",
  "wasm-bindgen-shared",
 ]

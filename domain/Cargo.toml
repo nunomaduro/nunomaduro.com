@@ -4,4 +4,4 @@ version = "1.0.0"
 edition = "2021"
 
 [dependencies]
-async-trait = "0.1.61"
+async-trait = "0.1.67"
