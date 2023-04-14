@@ -18,6 +18,6 @@ domain = { path = "domain" }
 infrastructure = { path = "infrastructure" }
 presentation = { path = "presentation" }
 
-hyper = { version = "0.14.23", features = ["full"] }
+hyper = { version = "0.14.26", features = ["full"] }
 tokio = { version = "1.24.2", features = ["full"] }
 dotenv = "0.15.0"
