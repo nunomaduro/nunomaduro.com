@@ -11,7 +11,7 @@ This year, it's time to take your testing to the next level with Pest v2.x! With
 
 Get ready for a live coding session of Pest v2.x in action with a real-world Laravel project. After this talk, you'll gain a better understanding of how to use Pest v2.x to its full potential.
 
-<iframe width="100%" height="315" src="https://www.youtube.com/watch?v=9EGPo_enEc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/9EGPo_enEc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <center> 󠁧󠁢󠁥󠁮🇮🇳 India - Ahmedabad, 2023 </center>
 
@@ -19,7 +19,7 @@ Get ready for a live coding session of Pest v2.x in action with a real-world Lar
 
 You’ve probably heard stories about the Rust programming language, and you’re probably wondering why it’s becoming so popular. In this talk, you’ll see what Rust is from a PHP developer’s perspective. Get ready for a live-coding session, where we are going to recreate an existing PHP application in Rust, from scratch, and demystify all the awesomeness behind it.
 
-<iframe width="100%" height="315" src="https://www.youtube.com/watch?v=q_9WErUNpKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/q_9WErUNpKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <center> 󠁧󠁢󠁥󠁮󠁧🏴󠁧󠁢󠁥󠁮󠁧󠁿 PHP UK Conference - London, 2023 </center>
 
@@ -33,7 +33,7 @@ Check out the website: [pestphp.com](https://pestphp.com)
 
 Get ready for a live-coding session, where I unveil all the goodies of this new open-source testing framework. After this talk, you’ll be able to use Pest in your everyday Laravel.
 
-<iframe width="100%" height="315" src="https://www.youtube.com/watch?v=MqiGA34ZrQU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/MqiGA34ZrQU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <center> 🇮🇹 PHPDay - Verona, 2022 </center>
 
