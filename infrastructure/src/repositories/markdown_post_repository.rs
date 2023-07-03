@@ -30,7 +30,7 @@ impl PostRepository for MarkdownPostRepository {
             .map(|file_name| self.get(file_name.to_str().unwrap().replace(".md", "").as_str()))
             .collect::<Vec<PostPage>>();
 
-        posts.sort_by(|a, b| b.id().cmp(a.id()));
+        posts.sort_by(|a, b| b.id().parse::<i32>().unwrap().cmp(&a.id().parse::<i32>().unwrap()));
 
         let meta = MarkdownFile::from_file(format!("{}.md", self.meta).as_str());
 
