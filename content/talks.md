@@ -9,7 +9,7 @@ As a speaker, Nuno has spoken in dozens of countries, including India, Spain, It
 
 You’ve probably heard stories about the Rust programming language, and you’re probably wondering why it’s becoming so popular. In this talk, you’ll see what Rust is from a PHP developer’s perspective. Get ready for a live-coding session, where we are going to recreate an existing PHP application in Rust, from scratch, and demystify all the awesomeness behind it.
 
-<iframe width="100%" height="315" src="https://www.youtube.com/watch?v=HfcfQiLhsV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/HfcfQiLhsV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <center> 󠁧󠁢󠁥󠁮󠁧🏴󠁧󠁢󠁥󠁮󠁧󠁿 PHP UK Conference - London, 2023 </center>
 
