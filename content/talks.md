@@ -5,6 +5,14 @@ description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Dev
 
 As a speaker, Nuno has spoken in dozens of countries, including India, Spain, Italy, France, and Serbia. Bellow, is a list of some of Nuno's talks.
 
+## Rust For PHP Developers
+
+You’ve probably heard stories about the Rust programming language, and you’re probably wondering why it’s becoming so popular. In this talk, you’ll see what Rust is from a PHP developer’s perspective. Get ready for a live-coding session, where we are going to recreate an existing PHP application in Rust, from scratch, and demystify all the awesomeness behind it.
+
+<iframe width="100%" height="315" src="https://www.youtube.com/watch?v=HfcfQiLhsV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> 󠁧󠁢󠁥󠁮󠁧🏴󠁧󠁢󠁥󠁮󠁧󠁿 PHP UK Conference - London, 2023 </center>
+
 ## The future of PEST
 
 This year, it's time to take your testing to the next level with Pest v2.x! With new powerful plugins, improved syntax, and advanced options, Pest v2.x makes testing easier, more user-friendly, and more productive than ever before.
@@ -14,14 +22,6 @@ Get ready for a live coding session of Pest v2.x in action with a real-world Lar
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/9EGPo_enEc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <center> 󠁧󠁢󠁥󠁮🇮🇳 India - Ahmedabad, 2023 </center>
-
-## Rust For PHP Developers
-
-You’ve probably heard stories about the Rust programming language, and you’re probably wondering why it’s becoming so popular. In this talk, you’ll see what Rust is from a PHP developer’s perspective. Get ready for a live-coding session, where we are going to recreate an existing PHP application in Rust, from scratch, and demystify all the awesomeness behind it.
-
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/q_9WErUNpKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<center> 󠁧󠁢󠁥󠁮󠁧🏴󠁧󠁢󠁥󠁮󠁧󠁿 PHP UK Conference - London, 2023 </center>
 
 ## Introducing PEST (2022 version)
 
