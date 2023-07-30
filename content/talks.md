@@ -5,6 +5,16 @@ description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Dev
 
 As a speaker, Nuno has spoken in dozens of countries, including India, Spain, Italy, France, and Serbia. Bellow, is a list of some of Nuno's talks.
 
+## Pest 2 Updates
+
+Earlier this year, Pest 2.0 was launched. With powerful plugins, enhanced syntax, and advanced options, testing has never been more productive.
+
+In this talk, Nuno will walk you through all the fresh updates made since then, as well as give you a sneak peek into the exciting features we have in store for the future. By the end of this session, you'll have a solid grasp of how to make the most out of Pest v2.x and take your testing game to new heights.
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/vb02YE2xx44" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> 󠁧󠁢󠁥󠁮󠁧🇺🇸 Laracon US - Nashville, US, 2023 </center>
+
 ## Rust For PHP Developers
 
 You’ve probably heard stories about the Rust programming language, and you’re probably wondering why it’s becoming so popular. In this talk, you’ll see what Rust is from a PHP developer’s perspective. Get ready for a live-coding session, where we are going to recreate an existing PHP application in Rust, from scratch, and demystify all the awesomeness behind it.
