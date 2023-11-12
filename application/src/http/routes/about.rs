@@ -32,7 +32,7 @@ impl Route for About {
     }
 
     fn path(&self) -> String {
-        "/about".to_string()
+        "".to_string()
     }
 
     async fn handle(&self, _request: Request<Body>) -> Response<Body> {

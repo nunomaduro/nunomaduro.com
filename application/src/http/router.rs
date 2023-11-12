@@ -46,7 +46,6 @@ impl Default for Router {
             Box::<routes::api::v1::newsletter::Post>::default(),
             Box::<routes::Socials>::default(),
             Box::<routes::NotFound>::default(),
-            Box::<routes::posts::Index>::default(),
             Box::<routes::Talks>::default(),
             Box::<routes::Support>::default(),
         ];
