@@ -11,7 +11,6 @@ Welcome to Nuno's socials page! This is the place where you can find all of Nuno
 - GitHub: **[github.com/nunomaduro](https://github.com/nunomaduro)**
 - LinkedIn: **[linkedin.com/in/nunomaduro](https://www.linkedin.com/in/nunomaduro)**
 - YouTube: **[youtube.com/c/NunoMaduro](https://www.youtube.com/c/NunoMaduro)**
-- GitHub: **[github.com/nunomaduro](https://github.com/nunomaduro)**
 - Bluesky: **[bsky.app/profile/nunomaduro.bsky.social](https://bsky.app/profile/nunomaduro.bsky.social)**
 
 In addition to following Nuno on social media, you can also subscribe to his newsletter to receive the latest news and updates directly in your inbox. Stay tuned and never miss a beat!
