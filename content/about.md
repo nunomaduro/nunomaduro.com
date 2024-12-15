@@ -21,4 +21,4 @@ Currently, I’m working on [Laravel Cloud](https://cloud.laravel.com) while mai
 
 ---
 
-If your business relies on my projects or you’d like to support my YouTube or Twitch channels, please check the [ponsorships page](/sponsorships).
+If your business relies on my projects or you’d like to support my YouTube or Twitch channels, please check the [sponsorships page](/sponsorships).
