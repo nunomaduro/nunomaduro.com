@@ -5,6 +5,14 @@ description: Nuno Maduro is a Speaker, Laravel Core Team Member, Open Source Dev
 
 As a speaker, Nuno has spoken in dozens of countries, including India, Spain, Italy, France, and Serbia. Bellow, is a list of some of Nuno's talks.
 
+## What's new in Pest
+
+Nuno recently spoke at Laracon AU, where he showcased all of Pest's latest updates, including the new Stressless plugin.
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/595zXXZkoNc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> 󠁧󠁢󠁥󠁮󠁧🇦🇺 Laracon AU - Sydney, AU, 2023 </center>
+
 ## Pest 2 Updates
 
 Earlier this year, Pest 2.0 was launched. With powerful plugins, enhanced syntax, and advanced options, testing has never been more productive.
