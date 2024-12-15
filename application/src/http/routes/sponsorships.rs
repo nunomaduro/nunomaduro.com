@@ -4,23 +4,23 @@ use async_trait::async_trait;
 use domain::contracts::StaticRepository;
 use hyper::{Body, Request, Response};
 use infrastructure::repositories::MarkdownStaticRepository;
-use presentation::templates::SupportTemplate;
+use presentation::templates::SponsorshipsTemplate;
 use std::default::Default;
 
-pub struct Support {
+pub struct Sponsorships {
     repository: Box<dyn StaticRepository>,
 }
 
-unsafe impl Send for Support {}
-unsafe impl Sync for Support {}
+unsafe impl Send for Sponsorships {}
+unsafe impl Sync for Sponsorships {}
 
-impl Support {
+impl Sponsorships {
     pub fn new(repository: Box<dyn StaticRepository>) -> Self {
         Self { repository }
     }
 }
 
-impl Default for Support {
+impl Default for Sponsorships {
     fn default() -> Self {
         Self {
             repository: Box::<MarkdownStaticRepository>::default(),
@@ -29,18 +29,18 @@ impl Default for Support {
 }
 
 #[async_trait]
-impl Route for Support {
+impl Route for Sponsorships {
     fn method(&self) -> String {
         "GET".to_string()
     }
 
     fn path(&self) -> String {
-        "/support".to_string()
+        "/sponsorships".to_string()
     }
 
     async fn handle(&self, _request: Request<Body>) -> Response<Body> {
-        let talk = self.repository.get("support");
-        let template = SupportTemplate::new(talk, self.path());
+        let talk = self.repository.get("sponsorships");
+        let template = SponsorshipsTemplate::new(talk, self.path());
 
         Response::new(template.render().unwrap().into())
     }

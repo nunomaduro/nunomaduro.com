@@ -47,7 +47,7 @@ impl Default for Router {
             Box::<routes::Socials>::default(),
             Box::<routes::NotFound>::default(),
             Box::<routes::Talks>::default(),
-            Box::<routes::Support>::default(),
+            Box::<routes::Sponsorships>::default(),
         ];
 
         let posts = MarkdownPostRepository::default().all();

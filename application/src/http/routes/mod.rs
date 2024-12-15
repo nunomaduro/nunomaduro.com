@@ -5,10 +5,10 @@ mod about;
 mod socials;
 mod not_found;
 mod talks;
-mod support;
+mod sponsorships;
 
 pub use about::About;
 pub use socials::Socials;
 pub use not_found::NotFound;
-pub use support::Support;
+pub use sponsorships::Sponsorships;
 pub use talks::Talks;
