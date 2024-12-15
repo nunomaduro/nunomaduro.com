@@ -5,32 +5,23 @@ description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team mem
 
 ![Nuno Maduro 1](https://nunomaduro.com/sponsorships.1.jpg)
 
-**Want your logo featured in front of thousands of developers on [YouTube](https://www.youtube.com/nunomaduro) and [Twitch](https://www.twitch.tv/enunomaduro) every single day? Check below for YouTube and Twitch sponsorship opportunities.**
-
-## Open-Source Contributions
-
-I am the creator and maintainer of several popular open-source projects, including [PEST](https://pestphp.com/), [Laravel Zero](https://laravel-zero.com/), [Collision](https://github.com/nunomaduro/collision), [Larastan](https://github.com/larastan/larastan), [PHP Insights](https://github.com/nunomaduro/phpinsights), [Termwind](https://github.com/nunomaduro/termwind), [OpenAI for PHP](https://github.com/openai-php/client), [Pinkary](https://pinkary.com/), [Pint](https://github.com/laravel/pint), [Pail](https://github.com/laravel/pail), and [Volt](https://github.com/livewire/volt). These projects have been downloaded over 500 million times, helping developers worldwide build better software faster.
-
-Maintaining these projects requires significant time and effort. With community support, I can continue improving existing tools and creating new projects to make PHP development more efficient and enjoyable.
-
-If you or your business benefits from my open-source work, please consider supporting me:
-
-- GitHub Sponsors: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro)
-- PayPal: [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro)
-
----
+**Want your business logo featured in front of thousands of developers on [YouTube](https://www.youtube.com/nunomaduro) and [Twitch](https://www.twitch.tv/enunomaduro) every single day? Check below for YouTube and Twitch sponsorship opportunities.**
 
 ## YouTube and Twitch
 
 I regularly share knowledge on [YouTube](https://www.youtube.com/nunomaduro) (8k+ subscribers) and [Twitch](https://www.twitch.tv/enunomaduro) (1k+ followers), engaging with over 56k developers on Twitter. I stream almost daily at 9 PM UTC and publish new videos every day at 1 PM UTC.
 
-If you’d like to support me as an individual, you can:
+### For Individuals
+
+If you enjoy my content and want to support me, consider the following options:
 
 - Become a YouTube Member: [youtube.com/nunomaduro/join](https://www.youtube.com/nunomaduro/join)
 - Subscribe on Twitch: [twitch.tv/subs/enunomaduro](https://www.twitch.tv/subs/enunomaduro)
 - Donate via PayPal: [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro)
 
-For businesses, this is an excellent opportunity to showcase your logo to a highly engaged audience of developers. The process is simple and this is what you receive:
+### For Business
+
+This is an excellent opportunity to showcase your business logo to a highly engaged audience of developers. The process is simple and this is what you receive:
 
 1. **Dedicated Video**
    - During the six-month sponsorship period, I will create one video, from a live stream, post it on my YouTube channel, showcasing an unbiased usage of your product in a real-world development stack.
@@ -71,3 +62,14 @@ I will respond with a decision on whether I accept the sponsorship, along with t
 - Invoices will be provided in Portuguese.
 
 For inquiries or to begin the sponsorship process, **email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com)**. Thank you for considering this opportunity. I look forward to working with you.
+
+## Open-Source Contributions
+
+I am the creator and maintainer of several popular open-source projects, including [PEST](https://pestphp.com/), [Laravel Zero](https://laravel-zero.com/), [Collision](https://github.com/nunomaduro/collision), [Larastan](https://github.com/larastan/larastan), [PHP Insights](https://github.com/nunomaduro/phpinsights), [Termwind](https://github.com/nunomaduro/termwind), [OpenAI for PHP](https://github.com/openai-php/client), [Pinkary](https://pinkary.com/), [Pint](https://github.com/laravel/pint), [Pail](https://github.com/laravel/pail), and [Volt](https://github.com/livewire/volt). These projects have been downloaded over 500 million times, helping developers worldwide build better software faster.
+
+Maintaining these projects requires significant time and effort. With community support, I can continue improving existing tools and creating new projects to make PHP development more efficient and enjoyable.
+
+If you or your business benefits from my open-source work, please consider supporting me:
+
+- GitHub Sponsors: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro)
+- PayPal: [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro)
