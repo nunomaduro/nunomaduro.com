@@ -8,27 +8,25 @@ description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team mem
 - **Individuals**: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro), [youtube.com/nunomaduro/join](https://www.youtube.com/nunomaduro/join), [twitch.tv/subs/enunomaduro](https://www.twitch.tv/subs/enunomaduro), or [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro).
 - **Businesses**: Want your business logo featured in front of thousands of developers on [YouTube](https://www.youtube.com/nunomaduro) and [Twitch](https://www.twitch.tv/enunomaduro)? Check below for YouTube and Twitch sponsorship opportunities.
 
-I regularly share knowledge on [YouTube](https://www.youtube.com/nunomaduro) (9k+ subscribers) and [Twitch](https://www.twitch.tv/enunomaduro) (1.2k+ followers), engaging with over 57k developers on [Twitter/X](https://x.com/enunomaduro). I stream on Twitch/YouTube at last 5 times per week at 9 PM UTC and publish new YouTube videos almost every day at 1 PM UTC.
+I engage with a highly active community of developers across multiple platforms:
 
-This is an excellent opportunity to showcase your business logo to a highly engaged audience of developers. The process is simple and this is what you receive:
+- **Twitter/X:** 57k+ followers
+- **YouTube:** 9.5k+ subscribers
+- **Twitch:** 1.3k+ followers
 
-- All YouTube videos created after December 1, 2024, will have a link to your product or company in the description, during the sponsorship period.
-- Your company logo will appear on every live stream and video I host during the sponsorship period. (Logos may rotate (fade in/out) with other sponsors’ logos)
+I stream 5+ times a week at 9 PM UTC and upload new YouTube videos almost daily at 1 PM UTC.
 
-#### How It Works? Step 1: Reach Out
+### Sponsorship Benefits:
+- Your product or company link in all YouTube video descriptions (from Dec 1, 2024, during sponsorship).
+- Your logo displayed on all live streams and videos (may rotate with other sponsors).
 
-To express interest, email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com) with the following details: Company Name, Logo (high-resolution), Website URL, Brief Description of Your Company/Product
+### Interested?
+1. **Email me** at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com) with:
+   - Company Name
+   - High-Resolution Logo
+   - Website URL
+   - Brief Product/Company Description
 
-I reserve the right to decline sponsorships if the product does not align with my content or audience. Also, I will respond with a decision on whether I accept the sponsorship, along with the pricing, conditions, and bank account details for the transfer.
+2. I'll respond with sponsorship details, pricing, and payment instructions.
 
-#### Step 2: Payment and Commitment
-
-- Sponsorship requires an upfront payment for six months.
-- Payments are final and non-refundable, regardless of circumstances.
-- If an invoice is required, please request it via email.
-
-**Renewals:**
-- Between the first and fifth month of the sponsorship period, I may adjust pricing or decide not to renew for the following term.
-- Renewals must be completed in the month prior to the current term ending.
-
-For inquiries or to begin the sponsorship process, **email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com)**. Thank you for considering this opportunity. I look forward to working with you.
+For sponsorships or to discuss other collaboration ideas, **email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com)**. Let’s create something amazing together!
