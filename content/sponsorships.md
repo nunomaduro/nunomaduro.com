@@ -8,7 +8,7 @@ description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team mem
 - **Individuals**: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro), [youtube.com/nunomaduro/join](https://www.youtube.com/nunomaduro/join), [twitch.tv/subs/enunomaduro](https://www.twitch.tv/subs/enunomaduro), or [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro).
 - **Businesses**: Want your business logo featured in front of thousands of developers on [YouTube](https://www.youtube.com/nunomaduro) and [Twitch](https://www.twitch.tv/enunomaduro) every single day? Check below for YouTube and Twitch sponsorship opportunities.
 
-I regularly share knowledge on [YouTube](https://www.youtube.com/nunomaduro) (9k+ subscribers) and [Twitch](https://www.twitch.tv/enunomaduro) (1.2k+ followers), engaging with over 57k developers on Twitter. I stream at last 5 times per week at 9 PM UTC and publish new videos almost every day at 1 PM UTC.
+I regularly share knowledge on [YouTube](https://www.youtube.com/nunomaduro) (9k+ subscribers) and [Twitch](https://www.twitch.tv/enunomaduro) (1.2k+ followers), engaging with over 57k developers on [Twitter/X](https://x.com/enunomaduro). I stream on Twitch/YouTube at last 5 times per week at 9 PM UTC and publish new YouTube videos almost every day at 1 PM UTC.
 
 This is an excellent opportunity to showcase your business logo to a highly engaged audience of developers. The process is simple and this is what you receive:
 
