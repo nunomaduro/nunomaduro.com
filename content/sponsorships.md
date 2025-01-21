@@ -11,10 +11,10 @@ description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team mem
 I engage with a highly active community of developers across multiple platforms:
 
 - **Twitter/X:** 57k+ followers
-- **YouTube:** 9.5k+ subscribers
-- **Twitch:** 1.3k+ followers
+- **YouTube:** 10.5k+ subscribers
+- **Twitch:** 1.6k+ followers
 
-I stream 5+ times a week at 9 PM UTC and upload new YouTube videos almost daily at 1 PM UTC.
+I stream over 5 times a week at 9 PM UTC and upload new YouTube videos nearly every day at 1 PM UTC.
 
 ### Sponsorship Benefits:
 - Your product or company link in all YouTube video descriptions (from Dec 1, 2024, during sponsorship).
