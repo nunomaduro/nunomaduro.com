@@ -1,0 +1,1 @@
+{ "packages": [ { "name": "laravel/framework", "version": "v11.42.1" } ], "aliases": [] }
