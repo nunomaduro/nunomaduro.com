@@ -8,8 +8,7 @@ use std::net::SocketAddr;
 async fn main() {
     dotenv::dotenv().ok();
 
-    // adjust this to listen all interfaces:
-    let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
+    let addr = "[::]:8080".parse::<SocketAddr>().unwrap();
 
     let make_svc = make_service_fn(|_conn| async { Ok::<_, Infallible>(service_fn(handle)) });
 
