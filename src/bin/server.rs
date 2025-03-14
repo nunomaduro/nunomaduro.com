@@ -8,7 +8,7 @@ use std::net::SocketAddr;
 async fn main() {
     dotenv::dotenv().ok();
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 8000));
+    let addr = SocketAddr::from(([127, 0, 0, 1], 8080));
 
     let make_svc = make_service_fn(|_conn| async { Ok::<_, Infallible>(service_fn(handle)) });
 
