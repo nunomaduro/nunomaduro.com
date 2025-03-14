@@ -1,1 +1,8 @@
-/var/www/.cargo/bin/cargo run
+#!/usr/bin/env php
+<?php
+
+if (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'octane:install') {
+    return;
+}
+
+shell_exec('/var/www/.cargo/bin/cargo run');
