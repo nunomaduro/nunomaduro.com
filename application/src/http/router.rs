@@ -43,6 +43,7 @@ impl Default for Router {
     fn default() -> Self {
         let mut routes: Vec<Box<dyn Route + Send + Sync>> = vec![
             Box::<routes::About>::default(),
+            Box::<routes::Health>::default(),
             Box::<routes::api::v1::newsletter::Post>::default(),
             Box::<routes::Socials>::default(),
             Box::<routes::NotFound>::default(),
