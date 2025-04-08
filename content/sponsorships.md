@@ -9,7 +9,7 @@ description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team mem
 
 If you’re a **business** and want to support my open-source projects, you can do so by becoming a sponsor and placing your logo on my content.
 
-My current reach is over **58k followers** on [Twitter/X](https://x.com/nunomaduro), 14k subscribers on [YouTube](https://youtube.com/@nunomaduro), and 2k followers on [Twitch](https://twitch.tv/enunomaduro). I stream over 3 times a week at 8 PM UTC and upload at least 3 new YouTube videos every week at 1 PM UTC.
+My current reach is over **58k followers** on [Twitter/X](https://x.com/nunomaduro), **14k subscribers** on **[YouTube](https://youtube.com/@nunomaduro)**, and **2k followers** on **[Twitch](https://twitch.tv/enunomaduro)**. I stream over 3 times a week at 8 PM UTC and upload at least 3 new YouTube videos every week at 1 PM UTC.
 
 **Sponsorship is handled via [GitHub Sponsors](https://github.com/sponsors/nunomaduro) — select the $999/month tier (Platinum Sponsor).**
 
