@@ -27,8 +27,8 @@ My current reach is over **58k followers** on [Twitter/X](https://x.com/nunomadu
 - No dedicated video or livestream about your product (see below for that option).
 
 🎥 **Exclusive 2h livestream about your product + one video on my channel**:
-- $10,000 (one-time fee) via wire transfer.
-- No refunds.
+- $10,000 (one-time fee) via wire transfer. No refunds.
+- Both Livestream + video shared in all my socials, including [Twitter/X](https://x.com/enunomaduro).
 - Requires prior email confirmation: [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com)
 
 And of course, for any other collaboration ideas, I’m open to discussing them. **Email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com)** — let’s create something amazing together!
