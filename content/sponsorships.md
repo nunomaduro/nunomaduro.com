@@ -5,7 +5,7 @@ description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team mem
 
 ![Nuno Maduro 1](https://nunomaduro.com/sponsorships.1.jpg)
 
-> **Individuals**: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro), [youtube.com/nunomaduro/join](https://youtube.com/nunomaduro/join), [twitch.tv/subs/enunomaduro](https://twitch.tv/subs/enunomaduro), or [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro).
+- **Individuals**: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro), [youtube.com/nunomaduro/join](https://youtube.com/nunomaduro/join), [twitch.tv/subs/enunomaduro](https://twitch.tv/subs/enunomaduro), or [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro).
 
 If you’re a **business** and want to support my open-source projects, you can do so by becoming a sponsor and placing your logo on my content.
 
