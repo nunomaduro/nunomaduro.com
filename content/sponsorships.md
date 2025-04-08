@@ -3,7 +3,7 @@ title: Nuno Maduro — Sponsorships
 description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team member, and open-source enthusiast.
 ---
 
-![Nuno Maduro 1](https://nunomaduro.com/sponsorships.1.jpg)
+![Nuno Maduro 1](https://nunomaduro.com/sponsorships.1.jpg?v=1)
 
 - **Individuals**: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro), [youtube.com/nunomaduro/join](https://youtube.com/nunomaduro/join), [twitch.tv/subs/enunomaduro](https://twitch.tv/subs/enunomaduro), or [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro).
 
