@@ -1,34 +1,43 @@
 ---
 title: Nuno Maduro — Sponsorships
-description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team member, and open-source enthusiast.
+description: Supporting open source and content creation.
 ---
 
 ![Nuno Maduro 1](https://nunomaduro.com/sponsorships.1.jpg?v=1)
 
-- **Individuals**: [github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro), [youtube.com/nunomaduro/join](https://youtube.com/nunomaduro/join), [twitch.tv/subs/enunomaduro](https://twitch.tv/subs/enunomaduro), or [paypal.com/paypalme/enunomaduro](https://paypal.com/paypalme/enunomaduro).
+<center>
+<a href="https://github.com/sponsors/nunomaduro">GitHub Sponsors</a> · <a href="https://youtube.com/nunomaduro/join">YouTube Membership</a> · <a href="https://twitch.tv/subs/enunomaduro">Twitch Subscription</a> · <a href="https://paypal.com/paypalme/enunomaduro">PayPal</a>
+</center>
 
-If you’re a **business** and want to support my open-source projects, you can do so by becoming a sponsor and placing your logo on my content.
+## Business Sponsorship
 
-My current reach is over **58k followers** on [Twitter/X](https://x.com/nunomaduro), **14k subscribers** on **[YouTube](https://youtube.com/@nunomaduro)**, and **2k followers** on **[Twitch](https://twitch.tv/enunomaduro)**. I stream over 3 times a week at 8 PM UTC and upload at least 3 new YouTube videos every week at 1 PM UTC.
+**Platinum Sponsorship: $999/month via [GitHub Sponsors](https://github.com/sponsors/nunomaduro)**
 
-**Sponsorship is via [GitHub Sponsors](https://github.com/sponsors/nunomaduro) — select the $999/month tier (Platinum Sponsor).**
+If your company relies on my open source tools, becoming a sponsor places your logo on my content and helps sustain these projects.
 
-✍🏻 **Terms**:
-- No refunds.
-- Flexible agreement; cancel anytime.
-- Email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com) first to confirm my interest in featuring your logo on my content.
+I currently share content with a community of **59k followers** on Twitter, **15k subscribers** on YouTube, and **2k followers** on Twitch, with regular videos and live coding sessions throughout the week.
 
-✅ **Benefits**:
-- Link to your product/company in all YouTube video descriptions (starting Dec 1, 2024, while sponsorship is active).
-- Logo shown on all livestreams and videos (rotates with other sponsors).
-- Optional: Logo featured on [pestphp.com](https://pestphp.com) (landing + docs pages).
+### What's Included
+- Your link in all YouTube video descriptions
+- Your logo featured during livestreams and videos
+- Optional logo placement on [pestphp.com](https://pestphp.com)
+- The knowledge that you're supporting tools used by thousands of developers
 
-❌ **Not Included**:
-- No dedicated video or livestream about your product (see below for that option).
+### Terms
+- No refunds for previous months of sponsorship
+- Either party can cancel at any time with no further obligation
+- Please email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com) before sponsoring to confirm availability
 
-🎥 **Exclusive 2h livestream about your product + one video on my channel**:
-- $10,000 (one-time fee) via wire transfer. No refunds.
-- Both Livestream + video shared in all my socials, including [Twitter/X](https://x.com/enunomaduro).
-- Requires prior email confirmation: [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com)
+## Dedicated Video
 
-And of course, for any other collaboration ideas, I’m open to discussing them. **Email me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com)** — let’s create something amazing together!
+**One-time fee: $10,000 via wire transfer**
+
+For companies interested in dedicated content about their products, I offer a package that includes:
+- 2-hour livestream featuring your product
+- Dedicated video on my YouTube channel
+- Promotion across all my social platforms
+- No refunds policy
+
+Please contact me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com) to discuss details and confirm availability before proceeding.
+
+Thank you for considering supporting this work. Every contribution, large or small, makes a difference.
