@@ -149,27 +149,49 @@
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
+    font-size: 1.5rem;
+    line-height: 1.3;
   }
   
   .terminal-section-title::before {
     content: "# ";
     color: var(--terminal-secondary);
+    font-weight: normal;
   }
   
   /* Typography */
   h1, h2, h3, h4, h5, h6 {
     color: var(--terminal-accent);
-    font-weight: normal;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
   }
   
   h1::before, h2::before, h3::before {
     content: "# ";
     color: var(--terminal-secondary);
+    font-weight: normal;
   }
   
   h4::before, h5::before, h6::before {
     content: "## ";
     color: var(--terminal-secondary);
+    font-weight: normal;
   }
   
   a {
@@ -269,6 +291,32 @@
   article.prose {
     color: var(--terminal-text);
     max-width: 100%;
+  }
+  
+  article.prose h1,
+  article.prose h2,
+  article.prose h3,
+  article.prose h4,
+  article.prose h5,
+  article.prose h6 {
+    color: var(--terminal-accent);
+    font-weight: 700;
+  }
+  
+  article.prose h1::before,
+  article.prose h2::before,
+  article.prose h3::before {
+    content: "# ";
+    color: var(--terminal-secondary);
+    font-weight: normal;
+  }
+  
+  article.prose h4::before,
+  article.prose h5::before,
+  article.prose h6::before {
+    content: "## ";
+    color: var(--terminal-secondary);
+    font-weight: normal;
   }
   
   article.prose a {
