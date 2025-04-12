@@ -5,22 +5,28 @@
         {% include "components/styles.html" %}
         {% include "components/scripts.html" %}
     </head>
-    <body class="bg-white">
-        <div class="relative">
-            {% block navigation %}
-                {% include "components/navigation.html" %}
-            {% endblock %}
-
-            <div class="pt-1 pb-20 px-4 sm:px-6">
-                <div class="relative max-w-7xl mx-auto">
-                    <div class="mt-6 sm:mt-12 mx-auto items-center flex flex-col space-y-5">
-                        <div class="w-full max-w-[65ch] mx-auto">
-                            {% block page %}
-
-                            {% endblock %}
-                        </div>
-                    </div>
+    <body>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
                 </div>
+                <div class="terminal-title">nunomaduro@website:~</div>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-nav">
+                    {% block navigation %}
+                        {% include "components/navigation.html" %}
+                    {% endblock %}
+                </div>
+                <div class="terminal-page">
+                    {% block page %}
+                    
+                    {% endblock %}
+                </div>
+                <div class="cursor"></div>
             </div>
         </div>
     </body>

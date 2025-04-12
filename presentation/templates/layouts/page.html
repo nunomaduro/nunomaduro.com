@@ -1,9 +1,12 @@
 {% extends "layouts/main.html" %}
 
 {% block page %}
-    <article class="mx-auto prose prose-neutral [&>p_code]:break-all">
-        {% block content %}
+    <div class="terminal-section">
+        <div class="terminal-section-title">{{ page.id() }}</div>
+        <article class="prose prose-neutral">
+            {% block content %}
 
-        {% endblock %}
-    </article>
+            {% endblock %}
+        </article>
+    </div>
 {% endblock %}
