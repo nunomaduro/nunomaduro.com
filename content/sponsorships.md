@@ -15,7 +15,7 @@ description: Supporting open source and content creation.
 
 If your company relies on my open source tools, becoming a sponsor places your logo on my content and helps sustain these projects.
 
-I currently share content with a community of **59k followers** on Twitter, **15k subscribers** on YouTube, and **2k followers** on Twitch, with regular videos and live coding sessions throughout the week.
+I currently share content with a community of **59k followers** on [Twitter](https://twitter.com/enunomaduro), **15k subscribers** on [YouTube](https://youtube.com/nunomaduro), and **2k followers** on [Twitch](https://twitch.tv/enunomaduro), with regular videos and live coding sessions throughout the week.
 
 ### What's Included
 - Your link in all YouTube video descriptions
@@ -35,7 +35,7 @@ I currently share content with a community of **59k followers** on Twitter, **15
 For companies interested in dedicated content about their products, I offer a package that includes:
 - 2-hour livestream featuring your product
 - Dedicated video on my YouTube channel
-- Promotion across all my social platforms
+- Promotion (of the video) across all my social platforms
 - No refunds policy
 
 Please contact me at [enunomaduro@gmail.com](mailto:enunomaduro@gmail.com) to discuss details and confirm availability before proceeding.

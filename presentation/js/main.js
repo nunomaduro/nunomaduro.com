@@ -11,8 +11,30 @@ Alpine.start()
 // HighlightingJS
 hljs.highlightAll()
 
+// Make all links in content pages open in a new tab
+function makeAllLinksTargetBlank() {
+  // Target the terminal-page area which contains the rendered markdown content
+  const contentArea = document.querySelector('.terminal-page');
+  if (contentArea) {
+    // Find all links in the content area
+    const links = contentArea.querySelectorAll('a');
+    
+    // Add target="_blank" and rel="noopener noreferrer" to each link
+    links.forEach(link => {
+      // Skip links that are internal page anchors
+      if (!link.getAttribute('href').startsWith('#')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  }
+}
+
 // Terminal effect script
 document.addEventListener('DOMContentLoaded', function() {
+    // Make all links in markdown content open in new tabs
+    makeAllLinksTargetBlank();
+    
     // Display terminal prompt immediately without animation
     const terminalPrompt = document.querySelector('.terminal-prompt span');
     if (terminalPrompt) {
