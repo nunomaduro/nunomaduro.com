@@ -1,33 +1,52 @@
 <title>{{ page.title() }}</title>
 
-<!-- Page Title and Description -->
+<!-- Essential Meta Tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- SEO Meta Tags -->
 <meta name="title" content="{{ page.title() }}">
 <meta name="description" content="{{ page.description() }}">
+<meta name="author" content="Nuno Maduro">
+<meta name="keywords" content="PHP, Laravel, Pest, Testing, Open Source, Programming, Developer, Nuno Maduro, PHP Developer, Laravel Core Team">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+<meta name="generator" content="Custom">
 
-<!-- View Type -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Canonical URL -->
+<link rel="canonical" href="https://nunomaduro.com{{ url }}">
 
-<!-- Seo -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@enunomaduro" />
-<meta name="twitter:creator" content="@enunomaduro" />
-<meta name="twitter:image" content="https://nunomaduro.com/{{ page.id() }}.preview.jpg" />
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nunomaduro.com{{ url }}">
+<meta property="og:title" content="{{ page.title() }}">
+<meta property="og:description" content="{{ page.description() }}">
+<meta property="og:image" content="https://nunomaduro.com/{{ page.id() }}.preview.jpg">
+<meta property="og:image:alt" content="Nuno Maduro - {{ page.title() }}">
+<meta property="og:site_name" content="Nuno Maduro">
+<meta property="og:locale" content="en_US">
 
-<meta property="og:url" content="https://nunomaduro.com{{ url }}" />
-<meta property="og:title" content="{{ page.title() }}" />
-<meta property="og:description" content="{{ page.description() }}" />
-<meta property="og:image" content="https://nunomaduro.com/{{ page.id() }}.preview.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@enunomaduro">
+<meta name="twitter:creator" content="@enunomaduro">
+<meta name="twitter:url" content="https://nunomaduro.com{{ url }}">
+<meta name="twitter:title" content="{{ page.title() }}">
+<meta name="twitter:description" content="{{ page.description() }}">
+<meta name="twitter:image" content="https://nunomaduro.com/{{ page.id() }}.preview.jpg">
+<meta name="twitter:image:alt" content="Nuno Maduro - {{ page.title() }}">
 
 <!-- Favicons -->
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" >
-<link rel="icon" ype="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" href="/favicon16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="/favicon32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512"  href="/android-icon-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-icon-512x512.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="manifest" href="/site.webmanifest">
 
 <!-- Ref -->

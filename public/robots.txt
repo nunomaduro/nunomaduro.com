@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+Sitemap: https://nunomaduro.com/sitemap.xml
+
+# Allow all crawlers
+User-agent: *
+Disallow:
+
+# Specific rules for major crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Crawl delay for all bots
+Crawl-delay: 10

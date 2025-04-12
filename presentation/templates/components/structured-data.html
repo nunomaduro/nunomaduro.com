@@ -1,0 +1,81 @@
+<!-- Structured Data for Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://nunomaduro.com/#person",
+  "name": "Nuno Maduro",
+  "givenName": "Nuno",
+  "familyName": "Maduro",
+  "url": "https://nunomaduro.com",
+  "image": "https://nunomaduro.com/about.1.jpg",
+  "jobTitle": "PHP Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Laravel"
+  },
+  "sameAs": [
+    "https://github.com/nunomaduro",
+    "https://twitter.com/enunomaduro",
+    "https://www.youtube.com/nunomaduro",
+    "https://www.linkedin.com/in/nunomaduro"
+  ],
+  "knowsAbout": ["PHP", "Laravel", "Testing", "Open Source", "Pest PHP"]
+}
+</script>
+
+<!-- Structured Data for Website -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://nunomaduro.com/#website",
+  "url": "https://nunomaduro.com",
+  "name": "Nuno Maduro",
+  "description": "PHP Developer, Laravel Core Team Member, and Open Source Enthusiast",
+  "publisher": {
+    "@id": "https://nunomaduro.com/#person"
+  }
+}
+</script>
+
+<!-- Structured Data for WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://nunomaduro.com{{ url }}#webpage",
+  "url": "https://nunomaduro.com{{ url }}",
+  "name": "{{ page.title() }}",
+  "description": "{{ page.description() }}",
+  "isPartOf": {
+    "@id": "https://nunomaduro.com/#website"
+  },
+  "about": {
+    "@id": "https://nunomaduro.com/#person"
+  },
+  "inLanguage": "en-US"
+}
+</script>
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nunomaduro.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ page.id() | capitalize }}",
+      "item": "https://nunomaduro.com/{{ page.id() }}"
+    }
+  ]
+}
+</script>
