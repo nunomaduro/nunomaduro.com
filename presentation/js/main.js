@@ -13,37 +13,20 @@ hljs.highlightAll()
 
 // Terminal effect script
 document.addEventListener('DOMContentLoaded', function() {
-    // Typing effect for the terminal prompt
+    // Display terminal prompt immediately without animation
     const terminalPrompt = document.querySelector('.terminal-prompt span');
     if (terminalPrompt) {
-      const originalText = terminalPrompt.textContent;
-      terminalPrompt.textContent = '';
+      // Show navigation links immediately
+      const navLinks = document.querySelector('.terminal-nav-links');
+      if (navLinks) {
+        navLinks.style.opacity = '1';
+      }
       
-      let i = 0;
-      const typeEffect = setInterval(() => {
-        if (i < originalText.length) {
-          terminalPrompt.textContent += originalText.charAt(i);
-          i++;
-        } else {
-          clearInterval(typeEffect);
-          
-          // After typing effect, show the navigation links with a delay
-          setTimeout(() => {
-            const navLinks = document.querySelector('.terminal-nav-links');
-            if (navLinks) {
-              navLinks.style.opacity = '1';
-            }
-            
-            // Then show the content with a delay
-            setTimeout(() => {
-              const terminalPage = document.querySelector('.terminal-page');
-              if (terminalPage) {
-                terminalPage.style.opacity = '1';
-              }
-            }, 300);
-          }, 300);
-        }
-      }, 50);
+      // Show content immediately
+      const terminalPage = document.querySelector('.terminal-page');
+      if (terminalPage) {
+        terminalPage.style.opacity = '1';
+      }
     }
     
     // Simulate terminal commands

@@ -5,6 +5,14 @@ description: Nuno Maduro is a speaker, YouTuber, streamer, Laravel core team mem
 
 As a [speaker](/talks), I’ve delivered talks in dozens of countries at major conferences, including Laracon US, Laracon India, Laracon EU, PHP Italy, Forum PHP, PHP Serbia, and more. My conference talks typically focus on the open-source tools I’ve built, PHP, and Laravel, often featuring live coding sessions.
 
+## Modern PHP Tooling
+
+[TODO AI]
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/cfD7uCWXxZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> 󠁧󠁢󠁥󠁮󠁧🇮🇳 Laracon India - 2025 </center>
+
 ## Introducing Pest 3.0
 
 Nuno shows the 3.0 version of Pest, the elegant PHP testing framework on the biggest stage of the PHP world, Laracon US.
