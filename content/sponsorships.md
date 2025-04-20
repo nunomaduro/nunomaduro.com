@@ -9,6 +9,8 @@ description: Supporting open source and content creation.
 <a href="https://github.com/sponsors/nunomaduro">GitHub Sponsors</a> · <a href="https://youtube.com/nunomaduro/join">YouTube Membership</a> · <a href="https://twitch.tv/subs/enunomaduro">Twitch Subscription</a> · <a href="https://paypal.com/paypalme/enunomaduro">PayPal</a>
 </center>
 
+> **Important:** I am currently accepting only two types of business sponsorships: Platinum Sponsorship and Dedicated Video. The Dedicated Video option requires an active Platinum Sponsorship for at least 3 months.
+
 ## Business Sponsorship
 
 **Platinum Sponsorship: $999/month via [GitHub Sponsors](https://github.com/sponsors/nunomaduro)**
@@ -31,6 +33,7 @@ I currently share content with a community of **59k followers** on [Twitter](htt
 ## Dedicated Video
 
 **One-time fee: $10,000 via wire transfer**
+**Prerequisite: Active Platinum Sponsorship for at least 3 months**
 
 For companies interested in dedicated content about their products, I offer a package that includes:
 - 2-hour livestream featuring your product
