@@ -11,9 +11,11 @@ description: Supporting open source and content creation.
 
 > **Important:** There are currently two available sponsorship options:
 >
-> - **Option A – Platinum Sponsorship** ($999/month via GitHub Sponsors): Includes your logo in videos and livestreams, a link in YouTube descriptions, an optional logo on pestphp.com, and supports open-source tools. Note: This option does not include any videos or promotion across social platforms.
+> **Option A – Platinum Sponsorship** ($999/month via GitHub Sponsors): Includes your logo in videos and livestreams, a link in YouTube descriptions, an optional logo on pestphp.com, and supports open-source tools. Note: This option does not include any videos or promotion across social platforms.
 > 
-> - **Option B – Dedicated Video Package** ($16,000 one-time via Wire Transfer): Includes everything in Option A for 6 months, plus a 2-hour livestream, a dedicated YouTube video, and promotion across all social platforms (including Twitter) of that same video.
+> **Option B – Dedicated Video Package** ($16,000 one-time via Wire Transfer): Includes everything in Option A for 6 months, plus a 2-hour livestream, a dedicated YouTube video, and promotion across all social platforms (including Twitter) of that same video.
+
+---
 
 I currently share content with a community of **59k followers** on [Twitter](https://twitter.com/enunomaduro), **15k subscribers** on [YouTube](https://youtube.com/nunomaduro), and **2k followers** on [Twitch](https://twitch.tv/enunomaduro), with regular videos and live coding sessions throughout the week.
 
