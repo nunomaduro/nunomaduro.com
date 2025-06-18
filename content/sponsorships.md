@@ -17,7 +17,7 @@ description: Supporting open source and content creation.
 
 ---
 
-I currently share content with a community of **59.8k followers** on [Twitter](https://twitter.com/enunomaduro), **17k subscribers** on [YouTube](https://youtube.com/nunomaduro), and **2.5k followers** on [Twitch](https://twitch.tv/enunomaduro), with regular videos and live coding sessions throughout the week.
+I currently share content with a community of **60k followers** on [Twitter](https://twitter.com/enunomaduro), **18k subscribers** on [YouTube](https://youtube.com/nunomaduro), and **2.6k followers** on [Twitch](https://twitch.tv/enunomaduro), with regular videos and live coding sessions throughout the week.
 
 ## Option A – Platinum Sponsorship
 
