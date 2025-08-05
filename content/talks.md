@@ -9,6 +9,13 @@ My talks typically focus on tools I've created, testing approaches, and modern P
 
 ## Recent Presentations
 
+###  Pest 4: Modern Browser Testing, Sharding, Visual Diffs & More
+*Laracon US — Denver, CO, 2025*
+
+A comprehensive look at version 4.0 of Pest, the elegant PHP testing framework, presented on the main stage at Laracon US.
+
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/f5gAgwwwwOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Modern PHP Tooling
 *Laracon India — 2025*
 
