@@ -14,7 +14,7 @@ My journey in open source has led me to create projects like [PEST](https://pest
 When I'm not writing code, you might find me:
 - Sharing ideas at [conferences](/talks) around the globe
 - Creating content on [YouTube](https://www.youtube.com/nunomaduro) with new videos every weekday
-- Live coding on [Twitch](https://www.twitch.tv/enunomaduro) on Mondays, Wednesdays, and Fridays
+- Live coding on [Twitch](https://twitch.tv/nunomaduro) on Mondays, Wednesdays, and Fridays
 - Organizing community events like [PHP Portugal](https://php-portugal.com)
 
 ---
