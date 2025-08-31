@@ -8,8 +8,8 @@ description: Connect with me across various platforms.
 Hello! I share code, ideas, and conversations across various platforms. You'll find tutorials, live coding sessions, and community discussions in these spaces. Feel free to connect wherever you're most comfortable.
 
 ## Content Creation
-- **[YouTube](https://www.youtube.com/nunomaduro)** — New videos every weekday at 1PM UTC
-- **[Twitch](https://www.twitch.tv/enunomaduro)** — Live coding on Mondays, Wednesdays, and Fridays at 9PM UTC
+- **[YouTube](https://youtube.com/nunomaduro)** — New videos every weekday at 1PM UTC
+- **[Twitch](https://twitch.tv/nunomaduro)** — Live coding on Mondays, Wednesdays, and Fridays at 9PM UTC
 
 ## Social Networks
 - **[GitHub](https://github.com/nunomaduro/)** — Open source projects and contributions
