@@ -10,8 +10,8 @@ impl TalksPage {
     pub fn new() -> Self {
         Self {
             id: "talks".to_string(),
-            title: "Nuno Maduro — Talks".to_string(),
-            description: "Conference presentations and speaking engagements.".to_string(),
+            title: "nunomaduro · talks".to_string(),
+            description: "staff software engineer at laravel · speaker · content creator".to_string(),
         }
     }
 
