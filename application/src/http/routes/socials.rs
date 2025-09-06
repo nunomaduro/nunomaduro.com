@@ -1,8 +1,7 @@
 use crate::http::Route;
-use askama::Template;
 use async_trait::async_trait;
-use hyper::{Body, Request, Response};
-use presentation::templates::SocialsTemplate;
+use hyper::{Body, Request, Response, StatusCode};
+use hyper::header::{HeaderValue, LOCATION};
 
 pub struct Socials;
 
@@ -23,8 +22,10 @@ impl Route for Socials {
     }
 
     async fn handle(&self, _request: Request<Body>) -> Response<Body> {
-        let template = SocialsTemplate::new();
-
-        Response::new(template.render().unwrap().into())
+        // Redirect to the about page which now includes social links
+        let mut response = Response::new(Body::empty());
+        *response.status_mut() = StatusCode::MOVED_PERMANENTLY;
+        response.headers_mut().insert(LOCATION, HeaderValue::from_static("/"));
+        response
     }
 }
