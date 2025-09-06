@@ -1,30 +1,14 @@
 use crate::http::Route;
 use askama::Template;
 use async_trait::async_trait;
-use domain::contracts::StaticRepository;
 use hyper::{Body, Request, Response};
-use infrastructure::repositories::MarkdownStaticRepository;
 use presentation::templates::SponsorshipsTemplate;
-use std::default::Default;
 
-pub struct Sponsorships {
-    repository: Box<dyn StaticRepository>,
-}
-
-unsafe impl Send for Sponsorships {}
-unsafe impl Sync for Sponsorships {}
-
-impl Sponsorships {
-    pub fn new(repository: Box<dyn StaticRepository>) -> Self {
-        Self { repository }
-    }
-}
+pub struct Sponsorships;
 
 impl Default for Sponsorships {
     fn default() -> Self {
-        Self {
-            repository: Box::<MarkdownStaticRepository>::default(),
-        }
+        Self
     }
 }
 
@@ -39,8 +23,7 @@ impl Route for Sponsorships {
     }
 
     async fn handle(&self, _request: Request<Body>) -> Response<Body> {
-        let talk = self.repository.get("sponsorships");
-        let template = SponsorshipsTemplate::new(talk, self.path());
+        let template = SponsorshipsTemplate::new();
 
         Response::new(template.render().unwrap().into())
     }

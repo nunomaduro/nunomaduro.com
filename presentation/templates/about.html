@@ -1,5 +1,28 @@
-{% extends "layouts/page.html" %}
+{% extends "layouts/main.html" %}
 
-{% block content %}
-    {{ page.content()|safe }}
+{% block page %}
+    <div class="terminal-section">
+        <div class="terminal-section-title">about</div>
+        <article class="prose prose-neutral">
+            <img src="https://nunomaduro.com/about.1.jpg" alt="Nuno Maduro 1" />
+            
+            <p>Hello! I'm Nuno.</p>
+            
+            <p>I spend my days crafting tools that make developers' lives a bit easier. As a member of the <a href="https://laravel.com" target="_blank" rel="noopener">Laravel</a> core team, I have the privilege of contributing to a framework that powers websites for companies like OpenAI, Apple, Marvel, and many more around the world.</p>
+            
+            <p>My journey in open source has led me to create projects like <a href="https://pestphp.com" target="_blank" rel="noopener">PEST</a>, <a href="https://github.com/larastan/larastan" target="_blank" rel="noopener">Larastan</a>, and <a href="https://github.com/laravel/pint" target="_blank" rel="noopener">Pint</a>, along with <a href="https://github.com/nunomaduro" target="_blank" rel="noopener">many others</a> I maintain. These tools have become industry standards in modern PHP development. Collectively, they've been downloaded more than 500,000,000 times.</p>
+            
+            <p>When I'm not writing code, you might find me:</p>
+            <ul>
+                <li>Sharing ideas at <a href="/talks">conferences</a> around the globe</li>
+                <li>Creating content on <a href="https://www.youtube.com/nunomaduro" target="_blank" rel="noopener">YouTube</a> with new videos every weekday</li>
+                <li>Live coding on <a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener">Twitch</a> on Mondays, Wednesdays, and Fridays</li>
+                <li>Organizing community events like <a href="https://php-portugal.com" target="_blank" rel="noopener">PHP Portugal</a></li>
+            </ul>
+            
+            <hr />
+            
+            <p>If my work has helped your projects or if you'd like to support my content creation efforts, consider visiting the <a href="/sponsorships">sponsorships page</a>. Your support makes it possible for me to continue contributing to the community.</p>
+        </article>
+    </div>
 {% endblock %}

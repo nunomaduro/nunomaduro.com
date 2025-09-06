@@ -1,27 +1,14 @@
 use crate::http::Route;
 use askama::Template;
 use async_trait::async_trait;
-use domain::contracts::StaticRepository;
 use hyper::{Body, Request, Response};
-use infrastructure::repositories::MarkdownStaticRepository;
 use presentation::templates::SocialsTemplate;
 
-pub struct Socials {
-    repository: Box<dyn StaticRepository>,
-}
-
-unsafe impl Send for Socials {}
-unsafe impl Sync for Socials {}
-
-impl Socials {
-    pub fn new(repository: Box<dyn StaticRepository>) -> Self {
-        Self { repository }
-    }
-}
+pub struct Socials;
 
 impl Default for Socials {
     fn default() -> Self {
-        Self::new(Box::<MarkdownStaticRepository>::default())
+        Self
     }
 }
 
@@ -36,8 +23,7 @@ impl Route for Socials {
     }
 
     async fn handle(&self, _request: Request<Body>) -> Response<Body> {
-        let article = self.repository.get("socials");
-        let template = SocialsTemplate::new(article, self.path());
+        let template = SocialsTemplate::new();
 
         Response::new(template.render().unwrap().into())
     }
