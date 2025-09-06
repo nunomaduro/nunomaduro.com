@@ -1,8 +1,6 @@
 use super::routes;
 use async_trait::async_trait;
-use domain::contracts::PostRepository;
 use hyper::{Body, Request, Response};
-use infrastructure::repositories::MarkdownPostRepository;
 use std::default::Default;
 
 pub struct Router {
@@ -41,7 +39,7 @@ impl Router {
 
 impl Default for Router {
     fn default() -> Self {
-        let mut routes: Vec<Box<dyn Route + Send + Sync>> = vec![
+        let routes: Vec<Box<dyn Route + Send + Sync>> = vec![
             Box::<routes::About>::default(),
             Box::<routes::api::v1::newsletter::Post>::default(),
             Box::<routes::Socials>::default(),
@@ -49,16 +47,6 @@ impl Default for Router {
             Box::<routes::Talks>::default(),
             Box::<routes::Sponsorships>::default(),
         ];
-
-        let posts = MarkdownPostRepository::default().all();
-
-        for post in posts {
-            routes.push(Box::new(routes::posts::Show::new(
-                Box::<MarkdownPostRepository>::default(),
-                post.id().to_string(),
-                post.slug().to_string(),
-            )));
-        }
 
         Self::new(routes)
     }

@@ -1,5 +1,3 @@
-pub mod posts;
-
 mod about;
 mod socials;
 mod sponsorships;

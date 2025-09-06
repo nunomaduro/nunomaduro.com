@@ -1,5 +1,4 @@
 pub mod api;
-pub mod posts;
 
 mod about;
 mod socials;
