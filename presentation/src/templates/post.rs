@@ -26,10 +26,6 @@ impl PostPage {
         self.post.description()
     }
 
-    pub fn image(&self) -> Option<&str> {
-        self.post.image()
-    }
-
     pub fn slug(&self) -> &str {
         self.post.slug()
     }
