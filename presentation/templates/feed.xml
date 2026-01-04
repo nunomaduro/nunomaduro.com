@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Nuno Maduro</title>
+        <link>https://nunomaduro.com</link>
+        <description>articles about php, laravel, testing, open source, and software engineering</description>
+        <language>en-us</language>
+        <managingEditor>nuno@nunomaduro.com (Nuno Maduro)</managingEditor>
+        <webMaster>nuno@nunomaduro.com (Nuno Maduro)</webMaster>
+        <atom:link href="https://nunomaduro.com/feed.xml" rel="self" type="application/rss+xml"/>
+        {% for post in posts %}
+        <item>
+            <title>{{ post.title() }}</title>
+            <link>https://nunomaduro.com/posts/{{ post.slug() }}</link>
+            <guid isPermaLink="true">https://nunomaduro.com/posts/{{ post.slug() }}</guid>
+            <description>{{ post.description() }}</description>
+            <pubDate>{{ post.published_at() }}</pubDate>
+            <author>nuno@nunomaduro.com (Nuno Maduro)</author>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

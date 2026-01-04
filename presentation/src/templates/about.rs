@@ -11,7 +11,8 @@ impl AboutPage {
         Self {
             id: "about".to_string(),
             title: "nunomaduro · about".to_string(),
-            description: "staff software engineer at laravel · speaker · content creator".to_string(),
+            description: "staff software engineer at laravel · speaker · content creator"
+                .to_string(),
         }
     }
 

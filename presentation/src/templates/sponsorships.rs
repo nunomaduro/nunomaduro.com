@@ -11,7 +11,8 @@ impl SponsorshipsPage {
         Self {
             id: "sponsorships".to_string(),
             title: "nunomaduro · sponsorships".to_string(),
-            description: "staff software engineer at laravel · speaker · content creator".to_string(),
+            description: "staff software engineer at laravel · speaker · content creator"
+                .to_string(),
         }
     }
 

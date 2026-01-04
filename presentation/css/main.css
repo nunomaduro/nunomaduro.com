@@ -393,16 +393,26 @@
     margin-bottom: 1rem;
   }
   
-  /* Lists */
-  ul {
-    list-style-type: none;
-    padding-left: 1rem;
-  }
-  
-  ul li::before {
-    content: "- ";
-    color: var(--terminal-secondary);
-  }
+/* Lists */
+ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+ul li {
+  position: relative;
+}
+
+ul li::before {
+  content: "-";
+  color: var(--terminal-secondary);
+  position: absolute;
+  left: -1rem;
+}
+
+ul li::marker {
+  content: none;
+}
   
   ol {
     list-style-type: none;
@@ -419,13 +429,14 @@
     color: var(--terminal-secondary);
   }
   
-  /* Code */
-  pre, code {
-    background-color: var(--terminal-code-bg);
-    border-radius: 4px;
-    padding: 0.2rem 0.4rem;
-    font-family: var(--terminal-font);
-  }
+/* Code */
+pre, code {
+  background-color: var(--terminal-code-bg);
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-family: var(--terminal-font);
+  color: var(--terminal-accent);
+}
   
   pre {
     padding: 1rem;
@@ -558,9 +569,119 @@
     background-color: var(--terminal-code-bg);
   }
   
-  /* Override Tailwind prose styles */
-  .prose :where(code):not(:where([class~="not-prose"] *))::before,
-  .prose :where(code):not(:where([class~="not-prose"] *))::after {
-    content: "";
-  }
+/* Override Tailwind prose styles */
+.prose :where(code):not(:where([class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *)) {
+  color: var(--terminal-accent) !important;
+  background-color: var(--terminal-code-bg) !important;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 400;
+}
+
+/* Blog Posts List */
+.terminal-empty {
+  color: var(--terminal-dim);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.post-entry {
+  padding: 1.25rem 0;
+  border-bottom: 1px dashed var(--terminal-border);
+}
+
+.post-entry:last-child {
+  border-bottom: none;
+}
+
+.post-entry:first-child {
+  padding-top: 0;
+}
+
+.post-date {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--terminal-dim);
+  margin-bottom: 0.25rem;
+  font-family: var(--terminal-font);
+}
+
+.post-date::before {
+  content: "$ ";
+  color: var(--terminal-prompt);
+}
+
+.post-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--terminal-text);
+  margin-bottom: 0.5rem;
+  border-bottom: none !important;
+  transition: color 0.2s ease;
+}
+
+.post-title:hover {
+  color: var(--terminal-accent);
+  border-bottom: none !important;
+}
+
+.post-description {
+  font-size: 0.9rem;
+  color: var(--terminal-dim);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Single Post */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--terminal-border);
+}
+
+.post-back {
+  font-size: 0.85rem;
+  color: var(--terminal-dim);
+  border-bottom: none !important;
+  transition: color 0.2s ease;
+}
+
+.post-back:hover {
+  color: var(--terminal-accent);
+  border-bottom: none !important;
+}
+
+.post-header-date {
+  font-size: 0.8rem;
+  color: var(--terminal-dim);
+}
+
+.post-content {
+  margin-top: 2rem;
+}
+
+.post-content p:first-child {
+  margin-top: 0;
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--terminal-border);
+}
+
+.post-footer p {
+  font-size: 0.9rem;
+  color: var(--terminal-dim);
+  margin: 0;
+}
   

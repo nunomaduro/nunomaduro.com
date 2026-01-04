@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "components/meta.html" %}
+        {% include "components/styles.html" %}
+        {% include "components/scripts.html" %}
+        
+        <!-- BlogPosting Structured Data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "@id": "https://nunomaduro.com{{ url }}#article",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://nunomaduro.com{{ url }}"
+          },
+          "headline": "{{ page.title() }}",
+          "description": "{{ page.description() }}",
+          {% if page.image().is_some() %}
+          "image": "https://nunomaduro.com{{ page.image().unwrap() }}",
+          {% else %}
+          "image": "https://nunomaduro.com/preview.jpg",
+          {% endif %}
+          "author": {
+            "@type": "Person",
+            "@id": "https://nunomaduro.com/#person",
+            "name": "Nuno Maduro",
+            "url": "https://nunomaduro.com"
+          },
+          "publisher": {
+            "@type": "Person",
+            "@id": "https://nunomaduro.com/#person",
+            "name": "Nuno Maduro",
+            "url": "https://nunomaduro.com"
+          },
+          "datePublished": "{{ page.published_at() }}",
+          "dateModified": "{{ page.published_at() }}",
+          "inLanguage": "en-US"
+        }
+        </script>
+        
+        <!-- BreadcrumbList for Blog Post -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://nunomaduro.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Posts",
+              "item": "https://nunomaduro.com/posts"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "{{ page.title() }}",
+              "item": "https://nunomaduro.com{{ url }}"
+            }
+          ]
+        }
+        </script>
+    </head>
+    <body>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">nunomaduro@website:~</div>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-nav">
+                    {% block navigation %}
+                        {% include "components/navigation.html" %}
+                    {% endblock %}
+                </div>
+                <div class="terminal-page">
+                    {% block page %}
+                    
+                    {% endblock %}
+                </div>
+                <div class="cursor"></div>
+            </div>
+        </div>
+    </body>
+</html>

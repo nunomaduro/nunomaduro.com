@@ -11,7 +11,8 @@ impl TalksPage {
         Self {
             id: "talks".to_string(),
             title: "nunomaduro · talks".to_string(),
-            description: "staff software engineer at laravel · speaker · content creator".to_string(),
+            description: "staff software engineer at laravel · speaker · content creator"
+                .to_string(),
         }
     }
 

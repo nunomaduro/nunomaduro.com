@@ -1,0 +1,19 @@
+{% extends "layouts/main.html" %}
+
+{% block page %}
+    <div class="terminal-section">
+        <article class="prose prose-neutral">
+            {% if posts.is_empty() %}
+                <p class="terminal-empty">no posts yet.. stay tuned.</p>
+            {% else %}
+                {% for post in posts %}
+                    <div class="post-entry">
+                        <span class="post-date">{{ post.published_at() }}</span>
+                        <a href="/posts/{{ post.slug() }}" class="post-title">{{ post.title() }}</a>
+                        <p class="post-description">{{ post.description() }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </article>
+    </div>
+{% endblock %}

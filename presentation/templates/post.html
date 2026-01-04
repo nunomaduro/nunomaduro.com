@@ -1,0 +1,22 @@
+{% extends "layouts/post.html" %}
+
+{% block page %}
+    <div class="terminal-section">
+        <article class="prose prose-neutral">
+            <header class="post-header">
+                <a href="/posts" class="post-back">&larr; posts</a>
+                <span class="post-header-date">{{ page.published_at() }}</span>
+            </header>
+            
+            <h1>{{ page.heading() }}</h1>
+            
+            <div class="post-content">
+                {{ content|safe }}
+            </div>
+            
+            <footer class="post-footer">
+                <p>thanks for reading. follow me on <a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener">x</a> or subscribe to the <a href="/feed.xml">rss feed</a> for more.</p>
+            </footer>
+        </article>
+    </div>
+{% endblock %}
