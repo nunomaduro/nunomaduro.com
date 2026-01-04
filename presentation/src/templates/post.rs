@@ -30,6 +30,10 @@ impl PostPage {
         self.post.image()
     }
 
+    pub fn slug(&self) -> &str {
+        self.post.slug()
+    }
+
     pub fn published_at(&self) -> &str {
         self.post.published_at()
     }

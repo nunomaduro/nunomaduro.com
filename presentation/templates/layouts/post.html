@@ -2,6 +2,13 @@
 <html lang="en">
     <head>
         {% include "components/meta.html" %}
+        
+        <!-- Override OG image for this post -->
+        <meta property="og:image" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
+        <meta property="og:image:secure_url" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
+        <meta property="og:image:type" content="image/png">
+        <meta name="twitter:image" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
+        
         {% include "components/styles.html" %}
         {% include "components/scripts.html" %}
         
@@ -17,11 +24,7 @@
           },
           "headline": "{{ page.title() }}",
           "description": "{{ page.description() }}",
-          {% if page.image().is_some() %}
-          "image": "https://nunomaduro.com{{ page.image().unwrap() }}",
-          {% else %}
-          "image": "https://nunomaduro.com/preview.jpg",
-          {% endif %}
+          "image": "https://nunomaduro.com/og/{{ page.slug() }}.png",
           "author": {
             "@type": "Person",
             "@id": "https://nunomaduro.com/#person",

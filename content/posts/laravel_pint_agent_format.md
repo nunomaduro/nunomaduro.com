@@ -43,6 +43,16 @@ public static function runningInAgent(): bool
 }
 ```
 
+when one of these env vars is detected, Pint automatically switches the output format to `agent`:
+
+```php
+if ($this->runningInAgent() && $this->format === 'txt') {
+    $this->format = 'agent';
+}
+```
+
+basically, if you're in an agent environment and haven't explicitly set a format, it just does the right thing.. no config needed..
+
 for other tools or custom integrations:
 
 ```bash
