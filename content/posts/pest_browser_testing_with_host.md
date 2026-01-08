@@ -1,8 +1,8 @@
 ---
 id: 6
-title: testing subdomain applications with Pest browser testing
-slug: pest_browser_testing_with_host
-description: Pest browser testing now supports the withHost method, making it easy to test subdomain applications by configuring the host globally or per-test.
+title: Pest's withHost - browser testing subdomains in Laravel
+slug: pest-with-host-browser-testing-subdomains-laravel
+description: Pest browser testing now has withHost, finally fixing subdomain testing for Laravel Sail and multi-tenant apps.
 published_at: January 8, 2026
 duration: 2 min
 type: Tutorial
@@ -79,3 +79,9 @@ it('isolates tenant data', function () {
 ```
 
 this was one of the most requested fixes.. multi-tenant saas, workspace-based apps, region-specific subdomains - all testable now with one method call..
+
+## get it
+
+```bash
+composer update pestphp/pest-plugin-browser
+```
