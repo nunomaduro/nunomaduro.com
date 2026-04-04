@@ -25,13 +25,27 @@ async fn handle(request: Request<Body>) -> Result<Response<Body>, Infallible> {
     let method = request.method().as_str();
 
     if std::env::var("APP_ENV").unwrap_or_else(|_| "production".to_string()) == *"development"
-        && path.starts_with("/dist/")
+        && (path.starts_with("/dist/") || path.starts_with("/profile."))
     {
-        let response = Response::new(Body::from(
-            std::fs::read_to_string(format!("./public/{path}")).unwrap(),
-        ));
+        if let Ok(bytes) = std::fs::read(format!("./public/{path}")) {
+            let content_type = match path.rsplit('.').next() {
+                Some("css") => "text/css",
+                Some("js") => "application/javascript",
+                Some("webp") => "image/webp",
+                Some("png") => "image/png",
+                Some("jpg") | Some("jpeg") => "image/jpeg",
+                Some("svg") => "image/svg+xml",
+                Some("woff2") => "font/woff2",
+                _ => "application/octet-stream",
+            };
 
-        return Ok(response);
+            let response = Response::builder()
+                .header("Content-Type", content_type)
+                .body(Body::from(bytes))
+                .unwrap();
+
+            return Ok(response);
+        }
     }
 
     let response = Router::default().route(method, path).handle(request).await;

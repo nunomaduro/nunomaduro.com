@@ -1,21 +1,46 @@
 {% extends "layouts/main.html" %}
 
 {% block page %}
-    <div class="terminal-section">
-        <article class="prose prose-neutral">
-            <img src="https://nunomaduro.com/preview.jpg" alt="Nuno Maduro" />
-            
-            <p class="text-sm text-center">
-                <a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener">x 64k</a> ·
-                <a href="https://youtube.com/nunomaduro" target="_blank" rel="noopener">youtube 25k</a> ·
-                <a href="https://tiktok.com/@enunomaduro" target="_blank" rel="noopener">tiktok 4k</a> ·
-                <a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener">twitch 3k</a> ·
-                <a href="https://instagram.com/enunomaduro" target="_blank" rel="noopener">instagram 2.5k</a>
-            </p>
-            
-            <p>i'm nuno, staff software eng at <a href="https://laravel.com" target="_blank" rel="noopener">laravel</a>, <a href="/talks">speaker</a> & content creator, and open-source contributor. i made tools like <a href="https://pestphp.com" target="_blank" rel="noopener">pest</a>, <a href="https://github.com/larastan/larastan" target="_blank" rel="noopener">larastan</a>, <a href="https://github.com/laravel/pint" target="_blank" rel="noopener">pint</a>, <a href="https://github.com/laravel-zero/laravel-zero" target="_blank" rel="noopener">laravel zero</a>, <a href="https://github.com/openai-php/client" target="_blank" rel="noopener">openai php</a>, <a href="https://github.com/nunomaduro/phpinsights" target="_blank" rel="noopener">php insights</a> and more / with thousands of stars and half a billion downloads shaping the php scene. <span class="text-accent font-bold"> just here to make devs lives easier, fr.</span></p>
-            
-            <p><strong>want to support my work? visit the <a href="/sponsorships">sponsorships page</a>.</strong></p>
-        </article>
-    </div>
+    <section class="bg-zinc-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+                <div class="w-full lg:w-5/12 shrink-0">
+                    <img src="/profile.webp" alt="" class="w-full outline-1 -outline-offset-1 outline-white/10" width="800" height="800" />
+                </div>
+                <div class="w-full lg:w-7/12">
+                    <p class="text-base sm:text-sm uppercase tracking-wide text-amber-400 mb-4">staff software engineer at laravel</p>
+                    <h1 class="text-5xl lg:text-7xl font-semibold text-white uppercase tracking-tight text-balance mb-10">Nuno Maduro</h1>
+
+                    <div class="grid grid-cols-3 sm:grid-cols-5 gap-6 mb-10 pb-10 border-b border-white/10">
+                        <a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener" class="group no-underline">
+                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">65k</span>
+                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">x</span>
+                        </a>
+                        <a href="https://youtube.com/nunomaduro" target="_blank" rel="noopener" class="group no-underline">
+                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">27k</span>
+                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">youtube</span>
+                        </a>
+                        <a href="https://tiktok.com/@enunomaduro" target="_blank" rel="noopener" class="group no-underline">
+                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">3.9k</span>
+                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">tiktok</span>
+                        </a>
+                        <a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener" class="group no-underline">
+                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">3.1k</span>
+                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">twitch</span>
+                        </a>
+                        <a href="https://instagram.com/enunomaduro" target="_blank" rel="noopener" class="group no-underline">
+                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">2.6k</span>
+                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">instagram</span>
+                        </a>
+                    </div>
+
+                    <p class="text-lg sm:text-base text-zinc-300 leading-relaxed text-pretty mb-6">i'm nuno, <a href="/talks" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">speaker</a> & content creator, and open-source contributor. i made tools like <a href="https://pestphp.com" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">pest</a>, <a href="https://github.com/larastan/larastan" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">larastan</a>, <a href="https://github.com/laravel/pint" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">pint</a>, <a href="https://github.com/laravel-zero/laravel-zero" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">laravel zero</a>, <a href="https://github.com/openai-php/client" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">openai php</a>, <a href="https://github.com/nunomaduro/phpinsights" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">php insights</a> and more / with thousands of stars and half a billion downloads shaping the php scene.</p>
+
+                    <p class="text-xl sm:text-lg text-amber-400 font-semibold mb-8">just here to make devs lives easier, fr.</p>
+
+                    <a href="/sponsorships" class="inline-block bg-amber-400 text-zinc-950 font-semibold uppercase tracking-wide text-base sm:text-sm px-6 py-3 no-underline hover:bg-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400">support my work &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

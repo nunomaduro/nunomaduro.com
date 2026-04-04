@@ -1,11 +1,48 @@
-<div class="terminal-nav-wrapper">
-    <div class="terminal-prompt">
-        <span>whoami</span>
+<nav class="sticky top-0 z-50 w-full bg-zinc-900/80 backdrop-blur-sm border-b border-white/10" x-data="{ open: false }">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-14">
+            <a href="/" class="text-white font-semibold tracking-wide uppercase text-lg sm:text-base no-underline hover:text-amber-400" aria-label="Homepage">NUNOMADURO</a>
+
+            <!-- Desktop nav -->
+            <ul role="list" class="hidden sm:flex items-center gap-1">
+                <li>
+                    <a href="/" class="px-3 py-1.5 text-base sm:text-sm uppercase tracking-wide no-underline {% if page.id() == "about" %}bg-white text-zinc-950{% else %}text-zinc-400 hover:text-white{% endif %}">about</a>
+                </li>
+                <li>
+                    <a href="/posts" class="px-3 py-1.5 text-base sm:text-sm uppercase tracking-wide no-underline {% if page.id() == "posts" || page.id() == "post" %}bg-white text-zinc-950{% else %}text-zinc-400 hover:text-white{% endif %}">posts</a>
+                </li>
+                <li>
+                    <a href="/sponsorships" class="px-3 py-1.5 text-base sm:text-sm uppercase tracking-wide no-underline {% if page.id() == "sponsorships" %}bg-white text-zinc-950{% else %}text-zinc-400 hover:text-white{% endif %}">sponsorships</a>
+                </li>
+                <li>
+                    <a href="/talks" class="px-3 py-1.5 text-base sm:text-sm uppercase tracking-wide no-underline {% if page.id() == "talks" %}bg-white text-zinc-950{% else %}text-zinc-400 hover:text-white{% endif %}">talks</a>
+                </li>
+            </ul>
+
+            <!-- Mobile hamburger -->
+            <button @click="open = !open" class="sm:hidden text-zinc-300 hover:text-white p-2 relative" aria-label="Toggle navigation">
+                <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                <span class="absolute top-1/2 left-1/2 size-[max(100%,3rem)] -translate-1/2 pointer-fine:hidden" aria-hidden="true"></span>
+            </button>
+        </div>
     </div>
-    <div class="terminal-nav-links">
-        <a href="/" class="terminal-nav-link {% if page.id() == "about" %}active{% endif %}">about</a>
-        <a href="/posts" class="terminal-nav-link {% if page.id() == "posts" || page.id() == "post" %}active{% endif %}">posts</a>
-        <a href="/sponsorships" class="terminal-nav-link {% if page.id() == "sponsorships" %}active{% endif %}">sponsorships</a>
-        <a href="/talks" class="terminal-nav-link {% if page.id() == "talks" %}active{% endif %}">talks</a>
+
+    <!-- Mobile nav -->
+    <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="sm:hidden border-t border-white/10 bg-zinc-900">
+        <ul role="list" class="flex flex-col">
+            <li>
+                <a href="/" class="block px-6 py-3.5 text-base uppercase tracking-wide border-b border-white/10 no-underline {% if page.id() == "about" %}bg-white text-zinc-950 font-semibold{% else %}text-zinc-300 hover:bg-zinc-800{% endif %}">about</a>
+            </li>
+            <li>
+                <a href="/posts" class="block px-6 py-3.5 text-base uppercase tracking-wide border-b border-white/10 no-underline {% if page.id() == "posts" || page.id() == "post" %}bg-white text-zinc-950 font-semibold{% else %}text-zinc-300 hover:bg-zinc-800{% endif %}">posts</a>
+            </li>
+            <li>
+                <a href="/sponsorships" class="block px-6 py-3.5 text-base uppercase tracking-wide border-b border-white/10 no-underline {% if page.id() == "sponsorships" %}bg-white text-zinc-950 font-semibold{% else %}text-zinc-300 hover:bg-zinc-800{% endif %}">sponsorships</a>
+            </li>
+            <li>
+                <a href="/talks" class="block px-6 py-3.5 text-base uppercase tracking-wide no-underline {% if page.id() == "talks" %}bg-white text-zinc-950 font-semibold{% else %}text-zinc-300 hover:bg-zinc-800{% endif %}">talks</a>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>

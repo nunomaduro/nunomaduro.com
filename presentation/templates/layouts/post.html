@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         {% include "components/meta.html" %}
-        
+
         <!-- OG Image for this post -->
         <meta property="og:image" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
         <meta property="og:image:secure_url" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
@@ -12,10 +12,10 @@
         <meta property="og:image:alt" content="{{ page.heading() }}">
         <meta name="twitter:image" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
         <meta name="twitter:image:alt" content="{{ page.heading() }}">
-        
+
         {% include "components/styles.html" %}
         {% include "components/scripts.html" %}
-        
+
         <!-- BlogPosting Structured Data -->
         <script type="application/ld+json">
         {
@@ -46,7 +46,7 @@
           "inLanguage": "en-US"
         }
         </script>
-        
+
         <!-- BreadcrumbList for Blog Post -->
         <script type="application/ld+json">
         {
@@ -75,29 +75,32 @@
         }
         </script>
     </head>
-    <body>
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="terminal-buttons">
-                    <div class="terminal-button close"></div>
-                    <div class="terminal-button minimize"></div>
-                    <div class="terminal-button maximize"></div>
+    <body class="bg-zinc-950 text-zinc-300 antialiased min-h-dvh flex flex-col" style="font-family: 'Space Mono', monospace;">
+        {% block navigation %}
+            {% include "components/navigation.html" %}
+        {% endblock %}
+
+        <main class="flex-1">
+            {% block page %}
+
+            {% endblock %}
+        </main>
+
+        <footer class="border-t border-white/10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                    <ul role="list" class="flex flex-wrap items-center gap-6">
+                        <li><a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">X</a></li>
+                        <li><a href="https://youtube.com/nunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">YouTube</a></li>
+                        <li><a href="https://tiktok.com/@enunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">TikTok</a></li>
+                        <li><a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">Twitch</a></li>
+                        <li><a href="https://instagram.com/enunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">Instagram</a></li>
+                        <li><a href="https://github.com/nunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">GitHub</a></li>
+                        <li><a href="/feed.xml" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">RSS</a></li>
+                    </ul>
+                    <p class="text-zinc-600 text-base sm:text-sm">&copy; nunomaduro</p>
                 </div>
-                <div class="terminal-title">nunomaduro@website:~</div>
             </div>
-            <div class="terminal-content">
-                <div class="terminal-nav">
-                    {% block navigation %}
-                        {% include "components/navigation.html" %}
-                    {% endblock %}
-                </div>
-                <div class="terminal-page">
-                    {% block page %}
-                    
-                    {% endblock %}
-                </div>
-                <div class="cursor"></div>
-            </div>
-        </div>
+        </footer>
     </body>
 </html>

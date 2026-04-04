@@ -1,19 +1,26 @@
 {% extends "layouts/main.html" %}
 
 {% block page %}
-    <div class="terminal-section">
-        <article class="prose prose-neutral">
+    <section class="bg-zinc-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+            <h1 class="text-4xl lg:text-5xl font-semibold text-white uppercase tracking-tight text-balance mb-16">Posts</h1>
+
             {% if posts.is_empty() %}
-                <p class="terminal-empty">no posts yet.. stay tuned.</p>
+                <p class="text-zinc-400 text-base text-center text-pretty py-12">no posts yet.. stay tuned.</p>
             {% else %}
-                {% for post in posts %}
-                    <div class="post-entry">
-                        <span class="post-date">{{ post.published_at() }}</span>
-                        <a href="/posts/{{ post.slug() }}" class="post-title">{{ post.title() }}</a>
-                        <p class="post-description">{{ post.description() }}</p>
-                    </div>
-                {% endfor %}
+                <div class="border-t border-white/10">
+                    {% for post in posts %}
+                        <a href="/posts/{{ post.slug() }}" class="flex flex-col lg:flex-row lg:items-baseline gap-2 lg:gap-8 border-b border-white/10 py-8 hover:bg-zinc-900/50 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 group no-underline">
+                            <span class="block text-base sm:text-sm text-zinc-500 lg:w-40 shrink-0 tabular-nums">{{ post.published_at() }}</span>
+                            <div class="flex-1">
+                                <span class="block text-xl lg:text-2xl text-white uppercase tracking-tight font-semibold group-hover:text-amber-400">{{ post.title() }}</span>
+                                <span class="block text-base text-zinc-400 text-pretty mt-2">{{ post.description() }}</span>
+                            </div>
+                            <span class="hidden lg:block text-base sm:text-sm text-zinc-600 uppercase tracking-wide shrink-0 group-hover:text-amber-400">&rarr;</span>
+                        </a>
+                    {% endfor %}
+                </div>
             {% endif %}
-        </article>
-    </div>
+        </div>
+    </section>
 {% endblock %}

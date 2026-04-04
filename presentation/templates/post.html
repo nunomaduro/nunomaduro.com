@@ -1,22 +1,24 @@
 {% extends "layouts/post.html" %}
 
 {% block page %}
-    <div class="terminal-section">
-        <article class="prose prose-neutral">
-            <header class="post-header">
-                <a href="/posts" class="post-back">&larr; posts</a>
-                <span class="post-header-date">{{ page.published_at() }}</span>
-            </header>
-            
-            <h1>{{ page.heading() }}</h1>
-            
-            <div class="post-content">
-                {{ content|safe }}
-            </div>
-            
-            <footer class="post-footer">
-                <p>thanks for reading. subscribe my <a href="https://youtube.com/@nunomaduro" target="_blank" rel="noopener">youtube channel</a> and subscribe to the <a href="/feed.xml">rss feed</a> for more.</p>
-            </footer>
-        </article>
-    </div>
+    <section class="bg-zinc-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <article class="prose prose-invert max-w-none">
+                <header class="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                    <a href="/posts" class="text-base sm:text-sm text-zinc-400 uppercase tracking-wide hover:text-amber-400 transition-colors no-underline">&larr; posts</a>
+                    <span class="text-base sm:text-sm text-zinc-500">{{ page.published_at() }}</span>
+                </header>
+
+                <h1 class="text-3xl lg:text-4xl font-semibold text-white uppercase tracking-wide text-balance mb-10">{{ page.heading() }}</h1>
+
+                <div class="text-base text-zinc-300 leading-relaxed">
+                    {{ content|safe }}
+                </div>
+
+                <footer class="mt-16 pt-8 border-t border-white/10">
+                    <p class="text-base text-zinc-400 text-pretty">thanks for reading. subscribe my <a href="https://youtube.com/@nunomaduro" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400 transition-colors">youtube channel</a> and subscribe to the <a href="/feed.xml" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400 transition-colors">rss feed</a> for more.</p>
+                </footer>
+            </article>
+        </div>
+    </section>
 {% endblock %}
