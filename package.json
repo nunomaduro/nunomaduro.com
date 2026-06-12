@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "vite build",
-    "og": "node scripts/generate-og-images.js"
+    "og": "node scripts/generate-og-images.js",
+    "social": "node scripts/update-social.js"
   }
 }

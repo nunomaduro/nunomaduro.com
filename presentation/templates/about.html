@@ -2,44 +2,67 @@
 
 {% block page %}
     <section class="bg-zinc-950">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
-                <div class="w-full lg:w-5/12 shrink-0">
-                    <img src="/profile.webp" alt="" class="w-full outline-1 -outline-offset-1 outline-white/10" width="800" height="800" />
-                </div>
-                <div class="w-full lg:w-7/12">
-                    <p class="text-base sm:text-sm uppercase tracking-wide text-amber-400 mb-4">staff software engineer at laravel</p>
-                    <h1 class="text-5xl lg:text-7xl font-semibold text-white uppercase tracking-tight text-balance mb-10">Nuno Maduro</h1>
+        <div class="max-w-md mx-auto px-4 sm:px-6 py-16 lg:py-24">
+            <div class="flex flex-col items-center text-center mb-10">
+                <img src="/profile.webp" alt="Nuno Maduro" class="size-28 rounded-full outline-1 -outline-offset-1 outline-white/10 mb-6" width="800" height="800" />
+                <p class="text-base sm:text-sm uppercase tracking-wide text-amber-400 mb-3">staff software engineer at laravel</p>
+                <h1 class="text-4xl lg:text-5xl font-semibold text-white uppercase tracking-tight text-balance">Nuno Maduro</h1>
+            </div>
 
-                    <div class="grid grid-cols-3 sm:grid-cols-5 gap-6 mb-10 pb-10 border-b border-white/10">
-                        <a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener" class="group no-underline">
-                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">66k</span>
-                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">x</span>
-                        </a>
-                        <a href="https://youtube.com/nunomaduro" target="_blank" rel="noopener" class="group no-underline">
-                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">29k</span>
-                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">youtube</span>
-                        </a>
-                        <a href="https://tiktok.com/@enunomaduro" target="_blank" rel="noopener" class="group no-underline">
-                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">4k</span>
-                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">tiktok</span>
-                        </a>
-                        <a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener" class="group no-underline">
-                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">3.1k</span>
-                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">twitch</span>
-                        </a>
-                        <a href="https://instagram.com/enunomaduro" target="_blank" rel="noopener" class="group no-underline">
-                            <span class="block text-2xl sm:text-xl font-semibold text-white tabular-nums group-hover:text-amber-400">3.2k</span>
-                            <span class="block text-base sm:text-sm uppercase tracking-wide text-zinc-500 mt-1">instagram</span>
-                        </a>
-                    </div>
+            <div class="flex flex-col gap-3">
+                <a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M18.2 2.5h3.3l-7.2 8.2L22.8 21.5h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.2 2.5H8l4.7 6.2 5.5-6.2Zm-1.2 17h1.8L7.1 4.4H5.2l11.8 15.1Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">x <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @enunomaduro</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">66k</span>
+                </a>
+                <a href="https://youtube.com/nunomaduro?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">29k</span>
+                </a>
+                <a href="https://github.com/nunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 12 .5Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">github <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">9.2k</span>
+                </a>
+                <a href="https://www.tiktok.com/@enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V10.3a6 6 0 0 0-.8-.1 5.9 5.9 0 1 0 5.9 5.9V9.3a7.5 7.5 0 0 0 4.4 1.4V7.4a4.3 4.3 0 0 1-3.4-1.6Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">tiktok <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @enunomaduro</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">4k</span>
+                </a>
+                <a href="https://instagram.com/enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.7 3.7 0 0 1-1.4-.9 3.7 3.7 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 1.6c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1a3.5 3.5 0 0 0-.8-1.3 3.5 3.5 0 0 0-1.3-.8c-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 2.7a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm5.7-9.2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">instagram <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @enunomaduro</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">3.2k</span>
+                </a>
+                <a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M4.3 2 2.5 6.5v15.3h5.2V25h2.9l3.3-3.2h4.3l5.3-5.3V2H4.3Zm17.5 13.7-3 3h-5.2l-2.6 2.6v-2.6h-4V3.7h14.8v12ZM18.4 7v5.7h-1.9V7h1.9Zm-5 0v5.7h-1.9V7h1.9Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">twitch <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">3.1k</span>
+                </a>
+                <a href="https://www.youtube.com/@nunomaduro2?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro2</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">685</span>
+                </a>
+                <a href="https://www.youtube.com/@nunomaduro3?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro3</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">3</span>
+                </a>
+                <a href="https://www.tiktok.com/@nunomaduroclips" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V10.3a6 6 0 0 0-.8-.1 5.9 5.9 0 1 0 5.9 5.9V9.3a7.5 7.5 0 0 0 4.4 1.4V7.4a4.3 4.3 0 0 1-3.4-1.6Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">tiktok <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduroclips</span></span>
+                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">3</span>
+                </a>
+                <a href="https://www.youtube.com/@nunomaduro4?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro4</span></span>
+                </a>
+            </div>
 
-                    <p class="text-lg sm:text-base text-zinc-300 leading-relaxed text-pretty mb-6">i'm nuno, <a href="/talks" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">speaker</a> & content creator, and open-source contributor. i made tools like <a href="https://pestphp.com" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">pest</a>, <a href="https://github.com/larastan/larastan" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">larastan</a>, <a href="https://github.com/laravel/pint" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">pint</a>, <a href="https://github.com/laravel-zero/laravel-zero" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">laravel zero</a>, <a href="https://github.com/openai-php/client" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">openai php</a>, <a href="https://github.com/nunomaduro/phpinsights" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400">php insights</a> and more / with thousands of stars and half a billion downloads shaping the php scene.</p>
-
-                    <p class="text-xl sm:text-lg text-amber-400 font-semibold mb-8">just here to make devs lives easier, fr.</p>
-
-                    <a href="/sponsorships" class="inline-block bg-amber-400 text-zinc-950 font-semibold uppercase tracking-wide text-base sm:text-sm px-6 py-3 no-underline hover:bg-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400">support my work &rarr;</a>
-                </div>
+            <div class="mt-10 text-center">
+                <a href="/sponsorships" class="inline-block bg-amber-400 text-zinc-950 font-semibold uppercase tracking-wide text-base sm:text-sm px-6 py-3 no-underline hover:bg-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400">support my work &rarr;</a>
             </div>
         </div>
     </section>
