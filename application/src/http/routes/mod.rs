@@ -8,6 +8,7 @@ mod posts;
 mod sitemap;
 mod socials;
 mod sponsorships;
+mod subscribe;
 mod talks;
 
 pub use about::About;
@@ -18,4 +19,5 @@ pub use posts::Posts;
 pub use sitemap::Sitemap;
 pub use socials::Socials;
 pub use sponsorships::Sponsorships;
+pub use subscribe::Subscribe;
 pub use talks::Talks;

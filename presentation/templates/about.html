@@ -28,6 +28,23 @@
                 </a>
             </div>
 
+            <!-- subscribe via terminal -->
+            <div x-data="{ copied: false, copy() { navigator.clipboard.writeText('curl -fsSL nunomaduro.com/subscribe | sh').then(() =&gt; { this.copied = true; setTimeout(() =&gt; { this.copied = false }, 2000) }) } }"
+                 class="group mb-10 border border-white/10 p-6 hover:border-amber-400">
+                <div class="flex items-center justify-between gap-3">
+                    <span class="text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">follow me everywhere</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="m4 17 6-5-6-5M12 19h8"/></svg>
+                </div>
+                <p class="mt-2 text-base sm:text-sm text-zinc-400 text-pretty">one command — follows me on github &amp; mastodon, opens the rest in your browser.</p>
+                <div class="mt-4 flex items-stretch border border-white/10 bg-black/40">
+                    <code class="flex-1 min-w-0 overflow-x-auto whitespace-nowrap px-4 py-3 text-base sm:text-sm text-zinc-300"><span class="select-none text-amber-400">$ </span>curl -fsSL nunomaduro.com/subscribe | sh</code>
+                    <button type="button" @click="copy()" :aria-label="copied ? 'Copied' : 'Copy command'" class="shrink-0 border-l border-white/10 px-4 text-base sm:text-sm uppercase tracking-wide text-zinc-400 hover:text-amber-400 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400">
+                        <span x-show="!copied">copy</span>
+                        <span x-show="copied" x-cloak class="text-amber-400">copied!</span>
+                    </button>
+                </div>
+            </div>
+
             <div id="socials" class="scroll-mt-24">
             <div class="flex flex-col gap-3">
                 <a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
