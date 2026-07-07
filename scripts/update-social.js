@@ -158,11 +158,6 @@ const ACCOUNTS = [
     fetch: () => youtubeSubs('nunomaduro_vods'),
   },
   {
-    label: 'youtube·4',
-    href: 'https://youtube.com/@nunomaduro4?sub_confirmation=1',
-    fetch: () => youtubeSubs('nunomaduro4'),
-  },
-  {
     label: 'tiktok',
     href: 'https://tiktok.com/@enunomaduro',
     fetch: () => tiktokFollowers('enunomaduro'),
