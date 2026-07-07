@@ -148,14 +148,14 @@ const ACCOUNTS = [
     fetch: () => youtubeSubs('nunomaduro'),
   },
   {
-    label: 'youtube·2',
-    href: 'https://youtube.com/@nunomaduro2?sub_confirmation=1',
-    fetch: () => youtubeSubs('nunomaduro2'),
+    label: 'youtube·extra',
+    href: 'https://youtube.com/@nunomaduro_extra?sub_confirmation=1',
+    fetch: () => youtubeSubs('nunomaduro_extra'),
   },
   {
-    label: 'youtube·3',
-    href: 'https://youtube.com/@nunomaduro3?sub_confirmation=1',
-    fetch: () => youtubeSubs('nunomaduro3'),
+    label: 'youtube·vods',
+    href: 'https://youtube.com/@nunomaduro_vods?sub_confirmation=1',
+    fetch: () => youtubeSubs('nunomaduro_vods'),
   },
   {
     label: 'youtube·4',
@@ -168,15 +168,26 @@ const ACCOUNTS = [
     fetch: () => tiktokFollowers('enunomaduro'),
   },
   {
-    label: 'tiktok·clips',
-    href: 'https://tiktok.com/@nunomaduroclips',
-    fetch: () => tiktokFollowers('nunomaduroclips'),
+    label: 'tiktok·extra',
+    href: 'https://tiktok.com/@nunomaduro_extra',
+    fetch: () => tiktokFollowers('nunomaduro_extra'),
   },
   {
     label: 'instagram',
     href: 'https://instagram.com/enunomaduro',
     async fetch() {
       const html = await getText('https://instagram.com/enunomaduro/');
+      const a = html.match(/"edge_followed_by":\{"count":(\d+)\}/);
+      if (a) return parseInt(a[1], 10);
+      const b = html.match(/([\d.,]+)\s+Followers/i);
+      return b ? parseAbbrev(b[1]) : null;
+    },
+  },
+  {
+    label: 'instagram·extra',
+    href: 'https://instagram.com/nunomaduro_extra',
+    async fetch() {
+      const html = await getText('https://instagram.com/nunomaduro_extra/');
       const a = html.match(/"edge_followed_by":\{"count":(\d+)\}/);
       if (a) return parseInt(a[1], 10);
       const b = html.match(/([\d.,]+)\s+Followers/i);
