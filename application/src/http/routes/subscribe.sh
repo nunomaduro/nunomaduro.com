@@ -60,14 +60,19 @@ else
   warn "Mastodon — skipped (needs an authenticated 'toot' CLI)"
 fi
 
-# --- the most important socials: open the follow / subscribe page ------------
-# Ordered least → most important, so the top platform opens LAST (and ends up
-# focused on top of the stack). Smaller accounts are intentionally left out to
-# keep this to a handful of tabs.
-follow_web "TikTok"      "https://tiktok.com/@enunomaduro"
-follow_web "Twitch"      "https://twitch.tv/nunomaduro"
-follow_web "X / Twitter" "https://twitter.com/intent/follow?screen_name=enunomaduro"
-follow_web "Instagram"   "https://instagram.com/enunomaduro"
-follow_web "YouTube"     "https://youtube.com/nunomaduro?sub_confirmation=1"
+# --- socials: open each follow / subscribe page in your browser --------------
+# Ordered least → most important, so the biggest platform opens LAST (and ends
+# up focused on top of the stack).
+follow_web "TikTok · @nunomaduro_extra"    "https://tiktok.com/@nunomaduro_extra"
+follow_web "YouTube · @nunomaduro_vods"    "https://youtube.com/@nunomaduro_vods?sub_confirmation=1"
+follow_web "Instagram · @nunomaduro_extra" "https://instagram.com/nunomaduro_extra"
+follow_web "Kick"                          "https://kick.com/nunomaduro"
+follow_web "YouTube · @nunomaduro_extra"   "https://youtube.com/@nunomaduro_extra?sub_confirmation=1"
+follow_web "Threads"                       "https://threads.com/@enunomaduro"
+follow_web "Twitch"                        "https://twitch.tv/nunomaduro"
+follow_web "Instagram"                     "https://instagram.com/enunomaduro"
+follow_web "TikTok"                        "https://tiktok.com/@enunomaduro"
+follow_web "YouTube"                       "https://youtube.com/nunomaduro?sub_confirmation=1"
+follow_web "X / Twitter"                   "https://twitter.com/intent/follow?screen_name=enunomaduro"
 
 printf '\n%sThank you — see you out there.%s\n\n' "$BOLD" "$RESET"
