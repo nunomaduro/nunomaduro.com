@@ -153,6 +153,11 @@ const ACCOUNTS = [
     fetch: () => youtubeSubs('nunomaduro_extra'),
   },
   {
+    label: 'youtube·extra2',
+    href: 'https://youtube.com/@nunomaduro_extra2?sub_confirmation=1',
+    fetch: () => youtubeSubs('nunomaduro_extra2'),
+  },
+  {
     label: 'youtube·vods',
     href: 'https://youtube.com/@nunomaduro_vods?sub_confirmation=1',
     fetch: () => youtubeSubs('nunomaduro_vods'),

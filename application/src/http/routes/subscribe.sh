@@ -63,6 +63,7 @@ fi
 # --- socials: open each follow / subscribe page in your browser --------------
 # Ordered least → most important, so the biggest platform opens LAST (and ends
 # up focused on top of the stack).
+follow_web "YouTube · @nunomaduro_extra2"  "https://youtube.com/@nunomaduro_extra2?sub_confirmation=1"
 follow_web "TikTok · @nunomaduro_extra"    "https://tiktok.com/@nunomaduro_extra"
 follow_web "YouTube · @nunomaduro_vods"    "https://youtube.com/@nunomaduro_vods?sub_confirmation=1"
 follow_web "Instagram · @nunomaduro_extra" "https://instagram.com/nunomaduro_extra"
