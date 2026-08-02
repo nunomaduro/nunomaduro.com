@@ -14,3 +14,12 @@ updates:
     - skip-changelog
     - dependencies
     rebase-strategy: disabled
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+    - skip-changelog
+    - dependencies
+    rebase-strategy: disabled

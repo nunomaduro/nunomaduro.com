@@ -1,6 +1,7 @@
 use super::routes;
 use async_trait::async_trait;
-use hyper::{Body, Request, Response};
+use crate::http::{Body, RequestBody};
+use hyper::{Request, Response};
 use std::default::Default;
 
 pub struct Router {
@@ -11,7 +12,7 @@ pub struct Router {
 pub trait Route {
     fn method(&self) -> String;
     fn path(&self) -> String;
-    async fn handle(&self, request: Request<Body>) -> Response<Body>;
+    async fn handle(&self, request: Request<RequestBody>) -> Response<Body>;
 }
 
 impl Router {

@@ -3,7 +3,8 @@ use askama::Template;
 use async_trait::async_trait;
 use domain::contracts::PostRepository;
 use hyper::header::CONTENT_TYPE;
-use hyper::{Body, Request, Response};
+use crate::http::{Body, RequestBody};
+use hyper::{Request, Response};
 use infrastructure::repositories::MarkdownPostRepository;
 use presentation::templates::SitemapTemplate;
 
@@ -25,7 +26,7 @@ impl Route for Sitemap {
         "/sitemap.xml".to_string()
     }
 
-    async fn handle(&self, _request: Request<Body>) -> Response<Body> {
+    async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
         let repository = MarkdownPostRepository::default();
         let posts = repository.all();
         let template = SitemapTemplate::new(posts);

@@ -2,7 +2,8 @@ use crate::http::Route;
 use askama::Template;
 use async_trait::async_trait;
 use domain::contracts::PostRepository;
-use hyper::{Body, Request, Response, StatusCode};
+use crate::http::{Body, RequestBody};
+use hyper::{Request, Response, StatusCode};
 use infrastructure::repositories::MarkdownPostRepository;
 use presentation::templates::PostTemplate;
 
@@ -34,7 +35,7 @@ impl Route for Post {
         format!("/posts/{}", self.slug)
     }
 
-    async fn handle(&self, _request: Request<Body>) -> Response<Body> {
+    async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
         let repository = MarkdownPostRepository::default();
 
         match repository.find(&self.slug) {

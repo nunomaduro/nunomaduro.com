@@ -1,6 +1,7 @@
 use crate::http::Route;
 use async_trait::async_trait;
-use hyper::{Body, Request, Response, StatusCode};
+use crate::http::{Body, RequestBody};
+use hyper::{Request, Response, StatusCode};
 use hyper::header::{HeaderValue, LOCATION};
 
 pub struct Socials;
@@ -21,9 +22,9 @@ impl Route for Socials {
         "/socials".to_string()
     }
 
-    async fn handle(&self, _request: Request<Body>) -> Response<Body> {
+    async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
         // Redirect to the about page which now includes social links
-        let mut response = Response::new(Body::empty());
+        let mut response = Response::new(Body::default());
         *response.status_mut() = StatusCode::MOVED_PERMANENTLY;
         response.headers_mut().insert(LOCATION, HeaderValue::from_static("/"));
         response

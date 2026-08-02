@@ -1,25 +1,49 @@
-use application::http::Router;
-use hyper::service::{make_service_fn, service_fn};
-use hyper::{Body, Request, Response, Server};
+use application::http::{Body, RequestBody, Router};
+use hyper::service::service_fn;
+use hyper::{Request, Response};
+use hyper_util::rt::{TokioExecutor, TokioIo};
+use hyper_util::server::conn::auto::Builder;
 use std::convert::Infallible;
 use std::net::SocketAddr;
+use tokio::net::TcpListener;
 
 #[tokio::main]
 async fn main() {
-    dotenv::dotenv().ok();
+    dotenvy::dotenv().ok();
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 8000));
 
-    let make_svc = make_service_fn(|_conn| async { Ok::<_, Infallible>(service_fn(handle)) });
+    let listener = match TcpListener::bind(addr).await {
+        Ok(listener) => listener,
+        Err(e) => {
+            eprintln!("failed to bind {addr}: {e}");
+            return;
+        }
+    };
 
-    let server = Server::bind(&addr).serve(make_svc);
+    loop {
+        let (stream, _) = match listener.accept().await {
+            Ok(connection) => connection,
+            Err(e) => {
+                eprintln!("failed to accept connection: {e}");
+                continue;
+            }
+        };
 
-    if let Err(e) = server.await {
-        eprintln!("server error: {e}");
+        let io = TokioIo::new(stream);
+
+        tokio::task::spawn(async move {
+            if let Err(e) = Builder::new(TokioExecutor::new())
+                .serve_connection(io, service_fn(handle))
+                .await
+            {
+                eprintln!("server error: {e}");
+            }
+        });
     }
 }
 
-async fn handle(request: Request<Body>) -> Result<Response<Body>, Infallible> {
+async fn handle(request: Request<RequestBody>) -> Result<Response<Body>, Infallible> {
     // remove trailing slash from path
     let path = request.uri().path().trim_end_matches('/');
     let method = request.method().as_str();

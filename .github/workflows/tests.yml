@@ -17,22 +17,19 @@ jobs:
     runs-on: ubuntu-latest
     name: Tests
     steps:
-    - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Build
       run: cargo build --verbose
     - name: Run tests
       run: cargo test --verbose
     - name: Cargo check
-      uses: actions-rs/cargo@e3a1fd1d1e16e6d43f7d1f64b7b0f994d51f5c4f
-      with:
-        command: check
-        args: --workspace --all-targets --all
+      run: cargo check --workspace --all-targets
 
   coding-style:
     name: Coding Style
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Install clippy
       run: rustup component add clippy
     - name: Run linter (clippy)

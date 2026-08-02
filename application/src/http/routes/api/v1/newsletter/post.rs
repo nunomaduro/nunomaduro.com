@@ -1,8 +1,9 @@
 use crate::http::Route;
 use async_trait::async_trait;
 use domain::contracts::NewsletterRepository;
-use hyper::body::to_bytes;
-use hyper::{Body, Request, Response};
+use crate::http::{Body, RequestBody};
+use http_body_util::BodyExt;
+use hyper::{Request, Response};
 use infrastructure::repositories::MailcoachNewsletterRepository;
 use std::default::Default;
 
@@ -35,9 +36,17 @@ impl Route for Post {
         "/api/v1/newsletter".to_string()
     }
 
-    async fn handle(&self, request: Request<Body>) -> Response<Body> {
-        let payload =
-            String::from_utf8(to_bytes(request.into_body()).await.unwrap().to_vec()).unwrap();
+    async fn handle(&self, request: Request<RequestBody>) -> Response<Body> {
+        let payload = String::from_utf8(
+            request
+                .into_body()
+                .collect()
+                .await
+                .unwrap()
+                .to_bytes()
+                .to_vec(),
+        )
+        .unwrap();
 
         let subscriber: serde_json::Value = serde_json::from_str(payload.as_ref()).unwrap();
 

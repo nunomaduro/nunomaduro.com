@@ -41,7 +41,15 @@ impl MarkdownFile {
     }
 
     pub fn html(&self) -> String {
-        let options = Options::all();
+        // pinned explicitly rather than `Options::all()` so that new upstream
+        // extensions (math, gfm, wikilinks, sub/superscript) can't silently
+        // change how existing posts render.
+        let options = Options::ENABLE_TABLES
+            | Options::ENABLE_FOOTNOTES
+            | Options::ENABLE_STRIKETHROUGH
+            | Options::ENABLE_TASKLISTS
+            | Options::ENABLE_SMART_PUNCTUATION
+            | Options::ENABLE_HEADING_ATTRIBUTES;
         let markdown = self
             .content
             .split("---")

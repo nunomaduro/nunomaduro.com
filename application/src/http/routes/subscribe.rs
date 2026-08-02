@@ -1,7 +1,8 @@
 use crate::http::Route;
 use async_trait::async_trait;
 use hyper::header::CONTENT_TYPE;
-use hyper::{Body, Request, Response};
+use crate::http::{Body, RequestBody};
+use hyper::{Request, Response};
 
 pub struct Subscribe;
 
@@ -23,7 +24,7 @@ impl Route for Subscribe {
         "/subscribe".to_string()
     }
 
-    async fn handle(&self, _request: Request<Body>) -> Response<Body> {
+    async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
         Response::builder()
             .header(CONTENT_TYPE, "text/plain; charset=utf-8")
             .body(Body::from(SCRIPT))

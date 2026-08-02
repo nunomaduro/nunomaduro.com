@@ -1,7 +1,8 @@
 use crate::http::Route;
 use askama::Template;
 use async_trait::async_trait;
-use hyper::{Body, Request, Response};
+use crate::http::{Body, RequestBody};
+use hyper::{Request, Response};
 use presentation::templates::SponsorshipsTemplate;
 
 pub struct Sponsorships;
@@ -22,7 +23,7 @@ impl Route for Sponsorships {
         "/sponsorships".to_string()
     }
 
-    async fn handle(&self, _request: Request<Body>) -> Response<Body> {
+    async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
         let template = SponsorshipsTemplate::new();
 
         Response::new(template.render().unwrap().into())

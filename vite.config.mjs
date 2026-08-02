@@ -9,7 +9,7 @@ export default defineConfig({
 
     build: {
         lib: {
-          entry: path.resolve(__dirname, 'presentation/js/main.js'),
+          entry: path.resolve(import.meta.dirname, 'presentation/js/main.js'),
           name: 'main',
           fileName: (format) => `app.js`,
           cssFileName: 'style'

@@ -18,6 +18,8 @@ domain = { path = "domain" }
 infrastructure = { path = "infrastructure" }
 presentation = { path = "presentation" }
 
-hyper = { version = "0.14.23", features = ["full"] }
-tokio = { version = "1.24.2", features = ["full"] }
-dotenv = "0.15.0"
+hyper = { version = "1.11.0", features = ["full"] }
+hyper-util = { version = "0.1.20", features = ["full"] }
+http-body-util = "0.1.4"
+tokio = { version = "1.53.1", features = ["full"] }
+dotenvy = "0.15.7"
