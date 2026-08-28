@@ -19,14 +19,16 @@
  * number the link is left exactly as-is, so the page never breaks and accounts
  * with no public count simply stay as plain links.
  *
- * Some platforms have no free way to read follower counts (X / Twitter,
- * Threads) or sit behind Cloudflare (Kick, which 403s server-side requests).
- * For any account it can't fetch, the script prompts for the number on the
- * terminal — type a value (e.g. 66k, 1.2k, 1500) or press enter to skip and
- * leave the link as-is. The matching `X_FOLLOWERS` / `THREADS_FOLLOWERS` /
- * `KICK_FOLLOWERS` env vars still work as a non-interactive fallback (CI,
- * piped input). GitHub's API is rate-limited when anonymous; set `GITHUB_TOKEN`
- * to raise the limit.
+ * Every platform is read live. Four of them have no public, documented API for
+ * follower counts and are fetched the way a browser or a crawler would be
+ * served instead (see the fetchers below): X via the web app's own guest-token
+ * GraphQL call, Threads via the crawler-facing og:description, LinkedIn via the
+ * logged-out profile page, Kick via its channel API. Those are the fragile
+ * ones, so each falls back to a manual `X_FOLLOWERS` / `THREADS_FOLLOWERS` /
+ * `LINKEDIN_FOLLOWERS` / `KICK_FOLLOWERS` env var, and then to a terminal
+ * prompt — type a value (e.g. 66k, 1.2k, 1500) or press enter to skip and leave
+ * the link exactly as-is. GitHub's API is rate-limited when anonymous; set
+ * `GITHUB_TOKEN` to raise the limit.
  */
 
 const fs = require('fs');
@@ -95,8 +97,21 @@ async function youtubeSubs(handle) {
   const html = await getText(`https://youtube.com/@${handle}`, {
     Cookie: 'CONSENT=YES+1',
   });
-  const m = html.match(/([\d.,]+[KM]?)\s+subscribers/i);
-  return m ? parseAbbrev(m[1]) : null;
+
+  // A channel page also embeds cards for *other* channels (links, features),
+  // each carrying its own "<n> subscribers" label — so take the count that
+  // sits next to this exact handle rather than the first one on the page.
+  const own = html.match(
+    new RegExp(`@${escapeRegex(handle)}(?![\\w.-])[^0-9]{0,16}([\\d.,]+[KM]?)\\s+subscribers`, 'i'),
+  );
+  if (own) return parseAbbrev(own[1]);
+
+  // Some (usually smaller) channels render the header without the handle. Fall
+  // back to the page's count only when it's unambiguous — i.e. every
+  // "<n> subscribers" on the page shows the same number.
+  const all = [...html.matchAll(/([\d.,]+[KM]?)\s+subscribers/gi)].map((m) => m[1]);
+  const unique = [...new Set(all)];
+  return unique.length === 1 ? parseAbbrev(unique[0]) : null;
 }
 
 async function tiktokFollowers(handle) {
@@ -120,18 +135,115 @@ async function mastodonFollowers(instance, user) {
 }
 
 async function kickFollowers(handle) {
-  // Kick's public channel API often sits behind Cloudflare and 403s server-side
-  // requests; fall back to a manual `KICK_FOLLOWERS` override when it does.
-  try {
-    const json = await getText(`https://kick.com/api/v2/channels/${handle}`, {
-      Accept: 'application/json',
+  // Kick's channel API is public but fronted by Cloudflare, which sometimes
+  // 403s server-side requests — hence the `KICK_FOLLOWERS` fallback. Note it
+  // returns followers_count as a string ("86") about as often as a number.
+  const json = JSON.parse(
+    await getText(`https://kick.com/api/v2/channels/${handle}`, { Accept: 'application/json' }),
+  );
+  const count = parseInt(json.followers_count, 10);
+  return Number.isFinite(count) ? count : null;
+}
+
+// X's web app talks to its own GraphQL API, and it does so before you log in —
+// so the same anonymous handshake works here: activate a guest token with the
+// bundle's (public, hard-coded) bearer token, then ask for the profile. The
+// query id is baked into that bundle and rotates on deploys, so we try the ones
+// we know of in turn and let the caller fall back to `X_FOLLOWERS`.
+const X_BEARER =
+  'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D' +
+  '1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA';
+
+const X_QUERY_IDS = [
+  'sLVLhk0bGj3MVFEKTdax1w',
+  'G3KGOASz96M-Qu0nwmGXNg',
+  'qW5u-DAuXpMEG0zA1F7UGQ',
+  'NimuplG1OB7Fd2btCLdBOw',
+  'k5XapwcSikNsEsILW5FvgA',
+];
+
+// UserByScreenName rejects the call unless every feature flag it knows about is
+// present, so send the full set the web app sends.
+const X_FEATURES = {
+  hidden_profile_subscriptions_enabled: true,
+  rweb_tipjar_consumption_enabled: true,
+  responsive_web_graphql_exclude_directive_enabled: true,
+  verified_phone_label_enabled: false,
+  subscriptions_verification_info_is_identity_verified_enabled: true,
+  subscriptions_verification_info_verified_since_enabled: true,
+  highlights_tweets_tab_ui_enabled: true,
+  responsive_web_twitter_article_notes_tab_enabled: true,
+  subscriptions_feature_can_gift_premium: true,
+  creator_subscriptions_tweet_preview_api_enabled: true,
+  responsive_web_graphql_skip_user_profile_image_extensions_enabled: false,
+  responsive_web_graphql_timeline_navigation_enabled: true,
+};
+
+async function xFollowers(handle) {
+  const activate = await fetch('https://api.x.com/1.1/guest/activate.json', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${X_BEARER}`, 'User-Agent': UA },
+  });
+  if (!activate.ok) throw new Error(`HTTP ${activate.status} for guest/activate.json`);
+  const { guest_token: guestToken } = JSON.parse(await activate.text());
+
+  const query =
+    `variables=${encodeURIComponent(JSON.stringify({ screen_name: handle }))}` +
+    `&features=${encodeURIComponent(JSON.stringify(X_FEATURES))}`;
+
+  for (const id of X_QUERY_IDS) {
+    const res = await fetch(`https://api.x.com/graphql/${id}/UserByScreenName?${query}`, {
+      headers: {
+        Authorization: `Bearer ${X_BEARER}`,
+        'x-guest-token': guestToken,
+        'User-Agent': UA,
+      },
     });
-    const m = json.match(/"followers_?count":(\d+)/i);
+    if (!res.ok) continue; // a rotated-out query id — try the next one
+    const m = (await res.text()).match(/"followers_count":(\d+)/);
     if (m) return parseInt(m[1], 10);
-  } catch {
-    // fall through to the manual override below
   }
-  return process.env.KICK_FOLLOWERS ? parseAbbrev(process.env.KICK_FOLLOWERS) : null;
+  return null;
+}
+
+// Threads serves plain fetch() a bare JS shell, but it serves crawlers a
+// server-rendered page whose og:description opens with "<n> Followers".
+async function threadsFollowers(handle) {
+  const html = await getText(`https://www.threads.com/@${handle}`, {
+    'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+  });
+  const og = html.match(/<meta[^>]+property="og:description"[^>]+content="([^"]*)"/i);
+  const m = (og ? og[1] : '').match(/([\d.,]+[KM]?)\s+Followers/i);
+  return m ? parseAbbrev(m[1]) : null;
+}
+
+// LinkedIn only shows the count to signed-in visitors *in the app*, but the
+// logged-out public profile still renders it. The page also carries "N
+// followers" for each suggested person in the sidebar, so match the profile's
+// own line — the one paired with the connections count.
+async function linkedinFollowers(slug) {
+  const html = await getText(`https://www.linkedin.com/in/${slug}/`);
+  const m =
+    html.match(/([\d.,]+[KM]?)\s*followers\s*<\/span>\s*<span>[^<]*connections/i) ||
+    html.match(/not-first-middot[\s\S]{0,200}?([\d.,]+[KM]?)\s*followers/i);
+  return m ? parseAbbrev(m[1]) : null;
+}
+
+/**
+ * Read a count from a platform that may well refuse to answer, falling back to
+ * a manual `<PLATFORM>_FOLLOWERS` env var. Returning null (rather than
+ * throwing) lets the caller prompt for the number and, failing that, leave the
+ * link untouched.
+ */
+async function withOverride(label, envVar, fetcher) {
+  try {
+    const count = await fetcher();
+    if (count != null) return count;
+    console.warn(`⚠  ${label.padEnd(12)} no count in the response — trying ${envVar}`);
+  } catch (err) {
+    console.warn(`⚠  ${label.padEnd(12)} live fetch failed (${err.message}) — trying ${envVar}`);
+  }
+  return process.env[envVar] ? parseAbbrev(process.env[envVar]) : null;
 }
 
 // Each account: the (unique) href that locates it in the HTML + a fetcher.
@@ -139,8 +251,13 @@ const ACCOUNTS = [
   {
     label: 'x',
     href: 'https://twitter.com/enunomaduro',
-    // No free API for X follower counts — allow a manual override.
-    fetch: async () => (process.env.X_FOLLOWERS ? parseAbbrev(process.env.X_FOLLOWERS) : null),
+    fetch: () => withOverride('x', 'X_FOLLOWERS', () => xFollowers('enunomaduro')),
+  },
+  {
+    label: 'linkedin',
+    href: 'https://www.linkedin.com/in/nunomaduro/',
+    fetch: () =>
+      withOverride('linkedin', 'LINKEDIN_FOLLOWERS', () => linkedinFollowers('nunomaduro')),
   },
   {
     label: 'youtube',
@@ -211,7 +328,7 @@ const ACCOUNTS = [
   {
     label: 'kick',
     href: 'https://kick.com/nunomaduro',
-    fetch: () => kickFollowers('nunomaduro'),
+    fetch: () => withOverride('kick', 'KICK_FOLLOWERS', () => kickFollowers('nunomaduro')),
   },
   {
     label: 'mastodon',
@@ -221,8 +338,8 @@ const ACCOUNTS = [
   {
     label: 'threads',
     href: 'https://threads.com/@enunomaduro',
-    // No free API for Threads follower counts — allow a manual override.
-    fetch: async () => (process.env.THREADS_FOLLOWERS ? parseAbbrev(process.env.THREADS_FOLLOWERS) : null),
+    fetch: () =>
+      withOverride('threads', 'THREADS_FOLLOWERS', () => threadsFollowers('enunomaduro')),
   },
 ];
 

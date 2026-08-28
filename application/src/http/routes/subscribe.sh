@@ -73,6 +73,7 @@ follow_web "Threads"                       "https://threads.com/@enunomaduro"
 follow_web "Twitch"                        "https://twitch.tv/nunomaduro"
 follow_web "Instagram"                     "https://instagram.com/enunomaduro"
 follow_web "TikTok"                        "https://tiktok.com/@enunomaduro"
+follow_web "LinkedIn"                      "https://www.linkedin.com/in/nunomaduro/"
 follow_web "YouTube"                       "https://youtube.com/nunomaduro?sub_confirmation=1"
 follow_web "X / Twitter"                   "https://twitter.com/intent/follow?screen_name=enunomaduro"
 
