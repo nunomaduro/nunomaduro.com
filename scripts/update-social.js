@@ -83,10 +83,11 @@ async function getText(url, headers = {}) {
 
 // Parse an abbreviated count like "28.7K" / "1.2M" / "4,040" into a number.
 function parseAbbrev(str) {
-  const m = String(str).replace(/,/g, '').match(/([\d.]+)\s*([KkMm]?)/);
+  const m = String(str).replace(/,/g, '').match(/(\d+(?:\.\d+)?)\s*([KkMm]?)/);
   if (!m) return null;
   const mult = { k: 1e3, m: 1e6 }[m[2].toLowerCase()] || 1;
-  return Math.round(parseFloat(m[1]) * mult);
+  const n = Math.round(parseFloat(m[1]) * mult);
+  return Number.isFinite(n) ? n : null;
 }
 
 // --- Per-platform fetchers (return a raw count, or null if unavailable) ---
@@ -134,13 +135,25 @@ async function mastodonFollowers(instance, user) {
   return typeof json.followers_count === 'number' ? json.followers_count : null;
 }
 
+// Instagram's server-rendered page sometimes embeds the exact count; otherwise
+// its meta description reads "12K Followers, 300 Following, …".
+async function instagramFollowers(handle) {
+  const html = await getText(`https://instagram.com/${handle}/`);
+  const a = html.match(/"edge_followed_by":\{"count":(\d+)\}/);
+  if (a) return parseInt(a[1], 10);
+  const b = html.match(/([\d.,]+[KM]?)\s+Followers/i);
+  return b ? parseAbbrev(b[1]) : null;
+}
+
 async function kickFollowers(handle) {
-  // Kick's channel API is public but fronted by Cloudflare, which sometimes
-  // 403s server-side requests — hence the `KICK_FOLLOWERS` fallback. Note it
-  // returns followers_count as a string ("86") about as often as a number.
-  const json = JSON.parse(
-    await getText(`https://kick.com/api/v2/channels/${handle}`, { Accept: 'application/json' }),
-  );
+  // Kick's channel API is public but fronted by Cloudflare, which 403s any
+  // request carrying a browser (or curl) User-Agent — so skip getText's browser
+  // headers and send a bare request. `KICK_FOLLOWERS` remains the fallback. Note
+  // it returns followers_count as a string ("86") about as often as a number.
+  const url = `https://kick.com/api/v2/channels/${handle}`;
+  const res = await fetch(url, { headers: { Accept: 'application/json' } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  const json = await res.json();
   const count = parseInt(json.followers_count, 10);
   return Number.isFinite(count) ? count : null;
 }
@@ -207,14 +220,27 @@ async function xFollowers(handle) {
 }
 
 // Threads serves plain fetch() a bare JS shell, but it serves crawlers a
-// server-rendered page whose og:description opens with "<n> Followers".
+// server-rendered page whose og:description opens with "<n> Followers" (rounded,
+// e.g. "2.5K"). The embedded data also carries the exact `follower_count`, but
+// possibly for other accounts too — so take the exact figure only when it
+// rounds to the og:description one.
 async function threadsFollowers(handle) {
   const html = await getText(`https://www.threads.com/@${handle}`, {
     'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
   });
-  const og = html.match(/<meta[^>]+property="og:description"[^>]+content="([^"]*)"/i);
+  const og =
+    html.match(/<meta[^>]+property="og:description"[^>]+content="([^"]*)"/i) ||
+    html.match(/<meta[^>]+content="([^"]*)"[^>]+property="og:description"/i);
   const m = (og ? og[1] : '').match(/([\d.,]+[KM]?)\s+Followers/i);
-  return m ? parseAbbrev(m[1]) : null;
+  const rounded = m ? parseAbbrev(m[1]) : null;
+  if (rounded == null) return null;
+
+  const suffix = m[1].slice(-1).toUpperCase();
+  const step = suffix === 'M' ? 1e5 : suffix === 'K' ? 100 : 1;
+  const exact = [...html.matchAll(/"follower_count":(\d+)/g)]
+    .map((x) => parseInt(x[1], 10))
+    .find((n) => Math.abs(n - rounded) <= step / 2);
+  return exact ?? rounded;
 }
 
 // LinkedIn only shows the count to signed-in visitors *in the app*, but the
@@ -292,24 +318,12 @@ const ACCOUNTS = [
   {
     label: 'instagram',
     href: 'https://instagram.com/enunomaduro',
-    async fetch() {
-      const html = await getText('https://instagram.com/enunomaduro/');
-      const a = html.match(/"edge_followed_by":\{"count":(\d+)\}/);
-      if (a) return parseInt(a[1], 10);
-      const b = html.match(/([\d.,]+)\s+Followers/i);
-      return b ? parseAbbrev(b[1]) : null;
-    },
+    fetch: () => instagramFollowers('enunomaduro'),
   },
   {
     label: 'instagram·extra',
     href: 'https://instagram.com/nunomaduro_extra',
-    async fetch() {
-      const html = await getText('https://instagram.com/nunomaduro_extra/');
-      const a = html.match(/"edge_followed_by":\{"count":(\d+)\}/);
-      if (a) return parseInt(a[1], 10);
-      const b = html.match(/([\d.,]+)\s+Followers/i);
-      return b ? parseAbbrev(b[1]) : null;
-    },
+    fetch: () => instagramFollowers('nunomaduro_extra'),
   },
   {
     label: 'twitch',
@@ -347,6 +361,7 @@ const ACCOUNTS = [
 // below that, and the plain number under 1k (e.g. 66k, 29k, 9.2k, 3.1k, 3).
 function formatCount(n) {
   if (n < 1000) return String(n);
+  if (n >= 999_500) return formatBig(n);
   const k = n / 1000;
   if (k >= 10) return `${Math.round(k)}k`;
   const r = Math.round(k * 10) / 10;
@@ -432,7 +447,12 @@ function formatBig(n) {
     const b = n / 1e9;
     return `${b >= 10 ? Math.round(b * 10) / 10 : Math.round(b * 100) / 100}B`;
   }
-  if (n >= 1e6) return `${Math.round(n / 1e6)}M`;
+  if (n >= 999_500_000) return formatBig(Math.max(n, 1e9));
+  if (n >= 1e6) {
+    const m = n / 1e6;
+    return `${m >= 10 ? Math.round(m) : Math.round(m * 10) / 10}M`;
+  }
+  if (n >= 999_500) return formatBig(Math.max(n, 1e6));
   if (n >= 1e3) return `${Math.round(n / 1e3)}k`;
   return String(n);
 }
@@ -553,8 +573,12 @@ async function packagistTotal() {
     }
   });
 
+  // A partial sum would understate the hero, so only report a complete one.
   const got = counts.filter((n) => typeof n === 'number');
-  if (!got.length) return null;
+  if (got.length !== names.length || vendorLists.some((l) => !l.length)) {
+    console.warn(`⚠  packagist   only ${got.length}/${names.length} packages counted — not updating`);
+    return null;
+  }
   console.log(`∑  packages    ${got.length}/${names.length} counted across ${VENDORS.length} vendors + ${LARAVEL_PACKAGES.length} laravel/*`);
   return got.reduce((a, b) => a + b, 0);
 }
