@@ -17,15 +17,24 @@ async fn main() {
         .and_then(|port| port.parse().ok())
         .unwrap_or(8000);
 
-    let addr = SocketAddr::from(([0, 0, 0, 0], port));
+    // bind to all IPv6 and IPv4 interfaces, falling back to IPv4 only
+    let ipv6 = SocketAddr::from(([0u16; 8], port));
+    let ipv4 = SocketAddr::from(([0, 0, 0, 0], port));
 
-    let listener = match TcpListener::bind(addr).await {
+    let listener = match TcpListener::bind(ipv6).await {
         Ok(listener) => listener,
-        Err(e) => {
-            eprintln!("failed to bind {addr}: {e}");
-            return;
-        }
+        Err(_) => match TcpListener::bind(ipv4).await {
+            Ok(listener) => listener,
+            Err(e) => {
+                eprintln!("failed to bind {ipv4}: {e}");
+                std::process::exit(1);
+            }
+        },
     };
+
+    if let Ok(addr) = listener.local_addr() {
+        println!("listening on {addr}");
+    }
 
     loop {
         let (stream, _) = match listener.accept().await {
