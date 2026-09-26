@@ -8,6 +8,8 @@
  *     and total followers across all platforms. Hero values are placeholders
  *     located by `data-stat` attributes and rewritten in place; if a source is
  *     unavailable the card is left exactly as-is.
+ *   - the same followers total in the Sponsorships page intro
+ *     (presentation/templates/support.html), via its own `data-stat` span.
  *
  * Usage:
  *   node scripts/update-social.js          # fetch + update the template
@@ -50,6 +52,7 @@ function ask(question) {
 }
 
 const ABOUT_HTML = path.join(__dirname, '../presentation/templates/about.html');
+const SUPPORT_HTML = path.join(__dirname, '../presentation/templates/support.html');
 
 // Markup used for an inserted count span — mirrors the existing count spans.
 const COUNT_CLASS =
@@ -587,6 +590,8 @@ async function main() {
   const dryRun = process.argv.includes('--dry');
   const original = fs.readFileSync(ABOUT_HTML, 'utf8');
   let html = original;
+  const supportOriginal = fs.readFileSync(SUPPORT_HTML, 'utf8');
+  let supportHtml = supportOriginal;
   let changed = 0;
 
   // Kick off the slower downloads fetch up-front so it resolves while we
@@ -661,6 +666,9 @@ async function main() {
 
   if (followersTotal > 0) {
     html = setStat(html, 'followers', `${formatCount(followersTotal)}+`).html;
+    const support = setStat(supportHtml, 'followers', `${formatCount(followersTotal)}+`);
+    if (!support.found) console.warn('⚠  followers   no data-stat="followers" in support.html');
+    supportHtml = support.html;
     console.log(`∑  followers   ${formatCount(followersTotal)}+ (raw ${followersTotal.toLocaleString()})`);
   }
 
@@ -677,9 +685,17 @@ async function main() {
     return;
   }
 
-  if (html !== original) {
-    fs.writeFileSync(ABOUT_HTML, html);
-    console.log(`\n✔ Updated ${path.relative(process.cwd(), ABOUT_HTML)}`);
+  const writes = [
+    [ABOUT_HTML, original, html],
+    [SUPPORT_HTML, supportOriginal, supportHtml],
+  ].filter(([, before, after]) => after !== before);
+
+  if (writes.length) {
+    console.log('');
+    for (const [file, , after] of writes) {
+      fs.writeFileSync(file, after);
+      console.log(`✔ Updated ${path.relative(process.cwd(), file)}`);
+    }
     console.log('  Run `npm run build` to regenerate the site.');
   } else {
     console.log('\n✔ Everything already up to date.');
