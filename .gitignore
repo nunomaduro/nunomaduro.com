@@ -1,6 +1,5 @@
 /target
 .env
 /node_modules
-/public/dist/style.css
 .playwright-mcp
 .mcp.json
