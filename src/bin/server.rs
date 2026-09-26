@@ -1,5 +1,6 @@
 use application::http::{Body, RequestBody, Router};
 use hyper::service::service_fn;
+use hyper::header::{HeaderValue, CONTENT_TYPE};
 use hyper::{Request, Response};
 use hyper_util::rt::{TokioExecutor, TokioIo};
 use hyper_util::server::conn::auto::Builder;
@@ -63,7 +64,13 @@ async fn handle(request: Request<RequestBody>) -> Result<Response<Body>, Infalli
     let path = request.uri().path().trim_end_matches('/').to_string();
     let method = request.method().to_string();
 
-    let response = Router::default().route(&method, &path).handle(request).await;
+    let mut response = Router::default().route(&method, &path).handle(request).await;
+
+    // routes without an explicit content type render html templates
+    response
+        .headers_mut()
+        .entry(CONTENT_TYPE)
+        .or_insert(HeaderValue::from_static("text/html; charset=utf-8"));
 
     // fall back to files in ./public when no route matches
     if response.status() == 404 && method == "GET" {
