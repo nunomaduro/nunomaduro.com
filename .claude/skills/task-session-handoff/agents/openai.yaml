@@ -1,0 +1,5 @@
+interface:
+  display_name: "Session Handoff"
+  short_description: "Hand off this session"
+policy:
+  allow_implicit_invocation: false

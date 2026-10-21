@@ -1,0 +1,5 @@
+interface:
+  display_name: "Issues Triage"
+  short_description: "Triage the open issues"
+policy:
+  allow_implicit_invocation: false

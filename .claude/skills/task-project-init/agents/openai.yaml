@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project Init"
+  short_description: "Describe this project"
+policy:
+  allow_implicit_invocation: false

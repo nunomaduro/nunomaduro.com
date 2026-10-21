@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project Retro"
+  short_description: "Turn faults into rules"
+policy:
+  allow_implicit_invocation: false

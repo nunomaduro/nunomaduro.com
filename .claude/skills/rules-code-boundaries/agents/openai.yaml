@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Boundaries"
+  short_description: "Input validation and record access"
+policy:
+  allow_implicit_invocation: true

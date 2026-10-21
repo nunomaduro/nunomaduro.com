@@ -1,0 +1,5 @@
+interface:
+  display_name: "Data Integrity"
+  short_description: "Database writes"
+policy:
+  allow_implicit_invocation: true

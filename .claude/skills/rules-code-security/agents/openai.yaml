@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Security"
+  short_description: "Untrusted values and secrets"
+policy:
+  allow_implicit_invocation: true

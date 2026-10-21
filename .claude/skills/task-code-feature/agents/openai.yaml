@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Feature"
+  short_description: "Build a feature"
+policy:
+  allow_implicit_invocation: false

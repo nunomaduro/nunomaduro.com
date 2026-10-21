@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project Glossary"
+  short_description: "Keep the glossary and the decisions"
+policy:
+  allow_implicit_invocation: false

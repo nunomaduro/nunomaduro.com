@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Architecture"
+  short_description: "Give a spread decision one module"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Immutability"
+  short_description: "Object state"
+policy:
+  allow_implicit_invocation: true

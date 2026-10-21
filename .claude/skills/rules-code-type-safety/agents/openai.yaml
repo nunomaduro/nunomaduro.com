@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Type Safety"
+  short_description: "Signature types"
+policy:
+  allow_implicit_invocation: true

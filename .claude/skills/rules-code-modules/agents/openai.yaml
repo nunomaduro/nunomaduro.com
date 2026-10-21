@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Modules"
+  short_description: "Module shape and interface"
+policy:
+  allow_implicit_invocation: true

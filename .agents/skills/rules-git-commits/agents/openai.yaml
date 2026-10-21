@@ -1,0 +1,5 @@
+interface:
+  display_name: "Git Commits"
+  short_description: "Commit messages"
+policy:
+  allow_implicit_invocation: true

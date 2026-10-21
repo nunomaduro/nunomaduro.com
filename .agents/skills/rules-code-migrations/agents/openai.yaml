@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Migrations"
+  short_description: "Schema changes"
+policy:
+  allow_implicit_invocation: true

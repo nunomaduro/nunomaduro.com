@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Public API"
+  short_description: "Public API and visibility"
+policy:
+  allow_implicit_invocation: true

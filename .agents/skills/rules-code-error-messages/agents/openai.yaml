@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Error Messages"
+  short_description: "Messages that people read"
+policy:
+  allow_implicit_invocation: true

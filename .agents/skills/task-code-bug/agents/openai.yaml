@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Bug"
+  short_description: "Find and fix a bug"
+policy:
+  allow_implicit_invocation: false

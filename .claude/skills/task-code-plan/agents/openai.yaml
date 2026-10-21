@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Plan"
+  short_description: "Plan a change before code"
+policy:
+  allow_implicit_invocation: false

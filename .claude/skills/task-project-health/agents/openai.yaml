@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project Health"
+  short_description: "Keep this project healthy"
+policy:
+  allow_implicit_invocation: false

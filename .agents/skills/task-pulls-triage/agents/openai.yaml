@@ -1,0 +1,5 @@
+interface:
+  display_name: "Pulls Triage"
+  short_description: "Triage the open pull requests"
+policy:
+  allow_implicit_invocation: false

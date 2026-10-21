@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Tests"
+  short_description: "Tests of a change"
+policy:
+  allow_implicit_invocation: true

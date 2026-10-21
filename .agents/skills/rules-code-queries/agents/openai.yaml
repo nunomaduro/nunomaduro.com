@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Queries"
+  short_description: "Database reads"
+policy:
+  allow_implicit_invocation: true

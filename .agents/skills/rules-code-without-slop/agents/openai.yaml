@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Without Slop"
+  short_description: "Code without slop"
+policy:
+  allow_implicit_invocation: true
