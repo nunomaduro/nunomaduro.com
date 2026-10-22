@@ -17,6 +17,7 @@
   "scripts": {
     "build": "vite build",
     "og": "node scripts/generate-og-images.js",
+    "icons": "node scripts/generate-icons.js",
     "social": "node scripts/update-social.js"
   }
 }
