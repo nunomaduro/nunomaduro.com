@@ -1,23 +1,8 @@
 use crate::support::MarkdownFile;
 use domain::contracts::PostRepository;
-use domain::value_objects::Post;
+use domain::value_objects::{Post, PublicationDate};
 use std::cmp::Reverse;
 use std::fs;
-
-const MONTHS: [&str; 12] = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-];
 
 pub struct MarkdownPostRepository {
     path: String,
@@ -58,7 +43,7 @@ impl PostRepository for MarkdownPostRepository {
             })
             .collect();
 
-        posts.sort_by_cached_key(|post| Reverse(publication_date(post)));
+        posts.sort_by_key(|post| Reverse(post.published_at()));
 
         posts
     }
@@ -74,7 +59,7 @@ impl PostRepository for MarkdownPostRepository {
 
         let title = markdown.property("title")?;
         let description = markdown.property("description")?;
-        let published_at = markdown.property("published_at")?;
+        let published_at = publication_date(slug, &markdown.property("published_at")?);
         let image = markdown.property("image");
 
         Some(Post::new(
@@ -88,22 +73,10 @@ impl PostRepository for MarkdownPostRepository {
     }
 }
 
-fn publication_date(post: &Post) -> (u32, u32, u32) {
-    parse_publication_date(post.published_at()).unwrap_or_else(|| {
-        panic!(
-            "the post `{}` has the date `{}`: write `published_at` in the form `January 8, 2026`",
-            post.slug(),
-            post.published_at()
-        )
+fn publication_date(slug: &str, date: &str) -> PublicationDate {
+    date.parse().unwrap_or_else(|_| {
+        panic!("the post `{slug}` has the date `{date}`: write `published_at` in the form `January 8, 2026`")
     })
-}
-
-fn parse_publication_date(date: &str) -> Option<(u32, u32, u32)> {
-    let (month_and_day, year) = date.split_once(", ")?;
-    let (month, day) = month_and_day.split_once(' ')?;
-    let month = MONTHS.iter().position(|name| *name == month)? as u32 + 1;
-
-    Some((year.parse().ok()?, month, day.parse().ok()?))
 }
 
 #[cfg(test)]
@@ -144,15 +117,18 @@ mod tests {
     #[test]
     fn reads_the_date_of_each_post_of_the_site() {
         let repository = MarkdownPostRepository::new("../content/posts".to_string());
-        let posts = repository.all();
 
-        for post in posts {
-            assert!(
-                parse_publication_date(post.published_at()).is_some(),
-                "{}",
-                post.slug()
-            );
-        }
+        repository.all();
+    }
+
+    #[test]
+    #[should_panic(expected = "the post `wrong-date-post` has the date `2026-01-04`")]
+    fn stops_on_a_post_with_a_date_in_a_different_form() {
+        let directory = std::env::temp_dir().join(format!("posts-wrong-date-{}", std::process::id()));
+        fs::create_dir_all(&directory).unwrap();
+        write_post(&directory, "wrong-date-post", "2026-01-04");
+
+        MarkdownPostRepository::new(directory.to_str().unwrap().to_string()).find("wrong-date-post");
     }
 
     #[test]

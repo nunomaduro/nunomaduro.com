@@ -11,7 +11,7 @@ impl SponsorshipsPage {
         Self {
             id: "sponsorships".to_string(),
             title: "nunomaduro · sponsorships".to_string(),
-            description: "staff software engineer at laravel\u{a0}· speaker\u{a0}· content creator"
+            description: "sponsor nunomaduro: a monthly logo and link, ads in youtube videos, a dedicated video, or a two-day live build sprint with your developer tool."
                 .to_string(),
         }
     }

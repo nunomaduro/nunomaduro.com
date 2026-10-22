@@ -29,11 +29,12 @@ impl MarkdownFile {
                 continue;
             }
 
-            let mut split = line.split(':');
-            let potencial_key = split.next().unwrap();
+            let Some((potencial_key, value)) = line.split_once(':') else {
+                continue;
+            };
 
             if potencial_key == key {
-                return Some(split.next().unwrap().to_string().trim().to_string());
+                return Some(value.trim().to_string());
             }
         }
 
@@ -77,6 +78,20 @@ title: Hello World
         let markdown = MarkdownFile::new(content.to_string());
 
         assert_eq!(markdown.property("title"), Some("Hello World".to_string()));
+    }
+
+    #[test]
+    fn reads_a_property_that_holds_a_colon() {
+        let content = "---
+title: Pest 4: browser testing, sharding: and more
+---";
+
+        let markdown = MarkdownFile::new(content.to_string());
+
+        assert_eq!(
+            markdown.property("title"),
+            Some("Pest 4: browser testing, sharding: and more".to_string())
+        );
     }
 
     #[test]

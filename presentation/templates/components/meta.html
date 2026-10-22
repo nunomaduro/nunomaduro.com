@@ -1,64 +1,37 @@
-<title>{{ page.title() }}</title>
-
-<!-- Essential Meta Tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="format-detection" content="telephone=no">
-<meta name="theme-color" content="#f2f2f4">
-
-<!-- SEO Meta Tags -->
-<meta name="title" content="{{ page.title() }}">
+<title>{{ page.title() }}</title>
 <meta name="description" content="{{ page.description() }}">
 <meta name="author" content="nunomaduro">
-<meta name="keywords" content="nunomaduro, laravel, pest php, larastan, pint, laravel zero, openai php, php insights, php developer, laravel core team, open source, software engineer, content creator, youtube, twitch, livestream coding">
+<meta name="theme-color" content="#f2f2f4">
+<meta name="format-detection" content="telephone=no">
+{% if page.id() == "not-found" %}
+<meta name="robots" content="noindex, follow">
+{% else %}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="googlebot" content="index, follow">
-<meta name="language" content="English">
-<meta name="rating" content="general">
-<meta name="distribution" content="global">
-
-<!-- Canonical URL -->
 <link rel="canonical" href="https://nunomaduro.com{{ url }}">
+{% endif %}
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://nunomaduro.com{{ url }}">
-<meta property="og:title" content="{{ page.title() }}">
-<meta property="og:description" content="{{ page.description() }}">
 <meta property="og:site_name" content="nunomaduro">
 <meta property="og:locale" content="en_US">
-
-<!-- Twitter / X -->
+<meta property="og:url" content="https://nunomaduro.com{{ url }}">
+<meta property="og:description" content="{{ page.description() }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@enunomaduro">
 <meta name="twitter:creator" content="@enunomaduro">
-<meta name="twitter:url" content="https://nunomaduro.com{{ url }}">
-<meta name="twitter:title" content="{{ page.title() }}">
 <meta name="twitter:description" content="{{ page.description() }}">
-<meta name="twitter:domain" content="nunomaduro.com">
+<meta name="fediverse:creator" content="@nunomaduro@mastodon.social">
 
-<!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-icon-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fbbf24">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="msapplication-TileColor" content="#f2f2f4">
-<meta name="msapplication-TileImage" content="/android-icon-192x192.png">
-
-<!-- Additional SEO -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="nunomaduro">
 
-<!-- RSS Feed -->
-<link rel="alternate" type="application/rss+xml" title="nunomaduro" href="https://nunomaduro.com/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="nunomaduro · posts" href="https://nunomaduro.com/feed.xml">
 
-<!-- Social Media Verification -->
 <link rel="me" href="https://mastodon.social/@nunomaduro">
 <link rel="me" href="https://phpc.social/@nunomaduro">
 <link rel="me" href="https://github.com/nunomaduro">

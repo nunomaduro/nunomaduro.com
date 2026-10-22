@@ -13,7 +13,7 @@ impl PostsPage {
             id: "posts".to_string(),
             title: "nunomaduro · posts".to_string(),
             description:
-                "articles about php, laravel, testing, open source, and software engineering"
+                "articles by nunomaduro about php, laravel, pest, testing, open source, and software engineering"
                     .to_string(),
         }
     }
@@ -61,7 +61,7 @@ mod tests {
             "A unique post description".to_string(),
             String::new(),
             None,
-            "March 3, 2026".to_string(),
+            "March 3, 2026".parse().unwrap(),
         )];
 
         let html = PostsTemplate::new(posts).render().unwrap();

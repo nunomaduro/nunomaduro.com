@@ -26,6 +26,7 @@
   {% for post in posts %}
   <url>
     <loc>https://nunomaduro.com/posts/{{ post.slug() }}</loc>
+    <lastmod>{{ post.published_at().iso8601() }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

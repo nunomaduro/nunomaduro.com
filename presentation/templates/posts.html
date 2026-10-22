@@ -13,7 +13,7 @@
             {% for post in posts %}
                 <li>
                     <a href="/posts/{{ post.slug() }}" class="group card grid gap-1.5 p-7 md:grid-cols-[150px_1fr_auto] md:items-baseline md:gap-6">
-                        <span class="text-sm text-zinc-600">{{ post.published_at() }}</span>
+                        <time datetime="{{ post.published_at().iso8601() }}" class="text-sm text-zinc-600">{{ post.published_at() }}</time>
                         <div>
                             <h2 class="text-xl font-bold tracking-tight text-balance group-hover:text-amber-700">{{ post.title() }}</h2>
                             <p class="mt-1 max-w-[60ch] text-[15px] text-zinc-600 text-pretty">{{ post.description() }}</p>

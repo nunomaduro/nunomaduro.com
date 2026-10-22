@@ -11,7 +11,8 @@ impl TalksPage {
         Self {
             id: "talks".to_string(),
             title: "nunomaduro · talks".to_string(),
-            description: "conference talks about pest, laravel, and php tooling".to_string(),
+            description: "conference talks by nunomaduro about pest, laravel, and php tooling, from laracon us, laracon eu, laracon india, laracon au, and more."
+                .to_string(),
         }
     }
 
@@ -72,5 +73,16 @@ mod tests {
 
         assert!(html.contains("<title>nunomaduro · talks</title>"));
         assert!(!html.to_lowercase().contains("nuno maduro"));
+    }
+
+    #[test]
+    fn describes_the_talks_page_as_a_collection_with_a_breadcrumb() {
+        let html = TalksTemplate::default().render().unwrap();
+        let graph = crate::templates::structured_data(&html);
+        let page = crate::templates::node(&graph, "CollectionPage");
+
+        assert!(html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/talks\">"));
+        assert_eq!(page["breadcrumb"]["itemListElement"][1]["name"], "Talks");
+        assert_eq!(page["breadcrumb"]["itemListElement"][1]["item"], "https://nunomaduro.com/talks");
     }
 }

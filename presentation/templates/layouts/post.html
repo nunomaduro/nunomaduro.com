@@ -3,74 +3,60 @@
     <head>
         {% include "components/meta.html" %}
 
-        <!-- OG Image for this post -->
-        <meta property="og:image" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
-        <meta property="og:image:secure_url" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="{{ page.heading() }}">
+        <meta property="og:image" content="https://nunomaduro.com/og/posts/{{ page.slug() }}.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta property="og:image:alt" content="{{ page.heading() }}">
-        <meta name="twitter:image" content="https://nunomaduro.com/og/{{ page.slug() }}.png">
+        <meta property="article:published_time" content="{{ page.published_at().iso8601() }}">
+        <meta property="article:author" content="https://nunomaduro.com/">
+        <meta name="twitter:title" content="{{ page.heading() }}">
+        <meta name="twitter:image" content="https://nunomaduro.com/og/posts/{{ page.slug() }}.png">
         <meta name="twitter:image:alt" content="{{ page.heading() }}">
+        <meta name="twitter:label1" content="written by">
+        <meta name="twitter:data1" content="nunomaduro">
+        <meta name="twitter:label2" content="published">
+        <meta name="twitter:data2" content="{{ page.published_at() }}">
 
         {% include "components/styles.html" %}
         <link rel="preload" href="/dist/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
         {% include "components/scripts.html" %}
 
-        <!-- BlogPosting Structured Data -->
         <script type="application/ld+json">
         {
           "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "@id": "https://nunomaduro.com{{ url }}#article",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://nunomaduro.com{{ url }}"
-          },
-          "headline": "{{ page.title() }}",
-          "description": "{{ page.description() }}",
-          "image": "https://nunomaduro.com/og/{{ page.slug() }}.png",
-          "author": {
-            "@type": "Person",
-            "@id": "https://nunomaduro.com/#person",
-            "name": "nunomaduro",
-            "url": "https://nunomaduro.com"
-          },
-          "publisher": {
-            "@type": "Person",
-            "@id": "https://nunomaduro.com/#person",
-            "name": "nunomaduro",
-            "url": "https://nunomaduro.com"
-          },
-          "datePublished": "{{ page.published_at() }}",
-          "dateModified": "{{ page.published_at() }}",
-          "inLanguage": "en-US"
-        }
-        </script>
-
-        <!-- BreadcrumbList for Blog Post -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
+          "@graph": [
+            {% include "components/person.html" %},
+            {% include "components/website.html" %},
             {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://nunomaduro.com"
+              "@type": "BlogPosting",
+              "@id": "https://nunomaduro.com{{ url }}#article",
+              "url": "https://nunomaduro.com{{ url }}",
+              "mainEntityOfPage": "https://nunomaduro.com{{ url }}",
+              "headline": {{ page.heading()|json|safe }},
+              "description": {{ page.description()|json|safe }},
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://nunomaduro.com/og/posts/{{ page.slug() }}.png",
+                "width": 1200,
+                "height": 630
+              },
+              "datePublished": "{{ page.published_at().iso8601() }}",
+              "dateModified": "{{ page.published_at().iso8601() }}",
+              "inLanguage": "en-US",
+              "author": { "@id": "https://nunomaduro.com/#person" },
+              "publisher": { "@id": "https://nunomaduro.com/#person" },
+              "isPartOf": { "@id": "https://nunomaduro.com/#website" }
             },
             {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Posts",
-              "item": "https://nunomaduro.com/posts"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "{{ page.title() }}",
-              "item": "https://nunomaduro.com{{ url }}"
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nunomaduro.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Posts", "item": "https://nunomaduro.com/posts" },
+                { "@type": "ListItem", "position": 3, "name": {{ page.heading()|json|safe }}, "item": "https://nunomaduro.com{{ url }}" }
+              ]
             }
           ]
         }

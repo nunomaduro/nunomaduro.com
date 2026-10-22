@@ -57,4 +57,13 @@ mod tests {
         assert!(html.contains("href=\"/posts\" class=\"inline-flex"));
         assert!(html.contains("href=\"/\" class=\"inline-flex"));
     }
+
+    #[test]
+    fn keeps_the_page_not_found_out_of_the_search_index() {
+        let html = NotFoundTemplate::default().render().unwrap();
+
+        assert!(html.contains("<meta name=\"robots\" content=\"noindex, follow\">"));
+        assert!(!html.contains("rel=\"canonical\""));
+        assert!(!html.contains("application/ld+json"));
+    }
 }

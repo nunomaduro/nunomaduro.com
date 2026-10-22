@@ -4,7 +4,7 @@
     <article class="card mx-auto max-w-[704px] px-5 py-8 sm:px-12 sm:py-14 lg:px-16">
         <div class="mb-8 flex items-center justify-between gap-4 text-sm text-zinc-600 sm:mb-10">
             <a href="/posts" class="-ml-2 inline-flex min-h-11 items-center rounded-lg px-2 hover:text-zinc-900"><span aria-hidden="true">&larr;&nbsp;</span>posts</a>
-            <span>{{ page.published_at() }}</span>
+            <time datetime="{{ page.published_at().iso8601() }}">{{ page.published_at() }}</time>
         </div>
 
         <h1 class="text-[30px] leading-[1.1] font-bold tracking-[-0.035em] text-balance sm:text-[40px]">{{ page.heading() }}</h1>

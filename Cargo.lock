@@ -891,6 +891,7 @@ version = "0.0.1"
 dependencies = [
  "askama",
  "domain",
+ "serde_json",
 ]
 
 [[package]]

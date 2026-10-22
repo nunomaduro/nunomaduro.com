@@ -1,100 +1,31 @@
-<!-- Structured Data for Person -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://nunomaduro.com/#person",
-  "name": "nunomaduro",
-  "givenName": "nunomaduro",
-  "familyName": "nunomaduro",
-  "url": "https://nunomaduro.com",
-  "image": "https://nunomaduro.com/about.1.jpg",
-  "jobTitle": "staff software engineer",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Laravel",
-    "url": "https://laravel.com"
-  },
-  "sameAs": [
-    "https://github.com/nunomaduro",
-    "https://twitter.com/enunomaduro",
-    "https://www.youtube.com/nunomaduro",
-    "https://www.linkedin.com/in/nunomaduro",
-    "https://twitch.tv/nunomaduro",
-    "https://www.tiktok.com/@enunomaduro",
-    "https://www.instagram.com/enunomaduro"
-  ],
-  "knowsAbout": ["PHP", "Laravel", "Pest PHP", "Larastan", "Laravel Pint", "Laravel Zero", "OpenAI PHP", "PHP Insights", "Testing", "Open Source", "Software Engineering", "Content Creation"],
-  "nationality": {
-    "@type": "Country",
-    "name": "Portugal"
-  },
-  "alumniOf": {
-    "@type": "Organization",
-    "name": "Laravel Core Team"
-  }
-}
-</script>
-
-<!-- Structured Data for Website -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://nunomaduro.com/#website",
-  "url": "https://nunomaduro.com",
-  "name": "nunomaduro",
-  "description": "staff software engineer at laravel, content creator, and open source contributor. creator of pest php, larastan, laravel pint, and more.",
-  "publisher": {
-    "@id": "https://nunomaduro.com/#person"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://nunomaduro.com/?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
-<!-- Structured Data for WebPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://nunomaduro.com{{ url }}#webpage",
-  "url": "https://nunomaduro.com{{ url }}",
-  "name": "{{ page.title() }}",
-  "description": "{{ page.description() }}",
-  "isPartOf": {
-    "@id": "https://nunomaduro.com/#website"
-  },
-  "about": {
-    "@id": "https://nunomaduro.com/#person"
-  },
-  "inLanguage": "en-US"
-}
-</script>
-
-<!-- Breadcrumb Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
+    {% include "components/person.html" %},
+    {% include "components/website.html" %},
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://nunomaduro.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "{{ page.id() | capitalize }}",
-      "item": "https://nunomaduro.com/{{ page.id() }}"
+      "@type": "{% if page.id() == "about" %}ProfilePage{% else if page.id() == "posts" || page.id() == "talks" %}CollectionPage{% else %}WebPage{% endif %}",
+      "@id": "https://nunomaduro.com{{ url }}#webpage",
+      "url": "https://nunomaduro.com{{ url }}",
+      "name": {{ page.title()|json|safe }},
+      "description": {{ page.description()|json|safe }},
+      "inLanguage": "en-US",
+      "isPartOf": { "@id": "https://nunomaduro.com/#website" },
+      {% if page.id() == "about" %}"mainEntity": { "@id": "https://nunomaduro.com/#person" },{% else %}"about": { "@id": "https://nunomaduro.com/#person" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nunomaduro.com/" },
+          { "@type": "ListItem", "position": 2, "name": "{{ page.id()|capitalize }}", "item": "https://nunomaduro.com{{ url }}" }
+        ]
+      },{% endif %}
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://nunomaduro.com/og/{{ page.id() }}.png",
+        "width": 1200,
+        "height": 630
+      }
     }
   ]
 }

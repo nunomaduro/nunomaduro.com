@@ -4,7 +4,7 @@
     <div class="grid grid-cols-1 gap-3.5 min-[360px]:grid-cols-2 lg:grid-cols-4">
         <div class="card relative flex min-h-[300px] flex-col overflow-hidden p-7 min-[360px]:col-span-2 sm:min-h-[340px] lg:row-span-2">
             <h1 class="relative text-[40px] leading-none font-bold tracking-[-0.045em] sm:text-[44px]">nunomaduro</h1>
-            <p class="relative mt-3 max-w-[22ch] text-[17px] text-pretty text-zinc-600 md:max-w-[34ch]">{{ page.description() }}</p>
+            <p class="relative mt-3 max-w-[22ch] text-[17px] text-pretty text-zinc-600 md:max-w-[34ch]">open source&nbsp;· speaker&nbsp;· content creator</p>
             <img src="/profile.webp" alt="nunomaduro" width="300" height="300" fetchpriority="high" class="absolute -right-6 -bottom-9 w-[200px] mask-l-from-65% sm:w-[260px] lg:w-[300px]">
         </div>
 
@@ -56,7 +56,7 @@
                 {% for post in posts %}
                     <li>
                         <a href="/posts/{{ post.slug() }}" class="group card flex h-full flex-col gap-2.5 p-7">
-                            <span class="text-[13px] text-zinc-600">{{ post.published_at() }}</span>
+                            <time datetime="{{ post.published_at().iso8601() }}" class="text-[13px] text-zinc-600">{{ post.published_at() }}</time>
                             <h3 class="text-[19px] leading-tight font-bold tracking-tight text-balance group-hover:text-amber-700">{{ post.title() }}</h3>
                             <p class="text-sm text-zinc-600">{{ post.description() }}</p>
                         </a>

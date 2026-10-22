@@ -1,118 +1,194 @@
 const fs = require('fs');
 const path = require('path');
-const { createCanvas } = require('canvas');
+const { createCanvas, loadImage, registerFont } = require('canvas');
 
+const ASSETS_DIR = path.join(__dirname, 'assets');
 const POSTS_DIR = path.join(__dirname, '../content/posts');
 const OUTPUT_DIR = path.join(__dirname, '../public/og');
 
-// Ensure output directory exists
-if (!fs.existsSync(OUTPUT_DIR)) {
-  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-}
+const WIDTH = 1200;
+const HEIGHT = 630;
+const CARD = { x: 32, y: 32, width: WIDTH - 64, height: HEIGHT - 64, radius: 40 };
+const PADDING = 80;
+const TEXT_WIDTH = 640;
 
-// Parse frontmatter from markdown file
-function parseFrontmatter(content) {
+const COLORS = {
+  canvas: '#f2f2f4',
+  card: '#ffffff',
+  text: '#18181b',
+  amber: '#f59e0b',
+};
+
+const PAGES = [
+  { id: 'about', title: 'open source, speaker, and content creator' },
+  { id: 'posts', title: 'posts' },
+  { id: 'talks', title: 'talks' },
+  { id: 'sponsorships', title: 'sponsorships' },
+  { id: 'not-found', title: 'page not found' },
+];
+
+registerFont(path.join(ASSETS_DIR, 'Geist-Bold.ttf'), { family: 'Geist', weight: 'bold' });
+
+function frontMatter(file) {
+  const content = fs.readFileSync(file, 'utf-8');
   const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return {};
-  
-  const frontmatter = {};
-  match[1].split('\n').forEach(line => {
-    const [key, ...valueParts] = line.split(':');
-    if (key && valueParts.length) {
-      frontmatter[key.trim()] = valueParts.join(':').trim();
+
+  if (!match) {
+    throw new Error(`the post ${file} has no front matter`);
+  }
+
+  const properties = {};
+
+  for (const line of match[1].split('\n')) {
+    const separator = line.indexOf(':');
+
+    if (separator !== -1) {
+      properties[line.slice(0, separator).trim()] = line.slice(separator + 1).trim();
     }
-  });
-  return frontmatter;
+  }
+
+  for (const key of ['title']) {
+    if (!properties[key]) {
+      throw new Error(`the post ${file} has no \`${key}\` in its front matter`);
+    }
+  }
+
+  return properties;
 }
 
-// Wrap text to fit within width
-function wrapText(ctx, text, maxWidth) {
-  const words = text.split(' ');
+function wrap(ctx, text, maxWidth) {
   const lines = [];
-  let currentLine = '';
+  let line = '';
 
-  for (const word of words) {
-    const testLine = currentLine ? `${currentLine} ${word}` : word;
-    const metrics = ctx.measureText(testLine);
-    
-    if (metrics.width > maxWidth && currentLine) {
-      lines.push(currentLine);
-      currentLine = word;
+  for (const word of text.split(' ')) {
+    const candidate = line ? `${line} ${word}` : word;
+
+    if (ctx.measureText(candidate).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
     } else {
-      currentLine = testLine;
+      line = candidate;
     }
   }
-  
-  if (currentLine) {
-    lines.push(currentLine);
-  }
-  
+
+  lines.push(line);
+
   return lines;
 }
 
-// Generate OG image for a post
-function generateOGImage(title, slug) {
-  const width = 1200;
-  const height = 630;
-  
-  const canvas = createCanvas(width, height);
-  const ctx = canvas.getContext('2d');
-
-  // Background - dark
-  ctx.fillStyle = '#09090b';
-  ctx.fillRect(0, 0, width, height);
-
-  // Large purple gradient accent in corner
-  const gradient = ctx.createRadialGradient(0, height, 0, 0, height, 600);
-  gradient.addColorStop(0, 'rgba(139, 92, 246, 0.3)');
-  gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, width, height);
-
-  // Title text - BIG and bold
-  ctx.fillStyle = '#fafafa';
-  ctx.font = 'bold 72px sans-serif';
-  
-  const maxWidth = width - 160;
-  const lines = wrapText(ctx, title, maxWidth);
-  
-  // Position title in upper portion
-  const lineHeight = 90;
-  let startY = 180;
-
-  for (const line of lines) {
-    ctx.fillText(line, 80, startY);
-    startY += lineHeight;
+function truncate(ctx, lines, maxLines, maxWidth) {
+  if (lines.length <= maxLines) {
+    return lines;
   }
 
-  // Author name at bottom left
-  ctx.fillStyle = '#a1a1aa';
-  ctx.font = 'bold 28px sans-serif';
-  ctx.fillText('nunomaduro.com', 80, height - 60);
+  const kept = lines.slice(0, maxLines);
+  let last = kept[maxLines - 1];
 
-  // Save image
-  const outputPath = path.join(OUTPUT_DIR, `${slug}.png`);
-  const buffer = canvas.toBuffer('image/png');
-  fs.writeFileSync(outputPath, buffer);
-  
-  console.log(`Generated: ${outputPath}`);
-  return `/og/${slug}.png`;
+  while (ctx.measureText(`${last}…`).width > maxWidth) {
+    last = last.slice(0, last.lastIndexOf(' '));
+  }
+
+  kept[maxLines - 1] = `${last}…`;
+
+  return kept;
 }
 
-// Process all posts
-function processAllPosts() {
-  const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
-  
-  for (const file of files) {
-    const content = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
-    const frontmatter = parseFrontmatter(content);
-    
-    if (frontmatter.title && frontmatter.slug) {
-      generateOGImage(frontmatter.title, frontmatter.slug);
+function fitTitle(ctx, title) {
+  for (const size of [88, 76, 64, 56, 48]) {
+    ctx.font = `bold ${size}px Geist`;
+    const lines = wrap(ctx, title, TEXT_WIDTH);
+
+    if (lines.length <= 3) {
+      return { size, lines };
     }
   }
-  
-  console.log(`\nGenerated ${files.length} OG images in ${OUTPUT_DIR}`);
+
+  ctx.font = 'bold 48px Geist';
+
+  return { size: 48, lines: truncate(ctx, wrap(ctx, title, TEXT_WIDTH), 3, TEXT_WIDTH) };
 }
 
-processAllPosts();
+function roundedRect(ctx, { x, y, width, height, radius }) {
+  ctx.beginPath();
+  ctx.roundRect(x, y, width, height, radius);
+}
+
+function drawPhoto(ctx, photo) {
+  const size = 470;
+  const x = CARD.x + CARD.width - size + 30;
+  const y = CARD.y + CARD.height - size + 40;
+
+  ctx.save();
+  roundedRect(ctx, CARD);
+  ctx.clip();
+  ctx.drawImage(photo, x, y, size, size);
+
+  const fade = ctx.createLinearGradient(x, 0, x + size * 0.45, 0);
+  fade.addColorStop(0, COLORS.card);
+  fade.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  ctx.fillStyle = fade;
+  ctx.fillRect(x, y, size * 0.45, size);
+  ctx.restore();
+}
+
+function drawWordmark(ctx) {
+  ctx.font = 'bold 34px Geist';
+  ctx.fillStyle = COLORS.text;
+  ctx.fillText('nunomaduro', CARD.x + PADDING, CARD.y + 96);
+
+  const width = ctx.measureText('nunomaduro').width;
+  ctx.fillStyle = COLORS.amber;
+  ctx.fillText('.', CARD.x + PADDING + width, CARD.y + 96);
+}
+
+function render(title, photo, output) {
+  const canvas = createCanvas(WIDTH, HEIGHT);
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = COLORS.canvas;
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  ctx.fillStyle = COLORS.card;
+  roundedRect(ctx, CARD);
+  ctx.fill();
+
+  drawPhoto(ctx, photo);
+  drawWordmark(ctx);
+
+  const { size, lines } = fitTitle(ctx, title);
+  const lineHeight = Math.round(size * 1.08);
+  const top = CARD.y + 140;
+  let y = top + (CARD.y + CARD.height - 60 - top - lines.length * lineHeight) / 2 + size * 0.85;
+
+  ctx.fillStyle = COLORS.text;
+
+  for (const line of lines) {
+    ctx.fillText(line, CARD.x + PADDING, y);
+    y += lineHeight;
+  }
+
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  fs.writeFileSync(output, canvas.toBuffer('image/png'));
+  console.log(`generated ${path.relative(process.cwd(), output)}`);
+}
+
+async function main() {
+  const photo = await loadImage(path.join(ASSETS_DIR, 'profile.png'));
+
+  for (const page of PAGES) {
+    render(page.title, photo, path.join(OUTPUT_DIR, `${page.id}.png`));
+  }
+
+  const posts = fs.existsSync(POSTS_DIR)
+    ? fs.readdirSync(POSTS_DIR).filter((file) => file.endsWith('.md'))
+    : [];
+
+  for (const file of posts) {
+    const post = frontMatter(path.join(POSTS_DIR, file));
+    const slug = path.basename(file, '.md');
+
+    render(post.title, photo, path.join(OUTPUT_DIR, 'posts', `${slug}.png`));
+  }
+}
+
+main();

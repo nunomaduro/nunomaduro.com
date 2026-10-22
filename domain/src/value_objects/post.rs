@@ -1,4 +1,4 @@
-use crate::value_objects::Page;
+use crate::value_objects::{Page, PublicationDate};
 
 #[derive(Clone)]
 pub struct Post {
@@ -7,7 +7,7 @@ pub struct Post {
     description: String,
     content: String,
     image: Option<String>,
-    published_at: String,
+    published_at: PublicationDate,
 }
 
 impl Post {
@@ -17,7 +17,7 @@ impl Post {
         description: String,
         content: String,
         image: Option<String>,
-        published_at: String,
+        published_at: PublicationDate,
     ) -> Self {
         Self {
             slug,
@@ -41,8 +41,8 @@ impl Post {
         self.image.as_deref()
     }
 
-    pub fn published_at(&self) -> &str {
-        &self.published_at
+    pub fn published_at(&self) -> PublicationDate {
+        self.published_at
     }
 }
 

@@ -13,8 +13,8 @@ impl AboutPage {
     pub fn new() -> Self {
         Self {
             id: "about".to_string(),
-            title: "nunomaduro · about".to_string(),
-            description: "staff software engineer at laravel\u{a0}· speaker\u{a0}· content creator"
+            title: "nunomaduro · open source, speaker, and content creator".to_string(),
+            description: "open source developer, speaker, and content creator. the creator of pest, collision, termwind, and larastan."
                 .to_string(),
         }
     }
@@ -44,7 +44,7 @@ impl AboutTemplate {
     pub fn new(posts: Vec<Post>) -> Self {
         Self {
             page: AboutPage::new(),
-            url: "".to_string(),
+            url: "/".to_string(),
             posts: posts.into_iter().take(LATEST_POSTS).collect(),
         }
     }
@@ -61,7 +61,7 @@ mod tests {
             format!("the description of {title}"),
             String::new(),
             None,
-            published_at.to_string(),
+            published_at.parse().unwrap(),
         )
     }
 
@@ -112,5 +112,24 @@ mod tests {
         assert!(html.contains("data-stat=\"followers\""));
         assert!(html.contains("curl -fsSL nunomaduro.com/subscribe | sh"));
         assert!(html.contains("href=\"mailto:enunomaduro@gmail.com\""));
+    }
+
+    #[test]
+    fn describes_the_home_page_as_the_profile_of_nunomaduro() {
+        let html = AboutTemplate::new(Vec::new()).render().unwrap();
+        let graph = crate::templates::structured_data(&html);
+        let profile = crate::templates::node(&graph, "ProfilePage");
+        let person = crate::templates::node(&graph, "Person");
+
+        assert!(html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/\">"));
+        assert!(html.contains("<meta property=\"og:image\" content=\"https://nunomaduro.com/og/about.png\">"));
+        assert_eq!(profile["url"], "https://nunomaduro.com/");
+        assert_eq!(profile["mainEntity"]["@id"], "https://nunomaduro.com/#person");
+        assert_eq!(person["givenName"], "Nuno");
+        assert_eq!(person["familyName"], "Maduro");
+        assert!(!html.contains("SearchAction"));
+        assert!(person.get("worksFor").is_none());
+        assert!(html.contains("open source&nbsp;· speaker&nbsp;· content creator</p>"));
+        assert!(!html.to_lowercase().contains("staff"));
     }
 }
