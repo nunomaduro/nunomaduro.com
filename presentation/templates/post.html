@@ -1,24 +1,21 @@
 {% extends "layouts/post.html" %}
 
 {% block page %}
-    <section class="bg-zinc-950">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-            <article class="prose prose-invert max-w-none">
-                <header class="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
-                    <a href="/posts" class="text-base sm:text-sm text-zinc-400 uppercase tracking-wide hover:text-amber-400 transition-colors no-underline">&larr; posts</a>
-                    <span class="text-base sm:text-sm text-zinc-500">{{ page.published_at() }}</span>
-                </header>
-
-                <h1 class="text-3xl lg:text-4xl font-semibold text-white uppercase tracking-wide text-balance mb-10">{{ page.heading() }}</h1>
-
-                <div class="text-base text-zinc-300 leading-relaxed">
-                    {{ content|safe }}
-                </div>
-
-                <footer class="mt-16 pt-8 border-t border-white/10">
-                    <p class="text-base text-zinc-400 text-pretty">thanks for reading. subscribe my <a href="https://youtube.com/@nunomaduro" target="_blank" rel="noopener" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400 transition-colors">youtube channel</a> and subscribe to the <a href="/feed.xml" class="text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400 transition-colors">rss feed</a> for more.</p>
-                </footer>
-            </article>
+    <article class="card mx-auto max-w-[704px] px-5 py-8 sm:px-12 sm:py-14 lg:px-16">
+        <div class="mb-8 flex items-center justify-between gap-4 text-sm text-zinc-600 sm:mb-10">
+            <a href="/posts" class="-ml-2 inline-flex min-h-11 items-center rounded-lg px-2 hover:text-zinc-900"><span aria-hidden="true">&larr;&nbsp;</span>posts</a>
+            <span>{{ page.published_at() }}</span>
         </div>
-    </section>
+
+        <h1 class="text-[30px] leading-[1.1] font-bold tracking-[-0.035em] text-balance sm:text-[40px]">{{ page.heading() }}</h1>
+        <p class="mt-4 mb-10 border-b border-zinc-200 pb-8 text-[17px] leading-normal text-pretty text-zinc-600 sm:text-[19px]">{{ page.description() }}</p>
+
+        <div class="prose">
+            {{ content|safe }}
+        </div>
+
+        <footer class="mt-12 rounded-2xl bg-canvas px-5 py-[18px] text-[15px] text-zinc-600">
+            <p class="text-pretty">thanks for reading. subscribe to my <a href="https://youtube.com/@nunomaduro" class="link whitespace-nowrap">youtube channel</a> and to the <a href="/feed.xml" class="link whitespace-nowrap">rss feed</a> for more.</p>
+        </footer>
+    </article>
 {% endblock %}

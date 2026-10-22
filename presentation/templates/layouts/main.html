@@ -17,32 +17,17 @@
         {% include "components/scripts.html" %}
         {% include "components/structured-data.html" %}
     </head>
-    <body class="bg-zinc-950 text-zinc-300 antialiased min-h-dvh flex flex-col" style="font-family: 'Space Mono', monospace;">
+    <body class="flex min-h-dvh flex-col bg-canvas font-sans text-zinc-900 antialiased">
         {% block navigation %}
             {% include "components/navigation.html" %}
         {% endblock %}
 
-        <main class="flex-1">
+        <main id="content" tabindex="-1" class="mx-auto w-full max-w-[1040px] flex-1 px-3 pt-8 focus:outline-none sm:px-5 sm:pt-10">
             {% block page %}
 
             {% endblock %}
         </main>
 
-        <footer class="border-t border-white/10">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-                    <ul role="list" class="flex flex-wrap items-center gap-6">
-                        <li><a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">X</a></li>
-                        <li><a href="https://youtube.com/nunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">YouTube</a></li>
-                        <li><a href="https://tiktok.com/@enunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">TikTok</a></li>
-                        <li><a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">Twitch</a></li>
-                        <li><a href="https://instagram.com/enunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">Instagram</a></li>
-                        <li><a href="https://github.com/nunomaduro" target="_blank" rel="noopener" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">GitHub</a></li>
-                        <li><a href="/feed.xml" class="text-base sm:text-sm uppercase tracking-wide text-zinc-500 hover:text-amber-400 no-underline">RSS</a></li>
-                    </ul>
-                    <p class="text-zinc-600 text-base sm:text-sm">&copy; nunomaduro</p>
-                </div>
-            </div>
-        </footer>
+        {% include "components/footer.html" %}
     </body>
 </html>

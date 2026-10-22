@@ -48,3 +48,42 @@ impl PostsTemplate {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn renders_each_post_with_its_date_title_and_description() {
+        let posts = vec![Post::new(
+            "unique-slug".to_string(),
+            "A Unique Post Title".to_string(),
+            "A unique post description".to_string(),
+            String::new(),
+            None,
+            "March 3, 2026".to_string(),
+        )];
+
+        let html = PostsTemplate::new(posts).render().unwrap();
+
+        assert!(html.contains("href=\"/posts/unique-slug\""));
+        assert!(html.contains("A Unique Post Title"));
+        assert!(html.contains("A unique post description"));
+        assert!(html.contains("March 3, 2026"));
+    }
+
+    #[test]
+    fn renders_the_posts_page_when_no_post_exists() {
+        let html = PostsTemplate::new(Vec::new()).render().unwrap();
+
+        assert!(html.contains("no posts yet.. stay tuned."));
+    }
+
+    #[test]
+    fn writes_nunomaduro_as_one_word() {
+        let html = PostsTemplate::new(Vec::new()).render().unwrap();
+
+        assert!(html.contains("<title>nunomaduro · posts</title>"));
+        assert!(!html.to_lowercase().contains("nuno maduro"));
+    }
+}

@@ -1,107 +1,208 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@font-face {
+    font-family: "Geist Variable";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/dist/fonts/geist-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+@font-face {
+    font-family: "Geist Mono Variable";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/dist/fonts/geist-mono-latin-wght-normal.woff2") format("woff2-variations");
+}
+
+@font-face {
+    font-family: "Newsreader Variable";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 200 800;
+    src: url("/dist/fonts/newsreader-latin-opsz-normal.woff2") format("woff2-variations");
+}
+
+@font-face {
+    font-family: "Newsreader Variable";
+    font-style: italic;
+    font-display: swap;
+    font-weight: 200 800;
+    src: url("/dist/fonts/newsreader-latin-opsz-italic.woff2") format("woff2-variations");
+}
+
+@theme {
+    --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-serif: "Newsreader Variable", Georgia, "Times New Roman", serif;
+    --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --color-canvas: #f2f2f4;
+}
+
 [x-cloak] {
     display: none !important;
 }
 
+@utility card {
+    background-color: var(--color-white);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 0.04);
+}
+
+@utility link {
+    font-weight: 600;
+    color: var(--color-zinc-900);
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-amber-500);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+
+    &:hover {
+        color: var(--color-amber-700);
+    }
+}
+
 @layer base {
-    body {
-        font-family: 'Space Mono', monospace;
+    html {
+        background-color: var(--color-canvas);
+        -webkit-text-size-adjust: 100%;
+        scroll-padding-top: 5rem;
     }
 
-    .prose pre {
-        @apply w-full overflow-x-auto rounded-none border border-white/10 bg-zinc-900;
+    :focus-visible {
+        outline: 2px solid var(--color-zinc-900);
+        outline-offset: 3px;
     }
 
-    .prose code {
-        @apply rounded-none bg-zinc-900 px-1.5 py-0.5 text-amber-400 font-normal;
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        ::before,
+        ::after {
+            animation: none !important;
+            transition: none !important;
+            scroll-behavior: auto !important;
+        }
+    }
+}
+
+.prose {
+    --tw-prose-body: var(--color-zinc-800);
+    --tw-prose-headings: var(--color-zinc-900);
+    --tw-prose-bold: var(--color-zinc-900);
+    --tw-prose-links: var(--color-zinc-900);
+    --tw-prose-code: var(--color-zinc-900);
+    --tw-prose-quotes: var(--color-zinc-700);
+    --tw-prose-quote-borders: var(--color-amber-500);
+    --tw-prose-bullets: var(--color-zinc-400);
+    --tw-prose-counters: var(--color-zinc-600);
+    --tw-prose-hr: var(--color-zinc-200);
+    --tw-prose-th-borders: var(--color-zinc-300);
+    --tw-prose-td-borders: var(--color-zinc-200);
+    max-width: 68ch;
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
+    line-height: 1.75;
+
+    @media (width >= 40rem) {
+        font-size: 1.25rem;
+        line-height: 1.7;
     }
 
-    .prose pre code {
-        @apply bg-transparent p-0;
+    :where(p) {
+        margin-block: 0 1.15em;
+        text-wrap: pretty;
     }
 
-    .prose :where(code)::before,
-    .prose :where(code)::after {
-        content: "";
+    :where(h2, h3, h4) {
+        text-wrap: balance;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
     }
 
-    .prose img {
-        @apply rounded-none border border-white/10;
+    :where(h2) {
+        font-size: 1.3em;
+        margin-block: 2em 0.6em;
     }
 
-    .prose blockquote {
-        @apply border-l-2 border-amber-400 pl-4 text-zinc-400 italic;
+    :where(h3) {
+        font-size: 1.1em;
+        margin-block: 1.8em 0.5em;
     }
 
-    .prose hr {
-        @apply border-t border-white/10 my-8;
+    :where(a) {
+        font-weight: 500;
+        text-decoration-color: var(--color-amber-500);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
     }
 
-    .prose table {
-        @apply w-full border-collapse;
+    :where(a):hover {
+        color: var(--color-amber-700);
     }
 
-    .prose table th,
-    .prose table td {
-        @apply border border-white/10 px-3 py-2 text-left;
+    :where(blockquote) {
+        font-style: italic;
+        font-weight: 400;
     }
 
-    .prose table th {
-        @apply bg-zinc-900 text-white uppercase tracking-wide text-sm;
+    :where(blockquote p:first-of-type)::before,
+    :where(blockquote p:last-of-type)::after,
+    :where(code)::before,
+    :where(code)::after {
+        content: none;
     }
 
-    .prose strong {
-        @apply text-white font-semibold;
+    :where(code) {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        font-weight: 400;
+        background-color: var(--color-canvas);
+        border-radius: 0.375rem;
+        padding: 0.1em 0.3em;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
     }
 
-    .prose a {
-        @apply text-amber-400 underline underline-offset-2 decoration-amber-400/40 hover:decoration-amber-400 transition-colors;
+    :where(pre) {
+        background-color: var(--color-zinc-900);
+        color: var(--color-zinc-100);
+        border-radius: 1rem;
+        padding: 1.25rem 1.375rem;
+        margin-block: 0 1.5em;
+        overflow-x: auto;
+        font-size: 0.875rem;
+        line-height: 1.65;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-zinc-600) transparent;
     }
 
-    .prose h1,
-    .prose h2,
-    .prose h3,
-    .prose h4,
-    .prose h5,
-    .prose h6 {
-        @apply text-white font-semibold uppercase tracking-wide;
+    :where(pre code) {
+        background-color: transparent;
+        border-radius: 0;
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
     }
 
-    .prose h1 {
-        @apply text-3xl lg:text-4xl;
+    pre > code,
+    pre code.hljs {
+        display: block;
+        width: max-content;
+        min-width: 100%;
+        background: transparent;
+        padding: 0;
+        overflow: visible;
     }
 
-    .prose h2 {
-        @apply text-2xl lg:text-3xl;
+    :where(img) {
+        border-radius: 1rem;
     }
 
-    .prose h3 {
-        @apply text-xl lg:text-2xl;
-    }
-
-    .prose p {
-        @apply text-zinc-300;
-    }
-
-    .prose li {
-        @apply text-zinc-300;
-    }
-
-    .prose ul {
-        @apply list-disc pl-5;
-    }
-
-    .prose ul li::marker {
-        @apply text-amber-400;
-    }
-
-    .prose ol {
-        @apply list-decimal pl-5;
-    }
-
-    .prose ol li::marker {
-        @apply text-amber-400;
+    :where(table) {
+        font-family: var(--font-sans);
+        font-size: 0.8em;
     }
 }

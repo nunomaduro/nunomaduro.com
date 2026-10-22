@@ -1,26 +1,27 @@
 {% extends "layouts/main.html" %}
 
 {% block page %}
-    <section class="bg-zinc-950">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-            <h1 class="text-4xl lg:text-5xl font-semibold text-white uppercase tracking-tight text-balance mb-16">Posts</h1>
+    <div class="pt-6 pb-2">
+        <h1 class="text-[40px] leading-none font-bold tracking-[-0.05em] sm:text-[52px]">posts</h1>
+        <p class="mt-3.5 mb-8 max-w-[52ch] text-lg text-pretty text-zinc-600">{{ page.description() }}</p>
+    </div>
 
-            {% if posts.is_empty() %}
-                <p class="text-zinc-400 text-base text-center text-pretty py-12">no posts yet.. stay tuned.</p>
-            {% else %}
-                <div class="border-t border-white/10">
-                    {% for post in posts %}
-                        <a href="/posts/{{ post.slug() }}" class="flex flex-col lg:flex-row lg:items-baseline gap-2 lg:gap-8 border-b border-white/10 py-8 hover:bg-zinc-900/50 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 group no-underline">
-                            <span class="block text-base sm:text-sm text-zinc-500 lg:w-40 shrink-0 tabular-nums">{{ post.published_at() }}</span>
-                            <div class="flex-1">
-                                <span class="block text-xl lg:text-2xl text-white uppercase tracking-tight font-semibold group-hover:text-amber-400">{{ post.title() }}</span>
-                                <span class="block text-base text-zinc-400 text-pretty mt-2">{{ post.description() }}</span>
-                            </div>
-                            <span class="hidden lg:block text-base sm:text-sm text-zinc-600 uppercase tracking-wide shrink-0 group-hover:text-amber-400">&rarr;</span>
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-    </section>
+    {% if posts.is_empty() %}
+        <p class="card p-7 text-zinc-600">no posts yet.. stay tuned.</p>
+    {% else %}
+        <ul role="list" class="flex flex-col gap-3.5">
+            {% for post in posts %}
+                <li>
+                    <a href="/posts/{{ post.slug() }}" class="group card grid gap-1.5 p-7 md:grid-cols-[150px_1fr_auto] md:items-baseline md:gap-6">
+                        <span class="text-sm text-zinc-600">{{ post.published_at() }}</span>
+                        <div>
+                            <h2 class="text-xl font-bold tracking-tight text-balance group-hover:text-amber-700">{{ post.title() }}</h2>
+                            <p class="mt-1 max-w-[60ch] text-[15px] text-zinc-600 text-pretty">{{ post.description() }}</p>
+                        </div>
+                        <span class="hidden text-zinc-500 group-hover:text-amber-700 md:block" aria-hidden="true">&rarr;</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}

@@ -5,7 +5,7 @@ use domain::contracts::PostRepository;
 use crate::http::{Body, RequestBody};
 use hyper::{Request, Response, StatusCode};
 use infrastructure::repositories::MarkdownPostRepository;
-use presentation::templates::PostTemplate;
+use presentation::templates::{NotFoundTemplate, PostTemplate};
 
 pub struct Post {
     slug: String,
@@ -14,14 +14,6 @@ pub struct Post {
 impl Post {
     pub fn new(slug: String) -> Self {
         Self { slug }
-    }
-}
-
-impl Default for Post {
-    fn default() -> Self {
-        Self {
-            slug: String::new(),
-        }
     }
 }
 
@@ -44,7 +36,7 @@ impl Route for Post {
                 Response::new(template.render().unwrap().into())
             }
             None => {
-                let mut response = Response::new(Body::from("Post not found"));
+                let mut response = Response::new(NotFoundTemplate::default().render().unwrap().into());
                 *response.status_mut() = StatusCode::NOT_FOUND;
                 response
             }

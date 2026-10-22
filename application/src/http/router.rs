@@ -27,7 +27,7 @@ impl Router {
             .iter()
             .find(|route| route.method() == method && route.path() == path);
 
-        if let Some(_) = route {
+        if route.is_some() {
             return self
                 .routes
                 .iter()

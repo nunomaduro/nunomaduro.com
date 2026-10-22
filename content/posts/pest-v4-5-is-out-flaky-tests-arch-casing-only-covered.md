@@ -44,7 +44,7 @@ arch('app')
 
 if you have a class `GitHubService` in a file called `GithubService.php`, this will catch it.. it's a small thing, but PSR-4 casing mismatches can cause real issues - especially when deploying from macOS (case-insensitive) to Linux (case-sensitive)
 
-## --only-covered
+## `--only-covered`
 
 new CLI option for coverage reports - `--only-covered` hides files with 0% coverage from the output:
 

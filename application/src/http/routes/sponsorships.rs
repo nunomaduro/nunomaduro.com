@@ -24,7 +24,7 @@ impl Route for Sponsorships {
     }
 
     async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
-        let template = SponsorshipsTemplate::new();
+        let template = SponsorshipsTemplate::default();
 
         Response::new(template.render().unwrap().into())
     }

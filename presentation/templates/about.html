@@ -1,133 +1,199 @@
 {% extends "layouts/main.html" %}
 
 {% block page %}
-    <section class="bg-zinc-950">
-        <div class="max-w-2xl mx-auto px-4 sm:px-6 py-16 lg:py-24">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
-                <!-- downloads (hero) -->
-                <div class="group sm:col-span-2 sm:row-span-2 flex flex-col justify-center border border-white/10 p-6 hover:border-amber-400">
-                    <p class="text-5xl lg:text-6xl font-semibold tabular-nums text-amber-400 leading-none"><span data-stat="downloads">2.07B+</span></p>
-                    <p class="mt-4 text-base sm:text-sm uppercase tracking-wide text-white">downloads</p>
-                    <p class="mt-2 text-base sm:text-sm text-zinc-400 text-pretty max-w-[34ch]">across my open-source projects — collision, termwind, pest, larastan, and more — measured via packagist.</p>
-                </div>
+    <div class="grid grid-cols-1 gap-3.5 min-[360px]:grid-cols-2 lg:grid-cols-4">
+        <div class="card relative flex min-h-[300px] flex-col overflow-hidden p-7 min-[360px]:col-span-2 sm:min-h-[340px] lg:row-span-2">
+            <h1 class="relative text-[40px] leading-none font-bold tracking-[-0.045em] sm:text-[44px]">nunomaduro</h1>
+            <p class="relative mt-3 max-w-[22ch] text-[17px] text-pretty text-zinc-600 md:max-w-[34ch]">{{ page.description() }}</p>
+            <img src="/profile.webp" alt="nunomaduro" width="300" height="300" fetchpriority="high" class="absolute -right-6 -bottom-9 w-[200px] mask-l-from-65% sm:w-[260px] lg:w-[300px]">
+        </div>
 
-                <!-- followers -->
-                <a href="#socials" class="group flex flex-col border border-white/10 p-6 no-underline hover:border-amber-400">
-                    <p class="text-3xl lg:text-4xl font-semibold tabular-nums text-white group-hover:text-amber-400 leading-none"><span data-stat="followers">151k+</span></p>
-                    <p class="mt-3 text-base sm:text-sm text-zinc-400 text-pretty">followers across all platforms</p>
-                </a>
+        <div class="rounded-3xl bg-zinc-900 p-7 text-white min-[360px]:col-span-2">
+            <p class="text-sm font-semibold text-zinc-400">downloads</p>
+            <p class="mt-2.5 text-[52px] leading-none font-bold tracking-[-0.05em] text-amber-500 sm:text-[64px]"><span data-stat="downloads">2.21B+</span></p>
+            <p class="mt-3 text-sm text-pretty text-zinc-400">across my open-source projects — collision, termwind, pest, larastan, and more — measured via packagist.</p>
+        </div>
 
-                <!-- get in touch -->
-                <a href="mailto:enunomaduro@gmail.com" class="group flex flex-col border border-white/10 p-6 no-underline hover:border-amber-400">
-                    <span class="flex items-center justify-between">
-                        <span class="text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">get in touch</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M3 7l9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
-                    </span>
-                    <span class="mt-3 text-base sm:text-sm text-zinc-400">reach out for anything you need</span>
-                    <span class="mt-4 whitespace-nowrap text-base sm:text-sm font-semibold text-amber-400 underline underline-offset-4 decoration-amber-400/40 group-hover:decoration-amber-400">send me a message &rarr;</span>
-                </a>
+        <a href="#socials" class="card flex flex-col justify-between gap-6 p-7 transition hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+            <span class="block text-sm font-semibold text-zinc-600">followers</span>
+            <span class="block">
+                <span class="block text-[32px] leading-none font-bold tracking-[-0.04em] min-[375px]:text-[40px]"><span data-stat="followers">153k+</span></span>
+                <span class="mt-1.5 block text-sm text-pretty text-zinc-600">followers across all platforms</span>
+            </span>
+        </a>
+
+        <a href="mailto:enunomaduro@gmail.com" class="flex flex-col justify-between gap-6 rounded-3xl bg-amber-100 p-7 transition hover:bg-amber-200">
+            <span class="block text-sm font-semibold text-amber-900">get in touch</span>
+            <span class="block">
+                <span class="block text-lg font-bold tracking-tight sm:text-xl">send me a <span class="whitespace-nowrap">message&nbsp;<span aria-hidden="true">&rarr;</span></span></span>
+                <span class="mt-1.5 block text-sm text-pretty text-zinc-700">reach out for anything you need</span>
+            </span>
+        </a>
+
+        <div class="card flex flex-col gap-5 p-7 min-[360px]:col-span-2 lg:col-span-4 lg:flex-row lg:items-center lg:gap-6">
+            <div class="min-w-0 flex-1">
+                <h2 class="text-lg font-bold tracking-tight">follow me everywhere</h2>
+                <p class="mt-1 text-sm text-zinc-600">one command — follows me on github &amp; mastodon, opens the rest in your browser.</p>
             </div>
-
-            <!-- subscribe via terminal -->
-            <div x-data="{ copied: false, copy() { navigator.clipboard.writeText('curl -fsSL nunomaduro.com/subscribe | sh').then(() =&gt; { this.copied = true; setTimeout(() =&gt; { this.copied = false }, 2000) }) } }"
-                 class="group mb-10 border border-white/10 p-6 hover:border-amber-400">
-                <div class="flex items-center justify-between gap-3">
-                    <span class="text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">follow me everywhere</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="m4 17 6-5-6-5M12 19h8"/></svg>
-                </div>
-                <p class="mt-2 text-base sm:text-sm text-zinc-400 text-pretty">one command — follows me on github &amp; mastodon, opens the rest in your browser.</p>
-                <div class="mt-4 flex items-stretch border border-white/10 bg-black/40">
-                    <code class="flex-1 min-w-0 overflow-x-auto whitespace-nowrap px-4 py-3 text-base sm:text-sm text-zinc-300"><span class="select-none text-amber-400">$ </span>curl -fsSL nunomaduro.com/subscribe | sh</code>
-                    <button type="button" @click="copy()" :aria-label="copied ? 'Copied' : 'Copy command'" class="shrink-0 border-l border-white/10 px-4 text-base sm:text-sm uppercase tracking-wide text-zinc-400 hover:text-amber-400 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400">
-                        <span x-show="!copied">copy</span>
-                        <span x-show="copied" x-cloak class="text-amber-400">copied!</span>
-                    </button>
-                </div>
-            </div>
-
-            <div id="socials" class="scroll-mt-24">
-            <div class="flex flex-col gap-3">
-                <a href="https://twitter.com/enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M18.2 2.5h3.3l-7.2 8.2L22.8 21.5h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.2 2.5H8l4.7 6.2 5.5-6.2Zm-1.2 17h1.8L7.1 4.4H5.2l11.8 15.1Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">x <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @enunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">68k</span>
-                </a>
-                <a href="https://youtube.com/nunomaduro?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <span class="relative flex shrink-0"><svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-red-500 ring-2 ring-zinc-950"></span></span></span>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">31k</span>
-                </a>
-                <a href="https://www.linkedin.com/in/nunomaduro/" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">linkedin <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">26k</span>
-                </a>
-                <a href="https://github.com/nunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 12 .5Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">github <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">9.4k</span>
-                </a>
-                <a href="https://instagram.com/enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <span class="relative flex shrink-0"><svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.7 3.7 0 0 1-1.4-.9 3.7 3.7 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 1.6c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1a3.5 3.5 0 0 0-.8-1.3 3.5 3.5 0 0 0-1.3-.8c-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 2.7a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm5.7-9.2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-yellow-400 ring-2 ring-zinc-950"></span></span></span>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">instagram <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @enunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">4.6k</span>
-                </a>
-                <a href="https://tiktok.com/@enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <span class="relative flex shrink-0"><svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V10.3a6 6 0 0 0-.8-.1 5.9 5.9 0 1 0 5.9 5.9V9.3a7.5 7.5 0 0 0 4.4 1.4V7.4a4.3 4.3 0 0 1-3.4-1.6Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-cyan-400 ring-2 ring-zinc-950"></span></span></span>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">tiktok <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @enunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">4.3k</span>
-                </a>
-                <a href="https://twitch.tv/nunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <span class="relative flex shrink-0"><svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M4.3 2 2.5 6.5v15.3h5.2V25h2.9l3.3-3.2h4.3l5.3-5.3V2H4.3Zm17.5 13.7-3 3h-5.2l-2.6 2.6v-2.6h-4V3.7h14.8v12ZM18.4 7v5.7h-1.9V7h1.9Zm-5 0v5.7h-1.9V7h1.9Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-500 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-purple-500 ring-2 ring-zinc-950"></span></span></span>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">twitch <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">3.3k</span>
-                </a>
-                <a href="https://threads.com/@enunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.331-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.882-11.601c-.255 0-.51.008-.77.025-1.196.068-2.06.448-2.566.91-.395.357-.576.81-.547 1.346.04.73.524 1.246 1.41 1.54.524.173 1.106.245 1.716.212 1.012-.055 1.818-.396 2.397-1.012.487-.518.79-1.218.91-2.09a8.927 8.927 0 0 0-2.05-.18z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">threads <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @enunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">2.5k</span>
-                </a>
-                <a href="https://mastodon.social/@nunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.066-.051 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.504 2.962 1.51l.638 1.06.638-1.06c.66-1.006 1.65-1.51 2.96-1.51 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">mastodon <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">1.2k</span>
-                </a>
-                <a href="https://youtube.com/@nunomaduro_extra?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro_extra</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">744</span>
-                </a>
-                <a href="https://kick.com/nunomaduro" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <span class="relative flex shrink-0"><svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M1.333 0h8v5.333H12V2.667h2.667V0h8v8H20v2.667h-2.667v2.666H20V16h2.667v8h-8v-2.667H12v-2.666H9.333V24h-8z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-green-400 ring-2 ring-zinc-950"></span></span></span>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">kick <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">89</span>
-                </a>
-                <a href="https://instagram.com/nunomaduro_extra" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.7 3.7 0 0 1-1.4-.9 3.7 3.7 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 1.6c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1a3.5 3.5 0 0 0-.8-1.3 3.5 3.5 0 0 0-1.3-.8c-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 2.7a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm5.7-9.2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">instagram <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro_extra</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">80</span>
-                </a>
-                <a href="https://youtube.com/@nunomaduro_vods?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro_vods</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">41</span>
-                </a>
-                <a href="https://youtube.com/@nunomaduro_extra2?sub_confirmation=1" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">youtube <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro_extra2</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">17</span>
-                </a>
-                <a href="https://tiktok.com/@nunomaduro_extra" target="_blank" rel="noopener" class="group flex items-center gap-4 w-full border border-white/10 px-5 py-4 no-underline hover:border-amber-400 hover:text-amber-400">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="size-5 shrink-0 text-zinc-400 group-hover:text-amber-400" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V10.3a6 6 0 0 0-.8-.1 5.9 5.9 0 1 0 5.9 5.9V9.3a7.5 7.5 0 0 0 4.4 1.4V7.4a4.3 4.3 0 0 1-3.4-1.6Z"/></svg>
-                    <span class="flex-1 text-left text-base sm:text-sm uppercase tracking-wide text-white group-hover:text-amber-400">tiktok <span class="text-zinc-500 group-hover:text-amber-400/70 normal-case">· @nunomaduro_extra</span></span>
-                    <span class="text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400">13</span>
-                </a>
-            </div>
-
-            <div class="mt-10 text-center">
-                <a href="/sponsorships" class="inline-block bg-amber-400 text-zinc-950 font-semibold uppercase tracking-wide text-base sm:text-sm px-6 py-3 no-underline hover:bg-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400">support my work &rarr;</a>
-            </div>
+            <div class="flex min-w-0 items-center gap-2 rounded-[14px] bg-canvas py-1.5 pr-1.5 pl-4 lg:flex-[1.3]">
+                <code tabindex="0" class="min-w-0 flex-1 overflow-x-auto rounded py-2 font-mono text-sm whitespace-nowrap [scrollbar-width:none]"><span class="text-amber-800 select-none" aria-hidden="true">$ </span>curl -fsSL nunomaduro.com/subscribe | sh</code>
+                <button type="button" data-copy="curl -fsSL nunomaduro.com/subscribe | sh" aria-label="Copy command" class="min-h-11 shrink-0 rounded-xl bg-zinc-900 px-4 text-[13px] font-semibold text-white hover:bg-zinc-700">copy</button>
+                <span class="sr-only" aria-live="polite" data-copy-status></span>
             </div>
         </div>
+    </div>
+
+    <section aria-labelledby="latest-posts" class="mt-14">
+        <div class="mb-4 flex items-baseline justify-between gap-4">
+            <h2 id="latest-posts" class="text-2xl font-bold tracking-tight">latest posts</h2>
+            <a href="/posts" class="-mr-2 inline-flex min-h-11 items-center rounded-lg px-2 text-sm font-medium text-zinc-600 hover:text-zinc-900">all posts <span aria-hidden="true">&nbsp;&rarr;</span></a>
+        </div>
+
+        {% if posts.is_empty() %}
+            <p class="card p-7 text-zinc-600">no posts yet.. stay tuned.</p>
+        {% else %}
+            <ul role="list" class="grid grid-cols-1 gap-3.5 lg:grid-cols-3">
+                {% for post in posts %}
+                    <li>
+                        <a href="/posts/{{ post.slug() }}" class="group card flex h-full flex-col gap-2.5 p-7">
+                            <span class="text-[13px] text-zinc-600">{{ post.published_at() }}</span>
+                            <h3 class="text-[19px] leading-tight font-bold tracking-tight text-balance group-hover:text-amber-700">{{ post.title() }}</h3>
+                            <p class="text-sm text-zinc-600">{{ post.description() }}</p>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </section>
+
+    <section id="socials" aria-labelledby="socials-heading" class="mt-14 scroll-mt-24">
+        <h2 id="socials-heading" class="mb-4 text-2xl font-bold tracking-tight">socials</h2>
+        <div id="socials-list" class="grid grid-cols-2 gap-3.5 min-[480px]:grid-cols-3 lg:grid-cols-5">
+                <a href="https://twitter.com/enunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M18.2 2.5h3.3l-7.2 8.2L22.8 21.5h-6.6l-5.2-6.8-6 6.8H1.7l7.7-8.8L1.2 2.5H8l4.7 6.2 5.5-6.2Zm-1.2 17h1.8L7.1 4.4H5.2l11.8 15.1Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>69k</span>
+                        <span class="mt-2 block text-[13px] font-medium">x</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@enunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://youtube.com/nunomaduro?sub_confirmation=1" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-red-500 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-red-500 ring-2 ring-white"></span></span></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>31k</span>
+                        <span class="mt-2 block text-[13px] font-medium">youtube</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://www.linkedin.com/in/nunomaduro/" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>26k</span>
+                        <span class="mt-2 block text-[13px] font-medium">linkedin</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://github.com/nunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 12 .5Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>9.5k</span>
+                        <span class="mt-2 block text-[13px] font-medium">github</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://instagram.com/enunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.7 3.7 0 0 1-1.4-.9 3.7 3.7 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 1.6c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1a3.5 3.5 0 0 0-.8-1.3 3.5 3.5 0 0 0-1.3-.8c-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 2.7a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm5.7-9.2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-yellow-500 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-yellow-500 ring-2 ring-white"></span></span></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>5k</span>
+                        <span class="mt-2 block text-[13px] font-medium">instagram</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@enunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://tiktok.com/@enunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V10.3a6 6 0 0 0-.8-.1 5.9 5.9 0 1 0 5.9 5.9V9.3a7.5 7.5 0 0 0 4.4 1.4V7.4a4.3 4.3 0 0 1-3.4-1.6Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-cyan-500 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-cyan-500 ring-2 ring-white"></span></span></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>4.6k</span>
+                        <span class="mt-2 block text-[13px] font-medium">tiktok</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@enunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://twitch.tv/nunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M4.3 2 2.5 6.5v15.3h5.2V25h2.9l3.3-3.2h4.3l5.3-5.3V2H4.3Zm17.5 13.7-3 3h-5.2l-2.6 2.6v-2.6h-4V3.7h14.8v12ZM18.4 7v5.7h-1.9V7h1.9Zm-5 0v5.7h-1.9V7h1.9Z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-purple-500 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-purple-500 ring-2 ring-white"></span></span></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>3.3k</span>
+                        <span class="mt-2 block text-[13px] font-medium">twitch</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://threads.com/@enunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.331-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.882-11.601c-.255 0-.51.008-.77.025-1.196.068-2.06.448-2.566.91-.395.357-.576.81-.547 1.346.04.73.524 1.246 1.41 1.54.524.173 1.106.245 1.716.212 1.012-.055 1.818-.396 2.397-1.012.487-.518.79-1.218.91-2.09a8.927 8.927 0 0 0-2.05-.18z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>2.5k</span>
+                        <span class="mt-2 block text-[13px] font-medium">threads</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@enunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://mastodon.social/@nunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.066-.051 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.504 2.962 1.51l.638 1.06.638-1.06c.66-1.006 1.65-1.51 2.96-1.51 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>1.2k</span>
+                        <span class="mt-2 block text-[13px] font-medium">mastodon</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://youtube.com/@nunomaduro_extra?sub_confirmation=1" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>745</span>
+                        <span class="mt-2 block text-[13px] font-medium">youtube</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro<wbr>_extra</span>
+                    </span>
+                </a>
+                <a href="https://instagram.com/nunomaduro_extra" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4a3.7 3.7 0 0 1-1.4-.9 3.7 3.7 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 1.6c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1a3.5 3.5 0 0 0-.8-1.3 3.5 3.5 0 0 0-1.3-.8c-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 2.7a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm5.7-9.2a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>109</span>
+                        <span class="mt-2 block text-[13px] font-medium">instagram</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro<wbr>_extra</span>
+                    </span>
+                </a>
+                <a href="https://kick.com/nunomaduro" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M1.333 0h8v5.333H12V2.667h2.667V0h8v8H20v2.667h-2.667v2.666H20V16h2.667v8h-8v-2.667H12v-2.666H9.333V24h-8z"/></svg><span class="absolute -top-1 -right-1 flex size-2.5" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-green-500 opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-green-500 ring-2 ring-white"></span></span></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>92</span>
+                        <span class="mt-2 block text-[13px] font-medium">kick</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro</span>
+                    </span>
+                </a>
+                <a href="https://youtube.com/@nunomaduro_vods?sub_confirmation=1" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>41</span>
+                        <span class="mt-2 block text-[13px] font-medium">youtube</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro<wbr>_vods</span>
+                    </span>
+                </a>
+                <a href="https://youtube.com/@nunomaduro_extra2?sub_confirmation=1" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>24</span>
+                        <span class="mt-2 block text-[13px] font-medium">youtube</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro<wbr>_extra2</span>
+                    </span>
+                </a>
+                <a href="https://tiktok.com/@nunomaduro_extra" class="group flex min-w-0 flex-col gap-5 rounded-[20px] bg-white p-[18px] shadow-[0_0_0_1px_rgb(0_0_0/0.04)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgb(0_0_0/0.06)]">
+                    <span class="relative inline-flex w-max"><svg viewBox="0 0 24 24" fill="currentColor" class="size-[22px]" aria-hidden="true"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V10.3a6 6 0 0 0-.8-.1 5.9 5.9 0 1 0 5.9 5.9V9.3a7.5 7.5 0 0 0 4.4 1.4V7.4a4.3 4.3 0 0 1-3.4-1.6Z"/></svg></span>
+                    <span class="block min-w-0">
+                        <span class="block text-2xl leading-none font-bold tracking-tight" data-count>13</span>
+                        <span class="mt-2 block text-[13px] font-medium">tiktok</span>
+                        <span class="block text-[13px] break-words text-zinc-600">@nunomaduro<wbr>_extra</span>
+                    </span>
+                </a>
+        </div>
+    </section>
+
+    <a href="/sponsorships" class="mt-3.5 flex min-h-11 items-center justify-between rounded-3xl bg-amber-500 p-7 transition hover:bg-amber-400">
+        <span class="text-[22px] font-bold tracking-tight">support my work</span>
+        <span class="text-[22px]" aria-hidden="true">&rarr;</span>
+    </a>
 {% endblock %}

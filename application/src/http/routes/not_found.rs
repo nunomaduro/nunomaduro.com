@@ -1,7 +1,9 @@
 use crate::http::Route;
+use askama::Template;
 use async_trait::async_trait;
 use crate::http::{Body, RequestBody};
 use hyper::{Request, Response};
+use presentation::templates::NotFoundTemplate;
 
 pub struct NotFound {
     // ..
@@ -37,7 +39,7 @@ impl Route for NotFound {
     async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
         Response::builder()
             .status(404)
-            .body(Body::from("404 - Not Found"))
+            .body(NotFoundTemplate::default().render().unwrap().into())
             .unwrap()
     }
 }

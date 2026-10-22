@@ -55,3 +55,39 @@ impl PostTemplate {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn post() -> Post {
+        Post::new(
+            "unique-slug".to_string(),
+            "A Unique Post Title".to_string(),
+            "A unique post description".to_string(),
+            "<h2>a unique heading</h2>\n<p>a unique <code>paragraph</code></p>".to_string(),
+            None,
+            "March 3, 2026".to_string(),
+        )
+    }
+
+    #[test]
+    fn renders_the_html_of_the_post() {
+        let html = PostTemplate::new(post()).render().unwrap();
+
+        assert!(html.contains("<h2>a unique heading</h2>\n<p>a unique <code>paragraph</code></p>"));
+        assert!(html.contains("A Unique Post Title</h1>"));
+        assert!(html.contains("A unique post description"));
+        assert!(html.contains("March 3, 2026"));
+        assert!(html.contains("href=\"/posts\""));
+        assert!(html.contains("thanks for reading."));
+    }
+
+    #[test]
+    fn writes_nunomaduro_as_one_word() {
+        let html = PostTemplate::new(post()).render().unwrap();
+
+        assert!(html.contains("<title>nunomaduro · A Unique Post Title</title>"));
+        assert!(!html.to_lowercase().contains("nuno maduro"));
+    }
+}

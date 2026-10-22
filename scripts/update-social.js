@@ -56,7 +56,7 @@ const SUPPORT_HTML = path.join(__dirname, '../presentation/templates/support.htm
 
 // Markup used for an inserted count span — mirrors the existing count spans.
 const COUNT_CLASS =
-  'text-base sm:text-sm font-semibold tabular-nums text-zinc-500 group-hover:text-amber-400';
+  'block text-2xl leading-none font-bold tracking-tight';
 
 const UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
@@ -390,7 +390,7 @@ function setCount(html, href, value) {
   let current = null;
   let action;
 
-  const reSpan = /(<span class="[^"]*tabular-nums[^"]*">)([^<]*)(<\/span>)/;
+  const reSpan = /(<span\b[^>]*\bdata-count>)([^<]*)(<\/span>)/;
   const sm = anchor.match(reSpan);
 
   if (sm) {
@@ -401,7 +401,7 @@ function setCount(html, href, value) {
     action = 'insert';
     anchor = anchor.replace(
       /\n([ \t]*)<\/a>$/,
-      (_, indent) => `\n${indent}    <span class="${COUNT_CLASS}">${value}</span>\n${indent}</a>`,
+      (_, indent) => `\n${indent}    <span class="${COUNT_CLASS}" data-count>${value}</span>\n${indent}</a>`,
     );
   }
 
@@ -409,7 +409,7 @@ function setCount(html, href, value) {
 }
 
 // The list of social links on the page, in source order.
-const CONTAINER_RE = /(<div class="flex flex-col gap-3">\n)([\s\S]*?)(\n[ \t]*<\/div>)/;
+const CONTAINER_RE = /(<div id="socials-list"[^>]*>\n)([\s\S]*?)(\n[ \t]*<\/div>)/;
 const LINK_INDENT = ' '.repeat(16);
 
 /**
@@ -427,7 +427,7 @@ function sortByCount(html) {
   if (!anchors) return { html, order: null };
 
   const keyed = anchors.map((a, i) => {
-    const span = a.match(/tabular-nums[^>]*>([^<]*)<\/span>/);
+    const span = a.match(/\bdata-count>([^<]*)<\/span>/);
     const count = span ? parseAbbrev(span[1]) ?? -1 : -1;
     const href = (a.match(/href="([^"]*)"/) || [])[1] || '';
     return { a, count, href, i };
@@ -474,7 +474,7 @@ function currentCount(html, href) {
   const reAnchor = new RegExp(`<a\\b[^>]*href="${escapeRegex(href)}"[\\s\\S]*?</a>`);
   const am = html.match(reAnchor);
   if (!am) return null;
-  const sm = am[0].match(/tabular-nums[^>]*>([^<]*)<\/span>/);
+  const sm = am[0].match(/\bdata-count>([^<]*)<\/span>/);
   return sm ? parseAbbrev(sm[1]) : null;
 }
 

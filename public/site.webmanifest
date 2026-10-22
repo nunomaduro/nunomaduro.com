@@ -1,6 +1,6 @@
 {
-  "name": "Nuno Maduro",
-  "short_name": "Nuno Maduro",
+  "name": "nunomaduro",
+  "short_name": "nunomaduro",
   "description": "PHP Developer, Laravel Core Team Member, and Open Source Enthusiast",
   "start_url": "/",
   "icons": [
@@ -17,8 +17,8 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#f2f2f4",
+  "background_color": "#f2f2f4",
   "display": "standalone",
   "orientation": "portrait"
 }

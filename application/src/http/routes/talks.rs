@@ -24,7 +24,7 @@ impl Route for Talks {
     }
 
     async fn handle(&self, _request: Request<RequestBody>) -> Response<Body> {
-        let template = TalksTemplate::new();
+        let template = TalksTemplate::default();
 
         Response::new(template.render().unwrap().into())
     }
