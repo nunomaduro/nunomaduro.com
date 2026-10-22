@@ -84,6 +84,17 @@ mod tests {
     }
 
     #[test]
+    fn asks_the_reader_to_subscribe_to_the_youtube_channel_above_the_post() {
+        let html = PostTemplate::new(post()).render().unwrap();
+        let ask = html.find("subscribe to my youtube channel").expect("the post asks for a subscription");
+        let content = html.find("<h2>a unique heading</h2>").expect("the post shows its content");
+
+        assert!(ask < content);
+        assert!(html.contains("href=\"https://www.youtube.com/@nunomaduro?sub_confirmation=1\" data-popup"));
+        assert!(html.contains("data-copy=\"curl -fsSL nunomaduro.com/subscribe | sh\""));
+    }
+
+    #[test]
     fn shares_the_post_as_an_article_with_its_own_social_card() {
         let html = PostTemplate::new(post()).render().unwrap();
 

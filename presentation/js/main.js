@@ -44,8 +44,22 @@ function copyCommandOnClick() {
     });
 }
 
+function openPopupLinksInPopup() {
+    document.querySelectorAll('a[data-popup]').forEach(link => {
+        link.addEventListener('click', event => {
+            const left = window.screenX + (window.outerWidth - 520) / 2;
+            const top = window.screenY + (window.outerHeight - 640) / 2;
+
+            if (window.open(link.href, 'popup', `popup,width=520,height=640,left=${left},top=${top}`)) {
+                event.preventDefault();
+            }
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     openExternalLinksInNewTab();
     makeCodeBlocksScrollableByKeyboard();
     copyCommandOnClick();
+    openPopupLinksInPopup();
 });
