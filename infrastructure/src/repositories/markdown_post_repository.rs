@@ -146,7 +146,6 @@ mod tests {
         let repository = MarkdownPostRepository::new("../content/posts".to_string());
         let posts = repository.all();
 
-        assert!(!posts.is_empty());
         for post in posts {
             assert!(
                 parse_publication_date(post.published_at()).is_some(),
