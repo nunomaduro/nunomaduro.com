@@ -20,9 +20,13 @@ once we built devnull, it became obvious to us that devnull is pretty much pinka
 
 pinkary started as a weekend project. it reached 1,000 users on its first weekend, and it went viral enough to be fun for a while
 
+![the pinkary feed](/pinkary_1.jpg)
+
 it showed that, right before the ai era, you could still build a social network on a weekend and get hundreds of people to use it
 
 over the years it evolved a lot, thanks to a lot of contributors. one of them above all: [punyapal](https://github.com/MrPunyapal). he was a major part of pinkary, and he's absolutely awesome. thank you for everything you've done for it, my friend
+
+![my profile on pinkary](/pinkary_2.jpg)
 
 ## the code stays
 
