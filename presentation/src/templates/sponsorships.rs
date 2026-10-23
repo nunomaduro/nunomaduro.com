@@ -10,8 +10,8 @@ impl SponsorshipsPage {
     pub fn new() -> Self {
         Self {
             id: "sponsorships".to_string(),
-            title: "nunomaduro · sponsorships".to_string(),
-            description: "sponsor nunomaduro: a monthly logo and link, ads in youtube videos, a dedicated video, or a two-day live build sprint with your developer tool."
+            title: "nunomaduro · Sponsorships".to_string(),
+            description: "Sponsor nunomaduro: a monthly logo and link, ads in YouTube videos, a dedicated video, or a two-day live build sprint with your developer tool."
                 .to_string(),
         }
     }
@@ -66,15 +66,15 @@ mod tests {
 
             assert!(html[start..end].contains(price), "{price}");
         }
-        assert!(html.contains("most popular"));
-        assert!(html.contains("highest impact"));
+        assert!(html.contains("Most popular"));
+        assert!(html.contains("Highest impact"));
     }
 
     #[test]
     fn writes_nunomaduro_as_one_word() {
         let html = SponsorshipsTemplate::default().render().unwrap();
 
-        assert!(html.contains("<title>nunomaduro · sponsorships</title>"));
+        assert!(html.contains("<title>nunomaduro · Sponsorships</title>"));
         assert!(!html.to_lowercase().contains("nuno maduro"));
     }
 }

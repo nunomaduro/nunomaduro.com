@@ -10,8 +10,8 @@ impl NotFoundPage {
     pub fn new() -> Self {
         Self {
             id: "not-found".to_string(),
-            title: "nunomaduro · page not found".to_string(),
-            description: "this page does not exist".to_string(),
+            title: "nunomaduro · Page not found".to_string(),
+            description: "This page does not exist.".to_string(),
         }
     }
 
@@ -52,8 +52,8 @@ mod tests {
     fn renders_the_navigation_and_the_links_to_home_and_to_the_posts() {
         let html = NotFoundTemplate::default().render().unwrap();
 
-        assert!(html.contains("<title>nunomaduro · page not found</title>"));
-        assert!(html.contains("aria-label=\"main\""));
+        assert!(html.contains("<title>nunomaduro · Page not found</title>"));
+        assert!(html.contains("aria-label=\"Main\""));
         assert!(html.contains("href=\"/posts\" class=\"inline-flex"));
         assert!(html.contains("href=\"/\" class=\"inline-flex"));
     }

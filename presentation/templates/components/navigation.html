@@ -1,16 +1,16 @@
-<a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-xl focus:bg-zinc-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white">skip to content</a>
+<a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-xl focus:bg-zinc-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
 
 <header class="sticky top-3 z-50 mx-auto mt-3 w-full max-w-[1040px] px-3 sm:px-5" x-data="{ open: false }" @keydown.escape.window="if (open) { open = false; $nextTick(() => $refs.toggle.focus()) }">
     <div class="rounded-[18px] bg-white/85 shadow-[0_1px_0_rgb(0_0_0/0.04),0_0_0_1px_rgb(0_0_0/0.04)] backdrop-blur-xl backdrop-saturate-[1.8]">
         <div class="flex items-center justify-between py-1.5 pr-1.5 pl-4">
             <a href="/" class="flex min-h-11 items-center rounded-lg text-[17px] font-bold tracking-tight">nunomaduro<span class="text-amber-500" aria-hidden="true">.</span></a>
 
-            <nav aria-label="main" class="hidden sm:block">
+            <nav aria-label="Main" class="hidden sm:block">
                 <ul role="list" class="flex gap-0.5">
-                    <li><a href="/" {% if page.id() == "about" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "about" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">about</a></li>
-                    <li><a href="/posts" {% if page.id() == "posts" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "posts" || page.id() == "post" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">posts</a></li>
-                    <li><a href="/talks" {% if page.id() == "talks" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "talks" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">talks</a></li>
-                    <li><a href="/sponsorships" {% if page.id() == "sponsorships" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "sponsorships" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">sponsorships</a></li>
+                    <li><a href="/" {% if page.id() == "about" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "about" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">About</a></li>
+                    <li><a href="/posts" {% if page.id() == "posts" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "posts" || page.id() == "post" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Posts</a></li>
+                    <li><a href="/talks" {% if page.id() == "talks" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "talks" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Talks</a></li>
+                    <li><a href="/sponsorships" {% if page.id() == "sponsorships" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "sponsorships" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Sponsorships</a></li>
                 </ul>
             </nav>
 
@@ -20,12 +20,12 @@
             </button>
         </div>
 
-        <nav id="mobile-navigation" aria-label="main" x-show="open" x-cloak class="border-t border-zinc-200 p-1.5 sm:hidden">
+        <nav id="mobile-navigation" aria-label="Main" x-show="open" x-cloak class="border-t border-zinc-200 p-1.5 sm:hidden">
             <ul role="list" class="flex flex-col gap-0.5">
-                <li><a href="/" {% if page.id() == "about" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "about" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">about</a></li>
-                <li><a href="/posts" {% if page.id() == "posts" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "posts" || page.id() == "post" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">posts</a></li>
-                <li><a href="/talks" {% if page.id() == "talks" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "talks" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">talks</a></li>
-                <li><a href="/sponsorships" {% if page.id() == "sponsorships" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "sponsorships" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">sponsorships</a></li>
+                <li><a href="/" {% if page.id() == "about" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "about" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">About</a></li>
+                <li><a href="/posts" {% if page.id() == "posts" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "posts" || page.id() == "post" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Posts</a></li>
+                <li><a href="/talks" {% if page.id() == "talks" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "talks" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Talks</a></li>
+                <li><a href="/sponsorships" {% if page.id() == "sponsorships" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "sponsorships" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Sponsorships</a></li>
             </ul>
         </nav>
     </div>

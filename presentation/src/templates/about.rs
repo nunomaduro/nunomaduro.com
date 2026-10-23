@@ -13,8 +13,8 @@ impl AboutPage {
     pub fn new() -> Self {
         Self {
             id: "about".to_string(),
-            title: "nunomaduro · open source, speaker, and content creator".to_string(),
-            description: "open source developer, speaker, and content creator. the creator of pest, collision, termwind, and larastan."
+            title: "nunomaduro · Open source developer, speaker, and content creator".to_string(),
+            description: "Open source developer, speaker, and content creator. The creator of Pest, Collision, Termwind, and Larastan."
                 .to_string(),
         }
     }
@@ -89,7 +89,7 @@ mod tests {
     fn renders_the_home_page_when_no_post_exists() {
         let html = AboutTemplate::new(Vec::new()).render().unwrap();
 
-        assert!(html.contains("no posts yet.. stay tuned."));
+        assert!(html.contains("No posts yet. Stay tuned."));
         assert!(!html.contains("href=\"/posts/"));
     }
 
@@ -129,7 +129,7 @@ mod tests {
         assert_eq!(person["familyName"], "Maduro");
         assert!(!html.contains("SearchAction"));
         assert!(person.get("worksFor").is_none());
-        assert!(html.contains("open source&nbsp;· speaker&nbsp;· content creator</p>"));
+        assert!(html.contains("Open source&nbsp;· Speaker&nbsp;· Content creator</p>"));
         assert!(!html.to_lowercase().contains("staff"));
     }
 }

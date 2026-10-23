@@ -111,6 +111,6 @@ fn answers_a_path_that_does_not_exist_with_the_page_not_found() {
 
     for response in [unknown_path, unknown_post] {
         assert!(response.starts_with("HTTP/1.1 404 Not Found"));
-        assert!(response.contains("<title>nunomaduro · page not found</title>"));
+        assert!(response.contains("<title>nunomaduro · Page not found</title>"));
     }
 }

@@ -9,13 +9,13 @@ description: The voice and the shape of a post of nunomaduro.com. Use when you w
 
 Write as one developer who talks to one friend at a desk. The reader is a developer, and the reader has no time to lose.
 
-Write each word in lowercase. Keep the uppercase only in an item of code, a command, a path, a version and a name of a product that the code shows in uppercase, such as `PHP` or `README.md`.
+Write with correct grammar and normal capitalization. Start each sentence and each heading with an uppercase letter, write `I` in uppercase, and write each name of a product in its official form, such as `PHP`, `Laravel Cloud` or `GitHub`. Write each heading in sentence case.
 
-Do not put a period at the end of a paragraph, of a line or of a list item. Put a period only between two sentences in one paragraph. Keep a question mark and an exclamation mark only when the sentence needs it.
+Put a period at the end of each sentence, the last sentence of a paragraph included. Keep a question mark and an exclamation mark only when the sentence needs it.
 
 Write short sentences. Let one short sentence stand alone as a paragraph when it carries the idea.
 
-Use contractions such as `it's`, `don't` and `i've`. Use `i` for the author and `you` for the reader.
+Use contractions such as `it's`, `don't` and `I've`. Use `I` for the author and `you` for the reader.
 
 Say the opinion directly. Write "this is better" and not "this can arguably be seen as an improvement".
 
@@ -46,9 +46,9 @@ In conclusion, a rainy day can be a great opportunity to stay inside and focus.
 Good:
 
 ```markdown
-it's raining today. not the dramatic kind, the slow grey kind that makes you look out the window and decide the run can wait until tomorrow
+It's raining today. Not the dramatic kind, the slow grey kind that makes you look out the window and decide the run can wait until tomorrow.
 
-so here's the plan: coffee, a hoodie, laptop on the couch. if the sun shows up after lunch i'll go outside, if it doesn't i won't pretend to be upset about it
+So here's the plan: coffee, a hoodie, laptop on the couch. If the sun shows up after lunch, I'll go outside. If it doesn't, I won't pretend to be upset about it.
 ```
 
 ## 4. The file

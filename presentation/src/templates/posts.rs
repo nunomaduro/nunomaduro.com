@@ -11,9 +11,9 @@ impl PostsPage {
     pub fn new() -> Self {
         Self {
             id: "posts".to_string(),
-            title: "nunomaduro · posts".to_string(),
+            title: "nunomaduro · Posts".to_string(),
             description:
-                "articles by nunomaduro about php, laravel, pest, testing, open source, and software engineering"
+                "Articles by nunomaduro about PHP, Laravel, Pest, testing, open source, and software engineering."
                     .to_string(),
         }
     }
@@ -76,14 +76,14 @@ mod tests {
     fn renders_the_posts_page_when_no_post_exists() {
         let html = PostsTemplate::new(Vec::new()).render().unwrap();
 
-        assert!(html.contains("no posts yet.. stay tuned."));
+        assert!(html.contains("No posts yet. Stay tuned."));
     }
 
     #[test]
     fn writes_nunomaduro_as_one_word() {
         let html = PostsTemplate::new(Vec::new()).render().unwrap();
 
-        assert!(html.contains("<title>nunomaduro · posts</title>"));
+        assert!(html.contains("<title>nunomaduro · Posts</title>"));
         assert!(!html.to_lowercase().contains("nuno maduro"));
     }
 }

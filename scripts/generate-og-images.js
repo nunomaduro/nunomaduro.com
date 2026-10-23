@@ -20,11 +20,11 @@ const COLORS = {
 };
 
 const PAGES = [
-  { id: 'about', title: 'open source, speaker, and content creator' },
-  { id: 'posts', title: 'posts' },
-  { id: 'talks', title: 'talks' },
-  { id: 'sponsorships', title: 'sponsorships' },
-  { id: 'not-found', title: 'page not found' },
+  { id: 'about', title: 'Open source developer, speaker, and content creator' },
+  { id: 'posts', title: 'Posts' },
+  { id: 'talks', title: 'Talks' },
+  { id: 'sponsorships', title: 'Sponsorships' },
+  { id: 'not-found', title: 'Page not found' },
 ];
 
 registerFont(path.join(ASSETS_DIR, 'Geist-Bold.ttf'), { family: 'Geist', weight: 'bold' });

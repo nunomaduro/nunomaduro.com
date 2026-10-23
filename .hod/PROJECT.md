@@ -4,7 +4,7 @@ nunomaduro.com is the personal website of Nuno Maduro: the posts, the talks, the
 
 Install the dependencies with `npm ci`. Build the CSS and the JavaScript with `npm run build`. Run the tests with `cargo test`. Run the linter with `cargo clippy`. Start the server with `cargo run`, or with `make dev` to restart it on each change. The server listens on the port in `PORT`, or on the first free port from `8000` to `8010`.
 
-Write each post in `content/posts/` in an informal voice: lowercase, short sentences, the point first, no filler, and no period at the end of a paragraph. Use this voice only in the posts. Call the Skill tool with "write-blog-post" before you write or edit a post.
+Write each text of the site, the posts included, with correct grammar and normal capitalization. Write each post in `content/posts/` in a direct, informal voice: short sentences, the point first, and no filler. Call the Skill tool with "write-blog-post" before you write or edit a post.
 
 - `src/` — the binary `server`, which binds the port and serves each request
 - `application/` — the crate of the HTTP router and the routes

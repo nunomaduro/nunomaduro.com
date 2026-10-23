@@ -32,8 +32,8 @@ function copyCommandOnClick() {
 
         button.addEventListener('click', () => {
             navigator.clipboard.writeText(button.dataset.copy).then(() => {
-                button.textContent = 'copied!';
-                status.textContent = 'copied';
+                button.textContent = 'Copied!';
+                status.textContent = 'Copied';
 
                 setTimeout(() => {
                     button.textContent = label;

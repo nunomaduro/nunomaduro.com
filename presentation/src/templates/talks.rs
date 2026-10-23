@@ -10,8 +10,8 @@ impl TalksPage {
     pub fn new() -> Self {
         Self {
             id: "talks".to_string(),
-            title: "nunomaduro · talks".to_string(),
-            description: "conference talks by nunomaduro about pest, laravel, and php tooling, from laracon us, laracon eu, laracon india, laracon au, and more."
+            title: "nunomaduro · Talks".to_string(),
+            description: "Conference talks by nunomaduro about Pest, Laravel, and PHP tooling, from Laracon US, Laracon EU, Laracon India, Laracon AU, and more."
                 .to_string(),
         }
     }
@@ -55,7 +55,7 @@ mod tests {
 
         assert_eq!(html.matches("<iframe").count(), 8);
         assert_eq!(html.matches("loading=\"lazy\"").count(), 8);
-        assert!(html.contains("title=\"strict ai engineering\" loading=\"lazy\""));
+        assert!(html.contains("title=\"Strict AI engineering\" loading=\"lazy\""));
         assert!(!html.contains("title=\"YouTube video player\""));
     }
 
@@ -71,7 +71,7 @@ mod tests {
     fn writes_nunomaduro_as_one_word() {
         let html = TalksTemplate::default().render().unwrap();
 
-        assert!(html.contains("<title>nunomaduro · talks</title>"));
+        assert!(html.contains("<title>nunomaduro · Talks</title>"));
         assert!(!html.to_lowercase().contains("nuno maduro"));
     }
 

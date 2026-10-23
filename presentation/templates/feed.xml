@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>nunomaduro · posts</title>
+        <title>nunomaduro · Posts</title>
         <link>https://nunomaduro.com/posts</link>
-        <description>articles by nunomaduro about php, laravel, pest, testing, open source, and software engineering</description>
+        <description>Articles by nunomaduro about PHP, Laravel, Pest, testing, open source, and software engineering.</description>
         <language>en-us</language>
         <image>
             <url>https://nunomaduro.com/android-icon-192x192.png</url>
-            <title>nunomaduro · posts</title>
+            <title>nunomaduro · Posts</title>
             <link>https://nunomaduro.com/posts</link>
         </image>
         <atom:link href="https://nunomaduro.com/feed.xml" rel="self" type="application/rss+xml"/>

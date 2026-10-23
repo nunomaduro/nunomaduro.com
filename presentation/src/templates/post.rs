@@ -80,13 +80,13 @@ mod tests {
         assert!(html.contains("A unique post description"));
         assert!(html.contains("March 3, 2026"));
         assert!(html.contains("href=\"/posts\""));
-        assert!(html.contains("thanks for reading."));
+        assert!(html.contains("Thanks for reading."));
     }
 
     #[test]
     fn asks_the_reader_to_subscribe_to_the_youtube_channel_above_the_post() {
         let html = PostTemplate::new(post()).render().unwrap();
-        let ask = html.find("subscribe to my youtube channel").expect("the post asks for a subscription");
+        let ask = html.find("subscribe to my YouTube channel").expect("the post asks for a subscription");
         let content = html.find("<h2>a unique heading</h2>").expect("the post shows its content");
 
         assert!(ask < content);
