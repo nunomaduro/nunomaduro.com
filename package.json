@@ -19,5 +19,8 @@
     "og": "node scripts/generate-og-images.js",
     "icons": "node scripts/generate-icons.js",
     "social": "node scripts/update-social.js"
+  },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
   }
 }
