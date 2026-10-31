@@ -14,12 +14,8 @@ members = [
 
 [dependencies]
 application = { path = "application" }
-domain = { path = "domain" }
-infrastructure = { path = "infrastructure" }
-presentation = { path = "presentation" }
 
-hyper = { version = "1.11.1", features = ["full"] }
+hyper = { version = "1.12.0", features = ["full"] }
 hyper-util = { version = "0.1.21", features = ["full"] }
-http-body-util = "0.1.5"
-tokio = { version = "1.53.1", features = ["full"] }
+tokio = { version = "1.54.1", features = ["full"] }
 dotenvy = "0.15.7"

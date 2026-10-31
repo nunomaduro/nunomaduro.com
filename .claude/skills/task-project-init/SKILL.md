@@ -58,9 +58,19 @@ Write no rule in this file. A rule needs a fault that happened, and `AGENTS.md`,
 
 Show the text of the file and ask the user to accept it. Wait for the answer. Name each fact that you took from a file, and name each fact that you guessed.
 
-## 5. Report
+## 5. Set up the design
+
+Continue with section 6 when the project has no page, no component, no style and no screen that a user sees.
+
+Call the Skill tool with "impeccable", and do its command `init`. That command writes `PRODUCT.md`.
+
+Do the command `document` of that skill when the project holds a style, such as a stylesheet, a theme or a file of tokens. That command writes `DESIGN.md`.
+
+## 6. Report
 
 Give the path `.hod/PROJECT.md` and say what the file holds now.
+
+Give the path of `PRODUCT.md` and of `DESIGN.md` when section 5 wrote them.
 
 Say that a rule of this project goes in `.ai/rules/` through the MCP tool `record-rule` when the project holds `boost.json`, and in a file in `.hod/rules/` when it does not. Say that a skill of this project goes in a directory in `.hod/skills/`.
 

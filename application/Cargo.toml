@@ -9,9 +9,9 @@ infrastructure = { path = "../infrastructure" }
 presentation = { path = "../presentation" }
 
 askama = { version = "0.16.1" }
-hyper = { version = "1.11.1", features = ["full"] }
+hyper = { version = "1.12.0", features = ["full"] }
 http-body-util = "0.1.5"
 bytes = "1.12.1"
 
-serde_json = "1.0.151"
+serde_json = "1.0.154"
 async-trait = "0.1.92"

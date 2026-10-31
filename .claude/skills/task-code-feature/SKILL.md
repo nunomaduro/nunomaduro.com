@@ -40,6 +40,8 @@ Call the Skill tool with "rules-code-queries" when the feature reads a list of r
 
 Call the Skill tool with "rules-code-security" when the feature runs a query with a value, runs a process, prints a value from a user, stores a file, reads a secret or adds an action that a guest can call.
 
+Call the Skill tool with "impeccable" when the feature adds or changes a page, a component, a style or a screen that a user sees. Obey it for each decision of the design.
+
 Read the description of each other skill of this project, and call the Skill tool with each skill whose description names a framework, a library or a tool that the feature uses.
 
 ## 4. Build the feature
@@ -53,6 +55,8 @@ Write the tests of each requirement as the skill "rules-code-tests" says.
 Call the Skill tool with "rules-code-tooling".
 
 Run each check that it names. Repair each fault that your change caused, and run the check again.
+
+Run the detector of the skill "impeccable" on each file of the interface that your change touches, when section 3 called that skill. Repair each finding as that skill says.
 
 ## 6. Read the diff
 

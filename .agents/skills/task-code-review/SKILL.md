@@ -48,6 +48,8 @@ Call the Skill tool with "rules-code-error-messages".
 
 Call the Skill tool with "rules-code-public-api".
 
+Call the Skill tool with "impeccable" when the diff changes a page, a component, a style or a screen that a user sees. Tell its subagent to do the commands `critique` and `audit` of that skill on each such file.
+
 Tell each subagent to give each finding on one line in this form: `<path>:<line> | <skill> §<section> | <fault> | <repair>`. Tell it to give no finding without a line of the diff.
 
 ## 4. Find each requirement in the change

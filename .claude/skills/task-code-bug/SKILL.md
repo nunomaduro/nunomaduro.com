@@ -54,6 +54,8 @@ Call the Skill tool with "rules-code-tooling".
 
 Run each check that it names after your last change.
 
+Call the Skill tool with "impeccable" when the repair changes a page, a component, a style or a screen that a user sees. Run its detector on each such file, and repair each finding that the repair caused.
+
 ## 8. Report
 
 Give the three lines of section 1.
