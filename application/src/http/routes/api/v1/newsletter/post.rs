@@ -1,7 +1,7 @@
 use crate::http::Route;
+use crate::http::{Body, RequestBody};
 use async_trait::async_trait;
 use domain::contracts::NewsletterRepository;
-use crate::http::{Body, RequestBody};
 use http_body_util::BodyExt;
 use hyper::{Request, Response};
 use infrastructure::repositories::MailcoachNewsletterRepository;

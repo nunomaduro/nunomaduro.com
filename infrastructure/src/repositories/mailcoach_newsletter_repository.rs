@@ -1,9 +1,9 @@
 use async_trait::async_trait;
 use domain::contracts::NewsletterRepository;
+use reqwest::Client;
 use reqwest::header::ACCEPT;
 use reqwest::header::AUTHORIZATION;
 use reqwest::header::CONTENT_TYPE;
-use reqwest::Client;
 use std::default::Default;
 
 pub struct MailcoachNewsletterRepository {

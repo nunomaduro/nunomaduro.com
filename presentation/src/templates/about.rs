@@ -97,7 +97,9 @@ mod tests {
     fn writes_nunomaduro_as_one_word() {
         let html = AboutTemplate::new(Vec::new()).render().unwrap();
 
-        assert!(html.contains("nunomaduro<span class=\"text-amber-500\" aria-hidden=\"true\">.</span>"));
+        assert!(
+            html.contains("nunomaduro<span class=\"text-amber-500\" aria-hidden=\"true\">.</span>")
+        );
         assert!(html.contains("<h1 class=\"relative text-[40px] leading-none font-bold tracking-[-0.045em] sm:text-[44px]\">nunomaduro</h1>"));
         assert!(html.contains("&copy; nunomaduro"));
         assert!(!html.to_lowercase().contains("nuno maduro"));
@@ -122,9 +124,14 @@ mod tests {
         let person = crate::templates::node(&graph, "Person");
 
         assert!(html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/\">"));
-        assert!(html.contains("<meta property=\"og:image\" content=\"https://nunomaduro.com/og/about.png\">"));
+        assert!(html.contains(
+            "<meta property=\"og:image\" content=\"https://nunomaduro.com/og/about.png\">"
+        ));
         assert_eq!(profile["url"], "https://nunomaduro.com/");
-        assert_eq!(profile["mainEntity"]["@id"], "https://nunomaduro.com/#person");
+        assert_eq!(
+            profile["mainEntity"]["@id"],
+            "https://nunomaduro.com/#person"
+        );
         assert_eq!(person["givenName"], "Nuno");
         assert_eq!(person["familyName"], "Maduro");
         assert!(!html.contains("SearchAction"));

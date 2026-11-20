@@ -42,7 +42,9 @@ mod tests {
     use askama::Template;
 
     fn meta(html: &str, attribute: &str, name: &str) -> String {
-        let start = html.find(&format!("<meta {attribute}=\"{name}\" content=\"")).unwrap_or_else(|| panic!("{name}"));
+        let start = html
+            .find(&format!("<meta {attribute}=\"{name}\" content=\""))
+            .unwrap_or_else(|| panic!("{name}"));
         let content = &html[start..];
         let content = &content[content.find("content=\"").unwrap() + 9..];
 
@@ -59,12 +61,24 @@ mod tests {
             MediaKitTemplate::default().render().unwrap(),
         ];
 
-        let mut titles: Vec<String> = pages.iter().map(|html| meta(html, "property", "og:title")).collect();
-        let mut descriptions: Vec<String> = pages.iter().map(|html| meta(html, "name", "description")).collect();
-        let mut cards: Vec<String> = pages.iter().map(|html| meta(html, "property", "og:image")).collect();
+        let mut titles: Vec<String> = pages
+            .iter()
+            .map(|html| meta(html, "property", "og:title"))
+            .collect();
+        let mut descriptions: Vec<String> = pages
+            .iter()
+            .map(|html| meta(html, "name", "description"))
+            .collect();
+        let mut cards: Vec<String> = pages
+            .iter()
+            .map(|html| meta(html, "property", "og:image"))
+            .collect();
 
         for description in &descriptions {
-            assert!((50..=160).contains(&description.chars().count()), "{description}");
+            assert!(
+                (50..=160).contains(&description.chars().count()),
+                "{description}"
+            );
         }
         for card in &cards {
             let path = card.replace("https://nunomaduro.com/", "../public/");

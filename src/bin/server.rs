@@ -1,6 +1,6 @@
 use application::http::{Body, RequestBody, Router};
+use hyper::header::{CONTENT_TYPE, HeaderValue};
 use hyper::service::service_fn;
-use hyper::header::{HeaderValue, CONTENT_TYPE};
 use hyper::{Request, Response};
 use hyper_util::rt::{TokioExecutor, TokioIo};
 use hyper_util::server::conn::auto::Builder;
@@ -53,17 +53,23 @@ async fn listen() -> TcpListener {
     match std::env::var("PORT") {
         Ok(port) => listen_on_port(&port).await,
         Err(VarError::NotPresent) => listen_on_free_development_port().await,
-        Err(VarError::NotUnicode(_)) => exit_with("the variable [PORT] must be a number from [0] to [65535]"),
+        Err(VarError::NotUnicode(_)) => {
+            exit_with("the variable [PORT] must be a number from [0] to [65535]")
+        }
     }
 }
 
 async fn listen_on_port(port: &str) -> TcpListener {
     let Ok(number) = port.parse::<u16>() else {
-        exit_with(&format!("the variable [PORT] must be a number from [0] to [65535], got [{port}]"));
+        exit_with(&format!(
+            "the variable [PORT] must be a number from [0] to [65535], got [{port}]"
+        ));
     };
 
     if is_in_use(number).await {
-        exit_with(&format!("cannot listen on port [{number}], because it is in use"));
+        exit_with(&format!(
+            "cannot listen on port [{number}], because it is in use"
+        ));
     }
 
     match bind(number).await {
@@ -94,8 +100,12 @@ async fn listen_on_free_development_port() -> TcpListener {
 }
 
 async fn is_in_use(port: u16) -> bool {
-    TcpStream::connect((Ipv4Addr::LOCALHOST, port)).await.is_ok()
-        || TcpStream::connect((Ipv6Addr::LOCALHOST, port)).await.is_ok()
+    TcpStream::connect((Ipv4Addr::LOCALHOST, port))
+        .await
+        .is_ok()
+        || TcpStream::connect((Ipv6Addr::LOCALHOST, port))
+            .await
+            .is_ok()
 }
 
 async fn bind(port: u16) -> io::Result<TcpListener> {
@@ -115,7 +125,10 @@ async fn handle(request: Request<RequestBody>) -> Result<Response<Body>, Infalli
     let path = request.uri().path().trim_end_matches('/').to_string();
     let method = request.method().to_string();
 
-    let mut response = Router::default().route(&method, &path).handle(request).await;
+    let mut response = Router::default()
+        .route(&method, &path)
+        .handle(request)
+        .await;
 
     // routes without an explicit content type render html templates
     response
@@ -123,11 +136,11 @@ async fn handle(request: Request<RequestBody>) -> Result<Response<Body>, Infalli
         .entry(CONTENT_TYPE)
         .or_insert(HeaderValue::from_static("text/html; charset=utf-8"));
 
-    // fall back to files in ./public when no route matches
-    if response.status() == 404 && method == "GET" {
-        if let Some(file) = public_file(&path).await {
-            return Ok(file);
-        }
+    if response.status() == 404
+        && method == "GET"
+        && let Some(file) = public_file(&path).await
+    {
+        return Ok(file);
     }
 
     Ok(response)
@@ -146,7 +159,9 @@ async fn public_file(path: &str) -> Option<Response<Body>> {
         return None;
     }
 
-    let bytes = tokio::fs::read(Path::new("./public").join(relative)).await.ok()?;
+    let bytes = tokio::fs::read(Path::new("./public").join(relative))
+        .await
+        .ok()?;
 
     let content_type = match path.rsplit('.').next() {
         Some("css") => "text/css",

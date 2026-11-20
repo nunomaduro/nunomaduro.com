@@ -1,6 +1,6 @@
 use super::routes;
-use async_trait::async_trait;
 use crate::http::{Body, RequestBody};
+use async_trait::async_trait;
 use hyper::{Request, Response};
 use std::default::Default;
 

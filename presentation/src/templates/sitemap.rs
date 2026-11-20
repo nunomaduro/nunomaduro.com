@@ -30,6 +30,8 @@ mod tests {
         );
         let xml = SitemapTemplate::new(vec![post]).render().unwrap();
 
-        assert!(xml.contains("<loc>https://nunomaduro.com/posts/unique-slug</loc>\n    <lastmod>2026-01-04</lastmod>"));
+        assert!(xml.contains(
+            "<loc>https://nunomaduro.com/posts/unique-slug</loc>\n    <lastmod>2026-01-04</lastmod>"
+        ));
     }
 }

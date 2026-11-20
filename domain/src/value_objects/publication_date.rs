@@ -46,10 +46,14 @@ impl PublicationDate {
 
     fn weekday(&self) -> usize {
         const OFFSETS: [u32; 12] = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4];
-        let year = if self.month < 3 { self.year - 1 } else { self.year };
+        let year = if self.month < 3 {
+            self.year - 1
+        } else {
+            self.year
+        };
 
-        ((year + year / 4 - year / 100 + year / 400 + OFFSETS[self.month as usize - 1] + self.day) % 7)
-            as usize
+        ((year + year / 4 - year / 100 + year / 400 + OFFSETS[self.month as usize - 1] + self.day)
+            % 7) as usize
     }
 }
 
@@ -61,7 +65,11 @@ impl FromStr for PublicationDate {
 
         let (month_and_day, year) = date.split_once(", ").ok_or_else(invalid)?;
         let (month, day) = month_and_day.split_once(' ').ok_or_else(invalid)?;
-        let month = MONTHS.iter().position(|name| *name == month).ok_or_else(invalid)? as u32 + 1;
+        let month = MONTHS
+            .iter()
+            .position(|name| *name == month)
+            .ok_or_else(invalid)? as u32
+            + 1;
         let day: u32 = day.parse().map_err(|_| invalid())?;
         let year: u32 = year.parse().map_err(|_| invalid())?;
 
@@ -75,7 +83,13 @@ impl FromStr for PublicationDate {
 
 impl fmt::Display for PublicationDate {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(formatter, "{} {}, {}", self.month_name(), self.day, self.year)
+        write!(
+            formatter,
+            "{} {}, {}",
+            self.month_name(),
+            self.day,
+            self.year
+        )
     }
 }
 
@@ -92,7 +106,13 @@ mod tests {
 
     #[test]
     fn refuses_a_date_in_a_different_form() {
-        for date in ["2026-01-04", "Jan 4, 2026", "January 32, 2026", "January 4 2026", ""] {
+        for date in [
+            "2026-01-04",
+            "Jan 4, 2026",
+            "January 32, 2026",
+            "January 4 2026",
+            "",
+        ] {
             assert!(date.parse::<PublicationDate>().is_err(), "{date}");
         }
     }

@@ -1,8 +1,8 @@
 use crate::http::Route;
+use crate::http::{Body, RequestBody};
 use askama::Template;
 use async_trait::async_trait;
 use domain::contracts::PostRepository;
-use crate::http::{Body, RequestBody};
 use hyper::{Request, Response, StatusCode};
 use infrastructure::repositories::MarkdownPostRepository;
 use presentation::templates::{NotFoundTemplate, PostTemplate};
@@ -36,7 +36,8 @@ impl Route for Post {
                 Response::new(template.render().unwrap().into())
             }
             None => {
-                let mut response = Response::new(NotFoundTemplate::default().render().unwrap().into());
+                let mut response =
+                    Response::new(NotFoundTemplate::default().render().unwrap().into());
                 *response.status_mut() = StatusCode::NOT_FOUND;
                 response
             }

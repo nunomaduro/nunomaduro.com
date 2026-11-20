@@ -1,7 +1,7 @@
 use crate::http::Route;
+use crate::http::{Body, RequestBody};
 use async_trait::async_trait;
 use hyper::header::CONTENT_TYPE;
-use crate::http::{Body, RequestBody};
 use hyper::{Request, Response};
 
 pub struct Subscribe;

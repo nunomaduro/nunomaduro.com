@@ -63,7 +63,11 @@ mod tests {
     fn renders_each_past_talk_as_a_link_to_its_video() {
         let html = TalksTemplate::default().render().unwrap();
 
-        assert_eq!(html.matches("href=\"https://www.youtube.com/watch?v=").count(), 15);
+        assert_eq!(
+            html.matches("href=\"https://www.youtube.com/watch?v=")
+                .count(),
+            15
+        );
         assert!(html.contains("href=\"https://www.youtube.com/watch?v=1c_p4JlMSgQ&amp;t=1800s\""));
     }
 
@@ -83,6 +87,9 @@ mod tests {
 
         assert!(html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/talks\">"));
         assert_eq!(page["breadcrumb"]["itemListElement"][1]["name"], "Talks");
-        assert_eq!(page["breadcrumb"]["itemListElement"][1]["item"], "https://nunomaduro.com/talks");
+        assert_eq!(
+            page["breadcrumb"]["itemListElement"][1]["item"],
+            "https://nunomaduro.com/talks"
+        );
     }
 }

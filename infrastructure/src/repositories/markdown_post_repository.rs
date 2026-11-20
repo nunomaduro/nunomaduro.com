@@ -110,7 +110,12 @@ mod tests {
         fs::remove_dir_all(&directory).unwrap();
         assert_eq!(
             slugs,
-            ["april-post", "january-post", "early-january-post", "winter-post"]
+            [
+                "april-post",
+                "january-post",
+                "early-january-post",
+                "winter-post"
+            ]
         );
     }
 
@@ -124,11 +129,13 @@ mod tests {
     #[test]
     #[should_panic(expected = "the post `wrong-date-post` has the date `2026-01-04`")]
     fn stops_on_a_post_with_a_date_in_a_different_form() {
-        let directory = std::env::temp_dir().join(format!("posts-wrong-date-{}", std::process::id()));
+        let directory =
+            std::env::temp_dir().join(format!("posts-wrong-date-{}", std::process::id()));
         fs::create_dir_all(&directory).unwrap();
         write_post(&directory, "wrong-date-post", "2026-01-04");
 
-        MarkdownPostRepository::new(directory.to_str().unwrap().to_string()).find("wrong-date-post");
+        MarkdownPostRepository::new(directory.to_str().unwrap().to_string())
+            .find("wrong-date-post");
     }
 
     #[test]

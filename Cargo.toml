@@ -1,7 +1,7 @@
 [package]
 name = "nunomaduro_com"
 version = "1.0.0"
-edition = "2021"
+edition = "2024"
 default-run = "server"
 
 [workspace]

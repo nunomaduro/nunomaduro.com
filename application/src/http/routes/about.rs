@@ -1,8 +1,8 @@
 use crate::http::Route;
+use crate::http::{Body, RequestBody};
 use askama::Template;
 use async_trait::async_trait;
 use domain::contracts::PostRepository;
-use crate::http::{Body, RequestBody};
 use hyper::{Request, Response};
 use infrastructure::repositories::MarkdownPostRepository;
 use presentation::templates::AboutTemplate;

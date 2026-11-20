@@ -86,11 +86,17 @@ mod tests {
     #[test]
     fn asks_the_reader_to_subscribe_to_the_youtube_channel_above_the_post() {
         let html = PostTemplate::new(post()).render().unwrap();
-        let ask = html.find("subscribe to my YouTube channel").expect("the post asks for a subscription");
-        let content = html.find("<h2>a unique heading</h2>").expect("the post shows its content");
+        let ask = html
+            .find("subscribe to my YouTube channel")
+            .expect("the post asks for a subscription");
+        let content = html
+            .find("<h2>a unique heading</h2>")
+            .expect("the post shows its content");
 
         assert!(ask < content);
-        assert!(html.contains("href=\"https://www.youtube.com/@nunomaduro?sub_confirmation=1\" data-popup"));
+        assert!(html.contains(
+            "href=\"https://www.youtube.com/@nunomaduro?sub_confirmation=1\" data-popup"
+        ));
         assert!(html.contains("data-copy=\"curl -fsSL nunomaduro.com/subscribe | sh\""));
     }
 
@@ -102,7 +108,9 @@ mod tests {
         assert!(html.contains("<meta property=\"og:title\" content=\"A Unique Post Title\">"));
         assert!(html.contains("<meta property=\"og:image\" content=\"https://nunomaduro.com/og/posts/unique-slug.png\">"));
         assert!(html.contains("<meta property=\"article:published_time\" content=\"2026-03-03\">"));
-        assert!(html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/posts/unique-slug\">"));
+        assert!(html.contains(
+            "<link rel=\"canonical\" href=\"https://nunomaduro.com/posts/unique-slug\">"
+        ));
         assert!(html.contains("<time datetime=\"2026-03-03\">March 3, 2026</time>"));
     }
 
@@ -124,9 +132,15 @@ mod tests {
         assert_eq!(article["headline"], "Pest's \"withHost\" </script> & more");
         assert_eq!(article["description"], "A description with a \"quote\"");
         assert_eq!(article["datePublished"], "2026-01-04");
-        assert_eq!(article["image"]["url"], "https://nunomaduro.com/og/posts/quoted-slug.png");
+        assert_eq!(
+            article["image"]["url"],
+            "https://nunomaduro.com/og/posts/quoted-slug.png"
+        );
         assert_eq!(article["author"]["@id"], "https://nunomaduro.com/#person");
-        assert_eq!(breadcrumb["itemListElement"][2]["item"], "https://nunomaduro.com/posts/quoted-slug");
+        assert_eq!(
+            breadcrumb["itemListElement"][2]["item"],
+            "https://nunomaduro.com/posts/quoted-slug"
+        );
     }
 
     #[test]
@@ -138,7 +152,10 @@ mod tests {
                 let slug = path.file_stem().unwrap().to_str().unwrap();
                 let card = format!("../public/og/posts/{slug}.png");
 
-                assert!(std::path::Path::new(&card).exists(), "run `npm run og` to write {card}");
+                assert!(
+                    std::path::Path::new(&card).exists(),
+                    "run `npm run og` to write {card}"
+                );
             }
         }
     }

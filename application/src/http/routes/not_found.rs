@@ -1,7 +1,7 @@
 use crate::http::Route;
+use crate::http::{Body, RequestBody};
 use askama::Template;
 use async_trait::async_trait;
-use crate::http::{Body, RequestBody};
 use hyper::{Request, Response};
 use presentation::templates::NotFoundTemplate;
 

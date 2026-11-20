@@ -4,7 +4,10 @@ use std::process::{Child, Command, Output, Stdio};
 
 fn server() -> Command {
     let mut command = Command::new(env!("CARGO_BIN_EXE_server"));
-    command.env_remove("PORT").stdout(Stdio::piped()).stderr(Stdio::piped());
+    command
+        .env_remove("PORT")
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped());
 
     command
 }
@@ -28,20 +31,34 @@ fn read_until_url(server: &mut Child) -> Vec<String> {
 }
 
 fn run_until_exit(command: &mut Command) -> Output {
-    command.spawn().expect("the server starts").wait_with_output().expect("the server exits")
+    command
+        .spawn()
+        .expect("the server starts")
+        .wait_with_output()
+        .expect("the server exits")
 }
 
 fn free_port() -> u16 {
-    TcpListener::bind("127.0.0.1:0").expect("a free port exists").local_addr().expect("the port has an address").port()
+    TcpListener::bind("127.0.0.1:0")
+        .expect("a free port exists")
+        .local_addr()
+        .expect("the port has an address")
+        .port()
 }
 
 #[test]
 fn prints_a_clickable_url_of_the_port_in_port() {
     let port = free_port();
 
-    let mut server = server().env("PORT", port.to_string()).spawn().expect("the server starts");
+    let mut server = server()
+        .env("PORT", port.to_string())
+        .spawn()
+        .expect("the server starts");
 
-    assert_eq!(read_until_url(&mut server), vec![format!("listening on http://localhost:{port}")]);
+    assert_eq!(
+        read_until_url(&mut server),
+        vec![format!("listening on http://localhost:{port}")]
+    );
 }
 
 #[test]
@@ -65,7 +82,10 @@ fn listens_on_the_next_free_port_when_port_8000_is_in_use() {
 #[test]
 fn stops_when_the_port_in_port_is_in_use() {
     let other_server = TcpListener::bind("127.0.0.1:0").expect("a free port exists");
-    let port = other_server.local_addr().expect("the port has an address").port();
+    let port = other_server
+        .local_addr()
+        .expect("the port has an address")
+        .port();
 
     let output = run_until_exit(server().env("PORT", port.to_string()));
 
@@ -88,11 +108,18 @@ fn stops_when_port_is_not_a_number() {
 }
 
 fn get(port: u16, path: &str) -> String {
-    let mut stream = TcpStream::connect(("127.0.0.1", port)).expect("the server accepts a connection");
-    write!(stream, "GET {path} HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n").expect("the server reads the request");
+    let mut stream =
+        TcpStream::connect(("127.0.0.1", port)).expect("the server accepts a connection");
+    write!(
+        stream,
+        "GET {path} HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n"
+    )
+    .expect("the server reads the request");
 
     let mut response = String::new();
-    stream.read_to_string(&mut response).expect("the server writes text");
+    stream
+        .read_to_string(&mut response)
+        .expect("the server writes text");
 
     response
 }
@@ -100,9 +127,16 @@ fn get(port: u16, path: &str) -> String {
 #[test]
 fn answers_a_path_that_does_not_exist_with_the_page_not_found() {
     let port = free_port();
-    let mut server = server().env("PORT", port.to_string()).spawn().expect("the server starts");
+    let mut server = server()
+        .env("PORT", port.to_string())
+        .spawn()
+        .expect("the server starts");
     let stdout = server.stdout.take().expect("the server has a stdout");
-    BufReader::new(stdout).lines().next().expect("the server writes its url").expect("the server writes text");
+    BufReader::new(stdout)
+        .lines()
+        .next()
+        .expect("the server writes its url")
+        .expect("the server writes text");
 
     let unknown_path = get(port, "/a-path-that-does-not-exist");
     let unknown_post = get(port, "/posts/a-post-that-does-not-exist");

@@ -4,3 +4,4 @@
 .playwright-mcp
 .mcp.json
 /playground
+/public/dist

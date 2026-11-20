@@ -54,8 +54,14 @@ mod tests {
         let html = MediaKitTemplate::default().render().unwrap();
 
         for section in ["audience", "packages", "case-studies"] {
-            assert!(html.contains(&format!("<a href=\"#{section}\"")), "{section}");
-            assert!(html.contains(&format!("<section id=\"{section}\"")), "{section}");
+            assert!(
+                html.contains(&format!("<a href=\"#{section}\"")),
+                "{section}"
+            );
+            assert!(
+                html.contains(&format!("<section id=\"{section}\"")),
+                "{section}"
+            );
         }
     }
 
@@ -79,11 +85,16 @@ mod tests {
             ("Brazil", "5.40%", "44%"),
             ("United Kingdom", "4.94%", "40%"),
         ] {
-            let start = html.find(&format!(">{country}<")).unwrap_or_else(|| panic!("{country}"));
+            let start = html
+                .find(&format!(">{country}<"))
+                .unwrap_or_else(|| panic!("{country}"));
             let end = start + html[start..].find("</li>").unwrap();
 
             assert!(html[start..end].contains(share), "{share}");
-            assert!(html[start..end].contains(&format!("width: {width}")), "{width}");
+            assert!(
+                html[start..end].contains(&format!("width: {width}")),
+                "{width}"
+            );
         }
     }
 
@@ -92,11 +103,23 @@ mod tests {
         let html = MediaKitTemplate::default().render().unwrap();
 
         for (anchor, price, package) in [
-            ("recurring-logo-and-link", "$1,000", "Recurring logo &amp; link"),
+            (
+                "recurring-logo-and-link",
+                "$1,000",
+                "Recurring logo &amp; link",
+            ),
             ("ad-in-4-videos", "$8,000", "20-sec ad in 4 videos"),
             ("dedicated-video", "$16,000", "Dedicated video"),
-            ("studio-live-build-sprint", "$24,000", "Studio live build sprint"),
-            ("on-site-live-build-sprint", "$36,000", "On-site live build sprint"),
+            (
+                "studio-live-build-sprint",
+                "$24,000",
+                "Studio live build sprint",
+            ),
+            (
+                "on-site-live-build-sprint",
+                "$36,000",
+                "On-site live build sprint",
+            ),
         ] {
             let card = format!("<a href=\"/sponsorships#{anchor}\" class=\"group card");
             let start = html.find(&card).unwrap_or_else(|| panic!("{anchor}"));
@@ -120,8 +143,14 @@ mod tests {
             let tag = &photo[..photo.find('>').unwrap()];
             let path = &tag[..tag.find('"').unwrap()];
 
-            assert!(std::path::Path::new("../public").join(path).exists(), "{path}");
-            assert!(tag.contains("alt=\"") && !tag.contains("alt=\"\""), "{path}");
+            assert!(
+                std::path::Path::new("../public").join(path).exists(),
+                "{path}"
+            );
+            assert!(
+                tag.contains("alt=\"") && !tag.contains("alt=\"\""),
+                "{path}"
+            );
             assert!(tag.contains("loading=\"lazy\""), "{path}");
             assert!(tag.contains("rounded-2xl"), "{path}");
         }
@@ -147,7 +176,11 @@ mod tests {
     fn marks_the_media_kit_as_the_current_page_in_the_navigation() {
         let html = MediaKitTemplate::default().render().unwrap();
 
-        assert_eq!(html.matches("href=\"/media-kit\" aria-current=\"page\"").count(), 2);
+        assert_eq!(
+            html.matches("href=\"/media-kit\" aria-current=\"page\"")
+                .count(),
+            2
+        );
     }
 
     #[test]
@@ -164,8 +197,16 @@ mod tests {
         let graph = crate::templates::structured_data(&html);
         let page = crate::templates::node(&graph, "WebPage");
 
-        assert!(html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/media-kit\">"));
-        assert_eq!(page["breadcrumb"]["itemListElement"][1]["name"], "Media kit");
-        assert_eq!(page["breadcrumb"]["itemListElement"][1]["item"], "https://nunomaduro.com/media-kit");
+        assert!(
+            html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/media-kit\">")
+        );
+        assert_eq!(
+            page["breadcrumb"]["itemListElement"][1]["name"],
+            "Media kit"
+        );
+        assert_eq!(
+            page["breadcrumb"]["itemListElement"][1]["item"],
+            "https://nunomaduro.com/media-kit"
+        );
     }
 }
