@@ -1,0 +1,342 @@
+{% extends "layouts/main.html" %}
+
+{% block page %}
+    <div class="pt-6 pb-2">
+        <p class="mb-3 text-lg font-semibold text-amber-800">For business</p>
+        <h1 class="text-[40px] leading-none font-bold tracking-[-0.05em] text-balance sm:text-[52px]">Media kit</h1>
+        <p class="mt-3.5 mb-6 max-w-[52ch] text-lg text-zinc-600 text-pretty">Audience, packages and the results of past campaigns. Figures from November 2026.</p>
+    </div>
+
+    <nav aria-label="Media kit" class="mb-8 -mx-1 overflow-x-auto">
+        <ul role="list" class="flex gap-1.5 px-1">
+            <li><a href="#audience" class="flex min-h-11 items-center rounded-xl bg-white px-4 text-sm font-medium whitespace-nowrap text-zinc-700 shadow-[0_0_0_1px_rgb(0_0_0/0.04)] hover:text-zinc-900">Audience</a></li>
+            <li><a href="#packages" class="flex min-h-11 items-center rounded-xl bg-white px-4 text-sm font-medium whitespace-nowrap text-zinc-700 shadow-[0_0_0_1px_rgb(0_0_0/0.04)] hover:text-zinc-900">Packages</a></li>
+            <li><a href="#case-studies" class="flex min-h-11 items-center rounded-xl bg-white px-4 text-sm font-medium whitespace-nowrap text-zinc-700 shadow-[0_0_0_1px_rgb(0_0_0/0.04)] hover:text-zinc-900">Case studies</a></li>
+        </ul>
+    </nav>
+
+    <section id="audience" aria-labelledby="audience-heading">
+        <h2 id="audience-heading" class="text-[32px] leading-none font-bold tracking-[-0.04em]">Audience &amp; performance</h2>
+        <p class="mt-3 mb-6 max-w-[60ch] text-lg text-zinc-600 text-pretty">My audience does not take recommendations on faith. When I show a product, they open a terminal and try it. If it holds up, they bring their teams along.</p>
+
+        <div class="rounded-3xl bg-zinc-900 p-7 text-white sm:p-10">
+            <p class="text-sm font-semibold text-zinc-400">YouTube · last 90 days</p>
+            <div class="mt-3 flex flex-wrap items-end gap-x-5 gap-y-3">
+                <p class="text-[64px] leading-none font-bold tracking-[-0.05em] text-amber-500 sm:text-[88px]">215K</p>
+                <p class="pb-2 text-lg text-zinc-300">unique viewers <span class="ml-1 rounded-full bg-amber-500 px-2.5 py-0.5 text-sm font-semibold whitespace-nowrap text-zinc-900">+50.14%</span></p>
+            </div>
+            <dl class="mt-8 grid grid-cols-2 gap-6 border-t border-white/10 pt-6 lg:grid-cols-4">
+                <div class="flex flex-col"><dt class="text-[13px] text-zinc-400">New viewers</dt><dd class="order-first text-[28px] leading-none font-bold tracking-[-0.03em]">147K+</dd></div>
+                <div class="flex flex-col"><dt class="text-[13px] text-zinc-400">Impressions</dt><dd class="order-first text-[28px] leading-none font-bold tracking-[-0.03em]">3.29M</dd></div>
+                <div class="flex flex-col"><dt class="text-[13px] text-zinc-400">Average views per video</dt><dd class="order-first text-[28px] leading-none font-bold tracking-[-0.03em]">20.9K</dd></div>
+                <div class="flex flex-col"><dt class="text-[13px] text-zinc-400">Impressions click-through rate</dt><dd class="order-first text-[28px] leading-none font-bold tracking-[-0.03em]">7.44%</dd></div>
+            </dl>
+        </div>
+
+        <div class="mt-3.5 grid grid-cols-1 gap-3.5 lg:grid-cols-2">
+            <div class="card p-7">
+                <h3 class="text-[17px] font-bold tracking-tight">Who watches</h3>
+                <p class="mt-1 text-sm text-zinc-600 text-pretty">Working PHP and Laravel professionals. The people who choose the tools their companies pay for.</p>
+                <ul role="list" class="mt-4 flex flex-wrap gap-2">
+                    <li class="rounded-full bg-canvas px-3.5 py-1.5 text-sm font-medium text-zinc-700">Backend engineers</li>
+                    <li class="rounded-full bg-canvas px-3.5 py-1.5 text-sm font-medium text-zinc-700">Front-end engineers</li>
+                    <li class="rounded-full bg-canvas px-3.5 py-1.5 text-sm font-medium text-zinc-700">Full-stack engineers</li>
+                    <li class="rounded-full bg-canvas px-3.5 py-1.5 text-sm font-medium text-zinc-700">Tech leads</li>
+                    <li class="rounded-full bg-canvas px-3.5 py-1.5 text-sm font-medium text-zinc-700">Engineering managers</li>
+                    <li class="rounded-full bg-canvas px-3.5 py-1.5 text-sm font-medium text-zinc-700">CTOs</li>
+                    <li class="rounded-full bg-canvas px-3.5 py-1.5 text-sm font-medium text-zinc-700">Founders</li>
+                </ul>
+                <dl class="mt-6 grid grid-cols-2 gap-4">
+                    <div class="flex flex-col rounded-2xl bg-amber-100 p-5"><dt class="mt-1 text-[13px] text-amber-950 text-pretty">of views come from ages 25–44</dt><dd class="order-first text-[32px] leading-none font-bold tracking-[-0.04em]">70.83%</dd></div>
+                    <div class="flex flex-col rounded-2xl bg-amber-100 p-5"><dt class="mt-1 text-[13px] text-amber-950 text-pretty">of watch time is on a computer. They watch while they work.</dt><dd class="order-first text-[32px] leading-none font-bold tracking-[-0.04em]">55.99%</dd></div>
+                </dl>
+            </div>
+            <div class="card p-7">
+                <h3 class="text-[17px] font-bold tracking-tight">Where they watch from</h3>
+                <p class="mt-1 text-sm text-zinc-600">Top countries by views. Content in English.</p>
+                <ul role="list" class="mt-5 space-y-4">
+                        <li>
+                            <div class="flex justify-between text-[15px]"><span class="text-zinc-700">United States</span><span class="font-semibold tabular-nums">12.31%</span></div>
+                            <div class="mt-1.5 h-2 rounded-full bg-canvas"><div class="h-2 rounded-full bg-amber-500" style="width: 100%"></div></div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-[15px]"><span class="text-zinc-700">Germany</span><span class="font-semibold tabular-nums">7.33%</span></div>
+                            <div class="mt-1.5 h-2 rounded-full bg-canvas"><div class="h-2 rounded-full bg-amber-500" style="width: 60%"></div></div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-[15px]"><span class="text-zinc-700">India</span><span class="font-semibold tabular-nums">5.97%</span></div>
+                            <div class="mt-1.5 h-2 rounded-full bg-canvas"><div class="h-2 rounded-full bg-amber-500" style="width: 48%"></div></div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-[15px]"><span class="text-zinc-700">Brazil</span><span class="font-semibold tabular-nums">5.40%</span></div>
+                            <div class="mt-1.5 h-2 rounded-full bg-canvas"><div class="h-2 rounded-full bg-amber-500" style="width: 44%"></div></div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between text-[15px]"><span class="text-zinc-700">United Kingdom</span><span class="font-semibold tabular-nums">4.94%</span></div>
+                            <div class="mt-1.5 h-2 rounded-full bg-canvas"><div class="h-2 rounded-full bg-amber-500" style="width: 40%"></div></div>
+                        </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-3.5 grid grid-cols-1 gap-3.5 sm:grid-cols-3">
+            <div class="card flex flex-col p-6"><span class="text-[28px] leading-none font-bold tracking-[-0.03em]">2:37</span><span class="mt-1.5 text-[13px] text-zinc-600">Average view duration</span></div>
+            <div class="card flex flex-col p-6"><span class="text-[28px] leading-none font-bold tracking-[-0.03em]">62.4K</span><span class="mt-1.5 text-[13px] text-zinc-600">Impressions per video</span></div>
+            <div class="card flex flex-col p-6"><span class="text-[28px] leading-none font-bold tracking-[-0.03em]">17.1K–32.0K</span><span class="mt-1.5 text-[13px] text-zinc-600">Views on the top videos of the last 30 days</span></div>
+        </div>
+
+        <p class="card mt-3.5 p-7 text-[15px] leading-relaxed text-pretty text-zinc-700"><b class="text-zinc-900">Where the channel is heading:</b> a full-time producer joined in April 2026, so I publish more often without dropping the quality. Regular live coding sessions give sponsors recurring exposure across both polished videos and live audiences. Sort <a href="https://youtube.com/nunomaduro/videos?view=0&amp;sort=p" class="link">my videos by popular</a> to see the reach for yourself.</p>
+        <p class="mt-3 text-[13px] text-zinc-600 text-pretty">Source: YouTube Studio, 15 Aug–12 Nov 2026, compared with the previous 90 days. Video figures cover long-form videos only, without Shorts, livestreams and replays. Age among views with age data.</p>
+    </section>
+
+    <section id="packages" aria-labelledby="packages-heading" class="mt-14">
+        <h2 id="packages-heading" class="text-[32px] leading-none font-bold tracking-[-0.04em]">Packages</h2>
+        <p class="mt-3 mb-6 max-w-[60ch] text-lg text-zinc-600 text-pretty">Five ways to put your product in front of developers. Prices in USD.</p>
+
+        <ul role="list" class="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-6">
+            <li class="sm:col-span-2 lg:col-span-2">
+                <a href="/sponsorships#recurring-logo-and-link" class="group card flex h-full flex-col p-7">
+                    <span class="mb-3.5 self-start rounded-full bg-amber-500 px-2.5 py-0.5 text-xs font-semibold text-zinc-900">Most popular</span>
+                    <span class="text-[40px] leading-none font-bold tracking-[-0.045em]">$1,000</span>
+                    <span class="mt-1.5 mb-5 text-[13px] text-zinc-600">Monthly</span>
+                    <span class="text-[17px] font-bold tracking-tight">Recurring logo &amp; link</span>
+                    <span class="mt-1.5 mb-6 flex-1 text-sm text-zinc-600 text-pretty">Logo in all videos, top link in descriptions, shout-out in every livestream. Renews monthly.</span>
+                    <span class="flex min-h-11 items-center justify-center rounded-xl bg-canvas px-3 text-sm font-semibold transition group-hover:bg-zinc-900 group-hover:text-white">View package&nbsp;<span aria-hidden="true">&rarr;</span></span>
+                </a>
+            </li>
+            <li class="lg:col-span-2">
+                <a href="/sponsorships#ad-in-4-videos" class="group card flex h-full flex-col p-7">
+                    <span class="invisible mb-3.5 self-start rounded-full px-2.5 py-0.5 text-xs max-sm:hidden" aria-hidden="true">&nbsp;</span>
+                    <span class="text-[40px] leading-none font-bold tracking-[-0.045em]">$8,000</span>
+                    <span class="mt-1.5 mb-5 text-[13px] text-zinc-600">One-time</span>
+                    <span class="text-[17px] font-bold tracking-tight">20-sec ad in 4 videos</span>
+                    <span class="mt-1.5 mb-6 flex-1 text-sm text-zinc-600 text-pretty">20-second ad placement in four YouTube videos. Recorded in my authentic voice.</span>
+                    <span class="flex min-h-11 items-center justify-center rounded-xl bg-canvas px-3 text-sm font-semibold transition group-hover:bg-zinc-900 group-hover:text-white">View package&nbsp;<span aria-hidden="true">&rarr;</span></span>
+                </a>
+            </li>
+            <li class="lg:col-span-2">
+                <a href="/sponsorships#dedicated-video" class="group card flex h-full flex-col p-7">
+                    <span class="invisible mb-3.5 self-start rounded-full px-2.5 py-0.5 text-xs max-sm:hidden" aria-hidden="true">&nbsp;</span>
+                    <span class="text-[40px] leading-none font-bold tracking-[-0.045em]">$16,000</span>
+                    <span class="mt-1.5 mb-5 text-[13px] text-zinc-600">One-time</span>
+                    <span class="text-[17px] font-bold tracking-tight">Dedicated video</span>
+                    <span class="mt-1.5 mb-6 flex-1 text-sm text-zinc-600 text-pretty">A dedicated video on my channel, entirely focused on your product. Promoted across all platforms.</span>
+                    <span class="flex min-h-11 items-center justify-center rounded-xl bg-canvas px-3 text-sm font-semibold transition group-hover:bg-zinc-900 group-hover:text-white">View package&nbsp;<span aria-hidden="true">&rarr;</span></span>
+                </a>
+            </li>
+            <li class="lg:col-span-3">
+                <a href="/sponsorships#studio-live-build-sprint" class="group card flex h-full flex-col p-7">
+                    <span class="invisible mb-3.5 self-start rounded-full px-2.5 py-0.5 text-xs max-sm:hidden" aria-hidden="true">&nbsp;</span>
+                    <span class="text-[40px] leading-none font-bold tracking-[-0.045em]">$24,000</span>
+                    <span class="mt-1.5 mb-5 text-[13px] text-zinc-600">One-time · in my studio</span>
+                    <span class="text-[17px] font-bold tracking-tight">Studio live build sprint</span>
+                    <span class="mt-1.5 mb-6 flex-1 text-sm text-zinc-600 text-pretty">2-day live coding event in my own studio. Up to 10 hours per day of streaming, building a real project with your product. Branding, links, and mentions throughout. No travel required&nbsp;— everything runs from my setup. Ideal for launches and dev tools.</span>
+                    <span class="flex min-h-11 items-center justify-center rounded-xl bg-canvas px-3 text-sm font-semibold transition group-hover:bg-zinc-900 group-hover:text-white">View package&nbsp;<span aria-hidden="true">&rarr;</span></span>
+                </a>
+            </li>
+            <li class="lg:col-span-3">
+                <a href="/sponsorships#on-site-live-build-sprint" class="group card flex h-full flex-col p-7">
+                    <span class="mb-3.5 self-start rounded-full bg-amber-500 px-2.5 py-0.5 text-xs font-semibold text-zinc-900">Highest impact</span>
+                    <span class="text-[40px] leading-none font-bold tracking-[-0.045em]">$36,000</span>
+                    <span class="mt-1.5 mb-5 text-[13px] text-zinc-600">One-time · travel included</span>
+                    <span class="text-[17px] font-bold tracking-tight">On-site live build sprint</span>
+                    <span class="mt-1.5 mb-6 flex-1 text-sm text-zinc-600 text-pretty">2-day live coding event at your office. Up to 10 hours per day of streaming, building a real project with your product. Branding, links, and mentions throughout. No setup needed&nbsp;— I bring everything. Your team can optionally join on stream. Ideal for launches and dev tools.</span>
+                    <span class="flex min-h-11 items-center justify-center rounded-xl bg-canvas px-3 text-sm font-semibold transition group-hover:bg-zinc-900 group-hover:text-white">View package&nbsp;<span aria-hidden="true">&rarr;</span></span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="mt-3.5 grid grid-cols-1 gap-3.5 lg:grid-cols-2">
+            <p class="card p-7 text-[15px] leading-relaxed text-pretty text-zinc-700"><b class="text-zinc-900">Exclusivity:</b> since September 2026, the ad, the dedicated video and both sprints feature a single sponsor. No logos, links or mentions from other sponsors appear in these formats.</p>
+            <p class="rounded-3xl bg-amber-100 p-7 text-[15px] leading-relaxed text-pretty text-amber-950"><b>Before you pay:</b> email <a href="mailto:enunomaduro@gmail.com" class="link">enunomaduro@gmail.com</a> with your product and goals so we can check the fit. Then pick your package on the <a href="/sponsorships" class="link">sponsorships page</a>.</p>
+        </div>
+    </section>
+
+    <section id="case-studies" aria-labelledby="case-studies-heading" class="mt-14">
+        <h2 id="case-studies-heading" class="text-[32px] leading-none font-bold tracking-[-0.04em]">Case studies</h2>
+        <p class="mt-3 mb-6 max-w-[60ch] text-lg text-zinc-600 text-pretty">Real campaigns, real numbers. Views as of 12 November 2026.</p>
+
+        <article aria-labelledby="logo-and-link" class="card p-7">
+            <h3 id="logo-and-link" class="text-xl font-bold tracking-tight">Recurring logo &amp; link</h3>
+            <p class="mt-2 max-w-[68ch] text-[15px] leading-relaxed text-pretty text-zinc-700">My longest-running format, and the one where trust grows the most. Month after month, the audience connects your name with content it already trusts. Partners also travel with me to conference talks, meetups and community events.</p>
+
+            <figure class="mt-6 max-w-xl">
+                <img src="/media-kit.coderabbit-logo.jpg" alt="Nuno talking to the camera, with the CodeRabbit logo in the corner of the video" width="1121" height="623" loading="lazy" class="h-auto w-full rounded-2xl bg-canvas">
+                <figcaption class="mt-2 text-[13px] text-zinc-600">The CodeRabbit logo on one of my videos.</figcaption>
+            </figure>
+
+            <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.4fr]">
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight">Current partners</h4>
+                    <ul role="list" class="mt-2 divide-y divide-zinc-200 text-[15px]">
+                        <li class="flex justify-between gap-4 py-2"><a href="https://jb.gg/nuno" class="link">JetBrains PhpStorm</a><span class="text-zinc-600">since Nov 2024</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://coderabbit.link/nunomaduro" class="link">CodeRabbit</a><span class="text-zinc-600">since Aug 2025</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://redberry.international/?ref=nunomaduro" class="link">Redberry</a><span class="text-zinc-600">since Sep 2025</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://serpapi.com/?ref=nunomaduro" class="link">SerpApi</a><span class="text-zinc-600">since Feb 2026</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://typesense.org/?ref=nunomaduro" class="link">Typesense</a><span class="text-zinc-600">since Jul 2026</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://nativephp.com/?ref=nunomaduro" class="link">NativePHP</a><span class="text-zinc-600">since Aug 2026</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://app.unstoppable.ai/code?utm_source=nuno" class="link">Unstoppable AI</a><span class="text-zinc-600">since Oct 2026</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight">Videos carrying the CodeRabbit logo and link</h4>
+                    <table class="mt-2 w-full text-left text-[15px]">
+                        <thead class="sr-only"><tr><th scope="col">Video</th><th scope="col">Views</th></tr></thead>
+                        <tbody class="divide-y divide-zinc-200">
+                            <tr><td class="py-2 pr-4"><a href="https://www.youtube.com/watch?v=Q7TBEL7vZ5A" class="hover:text-amber-700">So I tried DHH's Omarchy on my MacBook…</a></td><td class="py-2 text-right font-semibold tabular-nums">70,044</td></tr>
+                            <tr><td class="py-2 pr-4"><a href="https://www.youtube.com/watch?v=3Z1yJdV4DpU" class="hover:text-amber-700">Multi-agent coding finally clicked for me (Solo breakdown)</a></td><td class="py-2 text-right font-semibold tabular-nums">61,754</td></tr>
+                            <tr><td class="py-2 pr-4"><a href="https://www.youtube.com/watch?v=PLkLhIwVfMk" class="hover:text-amber-700">PHP in 2026 is so good..</a></td><td class="py-2 text-right font-semibold tabular-nums">59,661</td></tr>
+                            <tr><td class="py-2 pr-4"><a href="https://www.youtube.com/watch?v=NBUW3YoO3Dw" class="hover:text-amber-700">So I tried Theo's T3 Code…</a></td><td class="py-2 text-right font-semibold tabular-nums">58,613</td></tr>
+                            <tr><td class="py-2 pr-4"><a href="https://www.youtube.com/watch?v=6EAnFU2HSc4" class="hover:text-amber-700">DHH said this in front of 1,000 Rails devs…</a></td><td class="py-2 text-right font-semibold tabular-nums">45,082</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <article aria-labelledby="dedicated-videos" class="card mt-3.5 p-7">
+            <h3 id="dedicated-videos" class="text-xl font-bold tracking-tight">Dedicated videos</h3>
+            <p class="mt-2 max-w-[68ch] text-[15px] leading-relaxed text-pretty text-zinc-700">Sponsored videos perform in line with the channel. My audience does not skip them, because they are real engineering sessions where the product has to earn its screen time. Click-through and conversion data sit in each sponsor's analytics, so I help set up your tracking from day one.</p>
+
+            <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight"><a href="https://coderabbit.link/nunomaduro" class="link">CodeRabbit</a> · Laravel MCP app</h4>
+                    <ul role="list" class="mt-2 divide-y divide-zinc-200 text-[15px]">
+                        <li class="flex justify-between gap-4 py-2"><a href="https://www.youtube.com/watch?v=QiyKIkCUCcU" class="hover:text-amber-700">I Built a Laravel PHP MCP App (w/ CodeRabbit Reviews)</a><span class="font-semibold tabular-nums">8,879</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://www.youtube.com/watch?v=ClxzgtwUhTQ" class="hover:text-amber-700">Livestream replay · part 1</a><span class="font-semibold tabular-nums">3,486</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://www.youtube.com/watch?v=QRjWDMutFtY" class="hover:text-amber-700">Livestream replay · part 2</a><span class="font-semibold tabular-nums">1,634</span></li>
+                    </ul>
+                    <p class="mt-2 text-[13px] text-zinc-600">Posts on X: <a href="https://x.com/enunomaduro/status/1970121868808954354" class="link">video</a>, <a href="https://x.com/enunomaduro/status/1970195564479250753" class="link">short clip</a>, <a href="https://x.com/enunomaduro/status/1969064430257226102" class="link">livestream</a>.</p>
+                </div>
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight"><a href="https://devin.ai" class="link">Devin</a> · full application in 30 minutes</h4>
+                    <ul role="list" class="mt-2 divide-y divide-zinc-200 text-[15px]">
+                        <li class="flex justify-between gap-4 py-2"><a href="https://www.youtube.com/watch?v=-FMusEPWLKw" class="hover:text-amber-700">Full Application in 30 Minutes with Devin, AI, Laravel, Filament &amp; More</a><span class="font-semibold tabular-nums">7,611</span></li>
+                        <li class="flex justify-between gap-4 py-2"><a href="https://www.youtube.com/watch?v=Hv4_FE64yEU" class="hover:text-amber-700">Livestream replay · 4 hours</a><span class="font-semibold tabular-nums">7,957</span></li>
+                    </ul>
+                    <p class="mt-2 text-[13px] text-zinc-600">Posts on X: <a href="https://x.com/enunomaduro/status/1957139076475146303" class="link">video</a>, <a href="https://x.com/enunomaduro/status/1956429134323765753" class="link">livestream</a>.</p>
+                </div>
+            </div>
+            <p class="mt-6 text-[13px] text-zinc-600">These campaigns also ran on LinkedIn, Instagram, TikTok and Twitch. Today's dedicated video package no longer includes a livestream.</p>
+        </article>
+
+        <article aria-labelledby="slack-sprint" class="card mt-3.5 p-7">
+            <p class="text-sm font-semibold text-amber-800">Studio live build sprint</p>
+            <h3 id="slack-sprint" class="mt-1 text-xl font-bold tracking-tight">Building Slack in 48 hours, with <a href="https://xgeeks.com" class="link">XGeeks</a> and <a href="https://laravel.com/cloud" class="link">Laravel Cloud</a></h3>
+            <p class="mt-2 max-w-[68ch] text-[15px] leading-relaxed text-pretty text-zinc-700">The story starts before the first line of code. The <a href="https://x.com/enunomaduro/status/2070135300240658644" class="link">announcement</a> and <a href="https://x.com/enunomaduro/status/2072785946714558589" class="link">promo video</a> ran across all my channels, and Taylor Otwell, the creator of Laravel, shared it. By the time we went live, the audience was already waiting.</p>
+
+            <figure class="mt-6">
+                <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-3">
+                    <img src="/media-kit.slack-team.jpg" alt="Nuno and three teammates on stream in the studio" width="1121" height="582" loading="lazy" class="aspect-[2/1] h-full w-full rounded-2xl bg-canvas object-cover sm:col-span-2 sm:row-span-2 sm:aspect-auto">
+                    <img src="/media-kit.slack-day-1.jpg" alt="Nuno live in the studio, next to the live chat, with the SerpApi logo at the bottom" width="1122" height="476" loading="lazy" class="aspect-[2/1] w-full rounded-2xl bg-canvas object-cover">
+                    <img src="/media-kit.slack-studio.jpg" alt="Nuno reacting on stream while the team works at a table behind him" width="1120" height="509" loading="lazy" class="aspect-[2/1] w-full rounded-2xl bg-canvas object-cover">
+                </div>
+                <figcaption class="mt-2 text-[13px] text-zinc-600">The studio team on stream, with the live chat and the sponsor logos on screen.</figcaption>
+            </figure>
+
+            <dl class="mt-6 grid grid-cols-1 gap-3.5 sm:grid-cols-3">
+                <div class="flex flex-col rounded-2xl bg-canvas p-5"><dt class="text-[13px] text-zinc-600">YouTube views, replays included</dt><dd class="order-first text-2xl font-bold tracking-tight">23,982</dd></div>
+                <div class="flex flex-col rounded-2xl bg-canvas p-5"><dt class="text-[13px] text-zinc-600">Average view duration, both days</dt><dd class="order-first text-2xl font-bold tracking-tight">12+ min</dd></div>
+                <div class="flex flex-col rounded-2xl bg-canvas p-5"><dt class="text-[13px] text-zinc-600">Views on one Instagram Reel</dt><dd class="order-first text-2xl font-bold tracking-tight">182K</dd></div>
+            </dl>
+
+            <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight"><a href="https://www.youtube.com/watch?v=zq4vexfE2zs" class="link">Day 1</a></h4>
+                    <p class="mt-1 text-[15px] leading-relaxed text-zinc-700">14,400 views, 8,455 while live. 384 peak and 261 average concurrent viewers. 3.9K+ chat messages, 545 likes, 8.44% click-through rate.</p>
+                </div>
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight"><a href="https://www.youtube.com/watch?v=gPHN3wHdP8Q" class="link">Day 2</a></h4>
+                    <p class="mt-1 text-[15px] leading-relaxed text-zinc-700">9,582 views, 6,612 while live. 268 peak and 204 average concurrent viewers. Nearly 3K chat messages, 368 likes, 7.44% click-through rate.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight">Shorts and Reels from the sprint</h4>
+                    <div class="mt-3 grid grid-cols-3 gap-3.5">
+                        <img src="/media-kit.slack-short-1.jpg" alt="Vertical clip from the sprint: request throttling" width="375" height="594" loading="lazy" class="aspect-[5/8] w-full rounded-2xl bg-canvas object-cover">
+                        <img src="/media-kit.slack-short-2.jpg" alt="Vertical clip from the sprint: stay disciplined" width="374" height="594" loading="lazy" class="aspect-[5/8] w-full rounded-2xl bg-canvas object-cover">
+                        <img src="/media-kit.slack-short-3.jpg" alt="Vertical clip from the sprint: a goal celebration in the studio" width="353" height="593" loading="lazy" class="aspect-[5/8] w-full rounded-2xl bg-canvas object-cover">
+                    </div>
+                    <ul role="list" class="mt-3 divide-y divide-zinc-200 text-[15px]">
+                        <li class="flex flex-wrap justify-between gap-x-4 py-2"><span class="text-zinc-700">404 &gt; 403</span><span class="text-zinc-600"><a href="https://www.tiktok.com/@enunomaduro/video/7657645120052890913" class="link">33.7K on TikTok</a> · <a href="https://www.instagram.com/reel/DaQxwX5Ka8m/" class="link">46.6K on Instagram</a></span></li>
+                        <li class="flex flex-wrap justify-between gap-x-4 py-2"><span class="text-zinc-700">How to build a successful application</span><span class="text-zinc-600"><a href="https://www.tiktok.com/@enunomaduro/video/7686840575823334678" class="link">55.7K on TikTok</a> · <a href="https://www.instagram.com/reels/DdbXPCzK0Hy/" class="link">182K on Instagram</a></span></li>
+                    </ul>
+                </div>
+                <figure>
+                    <h4 class="text-[15px] font-bold tracking-tight">After the livestream</h4>
+                    <img src="/media-kit.serpapi-reply.jpg" alt="SerpApi on X: Happy to support! Congrats on an amazing 48-hour stream and thank you for bringing the community together" width="990" height="336" loading="lazy" class="mt-3 h-auto w-full rounded-2xl bg-canvas">
+                    <figcaption class="mt-2 text-[13px] text-zinc-600">SerpApi's response on X.</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article aria-labelledby="dev-null-sprint" class="card mt-3.5 p-7">
+            <p class="text-sm font-semibold text-amber-800">On-site live build sprint · Amsterdam · 15–16 Oct 2026</p>
+            <h3 id="dev-null-sprint" class="mt-1 text-xl font-bold tracking-tight">Building <a href="https://dev-null.sh" class="link">/dev/null</a> in 48 hours, with <a href="https://jb.gg/nuno" class="link">JetBrains</a></h3>
+            <p class="mt-2 max-w-[68ch] text-[15px] leading-relaxed text-pretty text-zinc-700">Brent Roose, Matthieu Napoli, Pauline Vos and I built a social network for developers at the JetBrains office, with PHP, Laravel, Inertia, React and Laravel Cloud, in PhpStorm and JetBrains Air. Day 1 went from an empty repository to a live product by lunchtime, and closed with 155 commits from 20 contributors. Day 2 added quotes, polls, a public API and AI moderation, with 221 more commits.</p>
+
+            <div class="mt-6 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+                <figure>
+                    <img src="/media-kit.dev-null-team.jpg" alt="Nuno and two teammates looking at a screen together during the live build" width="989" height="550" loading="lazy" class="aspect-[2/1] w-full rounded-2xl bg-canvas object-cover">
+                    <figcaption class="mt-2 text-[13px] text-zinc-600">Building live at the JetBrains office.</figcaption>
+                </figure>
+                <figure>
+                    <img src="/media-kit.dev-null-crew.jpg" alt="Nuno, Brent Roose, Matthieu Napoli and Pauline Vos around a table with laptops" width="988" height="492" loading="lazy" class="aspect-[2/1] w-full rounded-2xl bg-canvas object-cover">
+                    <figcaption class="mt-2 text-[13px] text-zinc-600">The /dev/null team.</figcaption>
+                </figure>
+            </div>
+
+            <dl class="mt-6 grid grid-cols-2 gap-3.5 lg:grid-cols-4">
+                <div class="flex flex-col rounded-2xl bg-canvas p-5"><dt class="text-[13px] text-zinc-600">Developer sign-ups in 5 days</dt><dd class="order-first text-2xl font-bold tracking-tight">10,000</dd></div>
+                <div class="flex flex-col rounded-2xl bg-canvas p-5"><dt class="text-[13px] text-zinc-600">YouTube views, replays included</dt><dd class="order-first text-2xl font-bold tracking-tight">47,479</dd></div>
+                <div class="flex flex-col rounded-2xl bg-canvas p-5"><dt class="text-[13px] text-zinc-600">Hours of live watch time</dt><dd class="order-first text-2xl font-bold tracking-tight">~2,500</dd></div>
+                <div class="flex flex-col rounded-2xl bg-canvas p-5"><dt class="text-[13px] text-zinc-600">Product of the Day on <a href="https://www.producthunt.com/products/dev-null" class="link">Product Hunt</a></dt><dd class="order-first text-2xl font-bold tracking-tight">#1</dd></div>
+            </dl>
+
+            <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight">From first commit to community launch</h4>
+                    <ol role="list" class="mt-2 divide-y divide-zinc-200 text-[15px]">
+                        <li class="grid grid-cols-[64px_1fr] gap-3 py-2"><span class="font-semibold text-zinc-900">16 Oct</span><span class="text-zinc-700">Taylor Otwell joins on stream. 176 points and 167 comments on <a href="https://news.ycombinator.com/item?id=50121004" class="link">Hacker News</a>.</span></li>
+                        <li class="grid grid-cols-[64px_1fr] gap-3 py-2"><span class="font-semibold text-zinc-900">17 Oct</span><span class="text-zinc-700">Guillermo Rauch signs up: “This is really well done”.</span></li>
+                        <li class="grid grid-cols-[64px_1fr] gap-3 py-2"><span class="font-semibold text-zinc-900">18 Oct</span><span class="text-zinc-700">3,000 developers and 300+ pull requests. Mitchell Hashimoto joins.</span></li>
+                        <li class="grid grid-cols-[64px_1fr] gap-3 py-2"><span class="font-semibold text-zinc-900">19 Oct</span><span class="text-zinc-700">5,000 developers. ThePrimeagen joins.</span></li>
+                        <li class="grid grid-cols-[64px_1fr] gap-3 py-2"><span class="font-semibold text-zinc-900">20 Oct</span><span class="text-zinc-700">10,000 developers and #1 Product of the Day. Wes Bos, Rasmus Lerdorf and Cassidy Williams join.</span></li>
+                    </ol>
+                </div>
+                <div>
+                    <h4 class="text-[15px] font-bold tracking-tight">Live results</h4>
+                    <table class="mt-2 w-full text-left text-[15px]">
+                        <thead class="text-[13px] text-zinc-600"><tr><th scope="col" class="py-2 font-medium"><span class="sr-only">Metric</span></th><th scope="col" class="py-2 text-right font-medium"><a href="https://www.youtube.com/watch?v=6zCNQa3hNm0" class="link">Day 1</a></th><th scope="col" class="py-2 text-right font-medium"><a href="https://www.youtube.com/watch?v=nfmVdXZfzUE" class="link">Day 2</a></th></tr></thead>
+                        <tbody class="divide-y divide-zinc-200 tabular-nums">
+                            <tr><th scope="row" class="py-2 pr-4 font-normal text-zinc-700">YouTube views</th><td class="py-2 text-right font-semibold">27,949</td><td class="py-2 text-right font-semibold">19,530</td></tr>
+                            <tr><th scope="row" class="py-2 pr-4 font-normal text-zinc-700">YouTube peak concurrent</th><td class="py-2 text-right font-semibold">195</td><td class="py-2 text-right font-semibold">182</td></tr>
+                            <tr><th scope="row" class="py-2 pr-4 font-normal text-zinc-700">YouTube chat messages</th><td class="py-2 text-right font-semibold">2,455</td><td class="py-2 text-right font-semibold">1,886</td></tr>
+                            <tr><th scope="row" class="py-2 pr-4 font-normal text-zinc-700">Twitch live views</th><td class="py-2 text-right font-semibold">1.8K</td><td class="py-2 text-right font-semibold">2.4K</td></tr>
+                            <tr><th scope="row" class="py-2 pr-4 font-normal text-zinc-700">Twitch peak concurrent</th><td class="py-2 text-right font-semibold">78</td><td class="py-2 text-right font-semibold">92</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 items-center gap-8 sm:grid-cols-[1fr_280px]">
+                <p class="max-w-[68ch] text-[15px] leading-relaxed text-pretty text-zinc-700">The <a href="https://x.com/enunomaduro/status/2111138804719604098" class="link">launch post on X</a> reached 83.9K views and stays pinned to my profile. Four follow-up posts reached 266K more. The <a href="https://www.youtube.com/watch?v=fNPkdMt2Eqw" class="link">making-of video</a> added 12,516 views, and the <a href="https://dev-null.sh/about" class="link">/dev/null about page</a> credits JetBrains, PhpStorm and Air as part of its origin story for good.</p>
+                <figure>
+                    <img src="/media-kit.dev-null-launch.jpg" alt="The /dev/null launch post on X, with 83.9K views" width="618" height="644" loading="lazy" class="h-auto w-full rounded-2xl bg-canvas">
+                    <figcaption class="mt-2 text-[13px] text-zinc-600">The 16 October launch post on X.</figcaption>
+                </figure>
+            </div>
+        </article>
+    </section>
+
+    <div class="mt-14 rounded-3xl bg-zinc-900 p-7 text-white sm:p-10">
+        <h2 class="text-[32px] leading-none font-bold tracking-[-0.04em]">Get started</h2>
+        <p class="mt-3 max-w-[52ch] text-lg text-zinc-400 text-pretty">If this sounds like a fit, send me a short note about your product and what you want to achieve. I look forward to building something with you.</p>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href="mailto:enunomaduro@gmail.com" class="flex min-h-11 items-center justify-center rounded-xl bg-amber-500 px-5 text-sm font-semibold text-zinc-900 transition hover:bg-amber-400">Email me&nbsp;<span aria-hidden="true">&rarr;</span></a>
+            <a href="/sponsorships" class="flex min-h-11 items-center justify-center rounded-xl bg-white/10 px-5 text-sm font-semibold text-white transition hover:bg-white/20">See sponsorships&nbsp;<span aria-hidden="true">&rarr;</span></a>
+        </div>
+    </div>
+{% endblock %}
