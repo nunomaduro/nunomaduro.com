@@ -94,6 +94,20 @@ mod tests {
     }
 
     #[test]
+    fn collapses_the_options_in_detail_and_the_terms() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        for heading in [">The options in detail<", ">Terms<"] {
+            let start = html.find(heading).unwrap_or_else(|| panic!("{heading}"));
+            let details = html[..start].rfind("<details").unwrap();
+
+            assert!(!html[details..start].contains("</details>"), "{heading}");
+            assert!(html[details..start].contains("<summary"), "{heading}");
+            assert!(!html[details..start].contains(" open"), "{heading}");
+        }
+    }
+
+    #[test]
     fn renders_each_section_of_the_page_with_a_link_to_it() {
         let html = SponsorshipsTemplate::default().render().unwrap();
 
@@ -261,6 +275,34 @@ mod tests {
             );
             assert!(tag.contains("loading=\"lazy\""), "{path}");
             assert!(tag.contains("rounded-2xl"), "{path}");
+        }
+    }
+
+    #[test]
+    fn renders_the_live_results_of_each_day_of_the_slack_sprint_in_a_table() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+        let start = html.find("id=\"slack-sprint\"").unwrap();
+        let end = start + html[start..].find("</table>").unwrap();
+        let table = &html[start + html[start..].find("<table").unwrap()..end];
+
+        assert!(table.contains("watch?v=zq4vexfE2zs\" class=\"link\">Day 1<"));
+        assert!(table.contains("watch?v=gPHN3wHdP8Q\" class=\"link\">Day 2<"));
+        for (metric, first_day, second_day) in [
+            ("YouTube views", "14,400", "9,582"),
+            ("YouTube views while live", "8,455", "6,612"),
+            ("YouTube peak concurrent", "384", "268"),
+            ("YouTube average concurrent", "261", "204"),
+            ("YouTube chat messages", "3.9K+", "~3K"),
+            ("YouTube likes", "545", "368"),
+            ("Click-through rate", "8.44%", "7.44%"),
+        ] {
+            let row_start = table
+                .find(&format!(">{metric}</th>"))
+                .unwrap_or_else(|| panic!("{metric}"));
+            let row = &table[row_start..row_start + table[row_start..].find("</tr>").unwrap()];
+
+            assert!(row.contains(&format!(">{first_day}</td>")), "{metric}");
+            assert!(row.contains(&format!(">{second_day}</td>")), "{metric}");
         }
     }
 
