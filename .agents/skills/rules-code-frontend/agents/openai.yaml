@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Frontend"
+  short_description: "Fast and stable pages"
+policy:
+  allow_implicit_invocation: true

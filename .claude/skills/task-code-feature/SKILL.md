@@ -20,7 +20,7 @@ Write the list of the requirements of the request, as section 1 of that skill sa
 
 ## 2. Read the project
 
-Read `.hod/PROJECT.md` for the intention, the command that runs the tests and each directory of this project.
+Read `PROJECT.md` for the intention, the command that runs the tests and each directory of this project.
 
 Read the code near each file that your change touches, and obey the convention that it holds: the names, the layout of the directories, the form of the tests.
 

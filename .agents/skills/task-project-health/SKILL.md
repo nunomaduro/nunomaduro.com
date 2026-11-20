@@ -12,7 +12,7 @@ Do each section of this file in its order. When the user asks for one part of th
 
 ## 1. Read the project
 
-Read `.hod/PROJECT.md` for the command that installs the dependencies, the command that runs the tests and the command of each other check.
+Read `PROJECT.md` for the command that installs the dependencies, the command that runs the tests and the command of each other check.
 
 Find each manifest at the top of the project. Section 3 names the commands of each manifest.
 
@@ -22,7 +22,7 @@ Run `git status --short`, and keep each change that it names. Copy each manifest
 
 Read the last run of the CI when `gh` is on the `PATH` and `git remote get-url origin` names `github.com`. Run `gh run list --branch "$(git branch --show-current)" --limit 1`, and run `gh run view <id> --log-failed` when that run failed. Keep each job that failed and its first error for section 12. Write no push, start no run and write no comment, because each of those reaches a different person.
 
-When `.hod/PROJECT.md` says that this project reaches no network, write no request to a network in this work, and name each section that needed the network in the report.
+When `PROJECT.md` says that this project reaches no network, write no request to a network in this work, and name each section that needed the network in the report.
 
 ## 2. Take the baseline
 
@@ -66,7 +66,7 @@ Run the command that checks the lock file of each manifest. When it fails, run t
 
 ## 5. Find each package that no code uses
 
-Search the code of the project for each direct dependency of each manifest: its name, its namespace, its module and its command. Search the code, the configuration, the scripts of the manifest and the files of the CI. The directory of the installed packages holds no code of the project: `vendor/`, `node_modules/`, `target/`, `.venv/` and a directory that `.hod/PROJECT.md` names for the dependencies.
+Search the code of the project for each direct dependency of each manifest: its name, its namespace, its module and its command. Search the code, the configuration, the scripts of the manifest and the files of the CI. The directory of the installed packages holds no code of the project: `vendor/`, `node_modules/`, `target/`, `.venv/` and a directory that `PROJECT.md` names for the dependencies.
 
 Keep a package that gives a command, a plugin of the package manager, or a class that the framework loads by discovery, such as a provider that the framework registers by discovery. A search does not find those uses.
 

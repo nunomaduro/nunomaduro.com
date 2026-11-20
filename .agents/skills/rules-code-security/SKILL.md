@@ -1,6 +1,6 @@
 ---
 name: rules-code-security
-description: "The rules for each place where a value reaches a parser, a process, a page, a file, a different server or a log. Use when you write a query with a value in it, when you run a process, when you print a value in a page, when you redirect to a URL, when you send a request to a URL that a user gave, when you store an uploaded file, when you read or pass a secret, a token or a password, when you write a log line, and when you write an action that a guest can call."
+description: "The rules for each place where a value reaches a parser, a process, a page, a file, a different server or a log. Use when you write a query with a value in it, when you run a process, when you print a value in a page, when you redirect to a URL, when you send a request to a URL that a user gave, when you store an uploaded file, when you read or pass a secret, a token or a password, when you write a log line, when you write an action that a guest can call, and when you write a register page or a form that creates an account."
 ---
 
 # Code Security
@@ -45,7 +45,11 @@ Hide each column that holds a secret or a token from each serialization of its r
 
 Limit the count of the calls in one period for each login, each reset of a password, each invitation and each write that a guest can make.
 
-## 8. Report
+## 8. Put a challenge on each form that creates an account
+
+Put a bot challenge, such as Cloudflare Turnstile, on each register page and each form that a guest submits to create an account. Verify the token of the challenge on the server before the program writes the account, and refuse the request when the verification fails.
+
+## 9. Report
 
 Name each query that your change writes, and say that each value is a binding.
 
@@ -58,5 +62,7 @@ Name each redirect, each request to a URL from a user and each upload, and give 
 Name each secret that your change reads, and say that no message holds it.
 
 Name each action that a guest can call, and give its limit of the rate.
+
+Name each form that creates an account, and give the challenge that guards it and the place where the server verifies its token.
 
 Write this report in the last message of your answer. Write no sentence for a rule of this file that your work did not touch.

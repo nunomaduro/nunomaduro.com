@@ -1,6 +1,6 @@
 ---
 name: task-project-glossary
-description: "Keep the terms of the domain of this project in `.hod/GLOSSARY.md` and each decision about its structure in `.hod/decisions/`. Use when the user asks for a glossary, asks what a term means, uses two names for one thing, chooses a dependency, a provider, a format of the data or a public interface, or asks to record a decision of the architecture."
+description: "Keep the terms of the domain of this project in `GLOSSARY.md` and each decision about its structure in `.hod/decisions/`. Use when the user asks for a glossary, asks what a term means, uses two names for one thing, chooses a dependency, a provider, a format of the data or a public interface, or asks to record a decision of the architecture."
 disable-model-invocation: true
 ---
 
@@ -10,7 +10,7 @@ Give each term of the domain one name and one meaning, and record each decision 
 
 ## 1. Read the terms
 
-Read `.hod/PROJECT.md`, `.hod/GLOSSARY.md` when it exists, the names of the models, of the tables and of the routes, and the words of the request.
+Read `PROJECT.md`, `GLOSSARY.md` when it exists, the names of the models, of the tables and of the routes, and the words of the request.
 
 List each term of the domain: each thing, each actor, each state and each operation that a user of the program names.
 
@@ -24,7 +24,7 @@ Ask the user with the question tool of the client which name to keep for each co
 
 ## 3. Write the glossary
 
-Write `.hod/GLOSSARY.md` with one line for each term: the term in `code font`, its meaning in one sentence, and the name in the code when it differs.
+Write `GLOSSARY.md` with one line for each term: the term in `code font`, its meaning in one sentence, and the name in the code when it differs.
 
 ## 4. Record each decision of the user
 
@@ -34,7 +34,7 @@ Write it to `.hod/decisions/<number>-<name>.md` in the form of the architecture 
 
 ## 5. Report
 
-Give the count of the terms in `.hod/GLOSSARY.md`.
+Give the count of the terms in `GLOSSARY.md`.
 
 Name each conflict and the name that the user kept.
 

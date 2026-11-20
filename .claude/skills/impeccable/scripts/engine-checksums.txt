@@ -2,8 +2,8 @@
 # The launchers, the npm shim, `impeccable install` and scripts/fetch-engine.mjs verify
 # every engine download against this file. Written by
 # `node scripts/check-engine-release.mjs --record` after each engine release.
-0.1.18 impeccable-darwin-arm64 543ee2f72036ad185dc9991ac3ba86b74d91f988f3d497776a088b8b65c8a9e1
-0.1.18 impeccable-darwin-x64 1f1eee78c142f7e40e16f481aeeeb1fad1d8515d8a1ef033d7c6d133e52232b3
-0.1.18 impeccable-linux-x64 736ed785e74ae2344d3036127f614ddde5ab520a527d8bc82a891612ef71f648
-0.1.18 impeccable-linux-arm64 317cb18d64b0f7715681dd6e574ad64b2adb5a6caf8e7a1b3b57965f805404be
-0.1.18 impeccable-windows-x64.exe 8f61e96b0c97001546a824d79b44f46b423b560f3eb1a0cc44a8695a1b395d9f
+0.1.27 impeccable-darwin-arm64 e33578341212fe6ebeed273850b3af0a7f54bbdc5e9fdf03e760aae23482975b
+0.1.27 impeccable-darwin-x64 3ecf11185ad7ea05cfc693ef969eb75ee7aef63f45472bf884e9b9f896a8d052
+0.1.27 impeccable-linux-x64 41d66e945bcdfc560005b61ad0b6b2312b124890039262f2e63322ef2709ccfd
+0.1.27 impeccable-linux-arm64 6ceb6188c80adb4b4fcc0721e677e2124d795b8e243599ad0d7bea33369b2c9c
+0.1.27 impeccable-windows-x64.exe ba9627d4552bca5666020624d8e994aea8b8b44c46b995e18b5babad0f431fc8

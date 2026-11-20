@@ -12,7 +12,7 @@ Propose an action for each open issue, then run the actions that the user approv
 
 Run `gh repo view --json nameWithOwner,description,url` and `gh api user --jq .login`. Stop and tell the user to run `gh auth login` when a command fails.
 
-Read `.hod/PROJECT.md`, `README.md`, `CONTRIBUTING.md` and `SECURITY.md`. Find the versions that the project supports, and the labels with `gh label list`.
+Read `PROJECT.md`, `README.md`, `CONTRIBUTING.md` and `SECURITY.md`. Find the versions that the project supports, and the labels with `gh label list`.
 
 Ask the user for the number of days after which an issue that waits for its author is outdated, and use 30 days when the user gives none.
 

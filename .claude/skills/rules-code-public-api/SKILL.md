@@ -9,11 +9,11 @@ Obey each rule of this file each time that you write a type or a member and each
 
 ## 1. Mark each item that is not the public API
 
-Read `.hod/PROJECT.md` before you write a new type and before you change the visibility of a type. Take two facts from that file: whether this project is a package that a different developer installs or an application, and the file that holds the public API.
+Read `PROJECT.md` before you write a new type and before you change the visibility of a type. Take two facts from that file: whether this project is a package that a different developer installs or an application, and the file that holds the public API.
 
 Give the public API of a package one place, and mark each other type of that package with the marker of this table. A reader thus sees the boundary in the file, and a change to a type behind that boundary breaks no caller.
 
-A new type of a package is not the public API unless `.hod/PROJECT.md` names it there, thus that type carries the marker.
+A new type of a package is not the public API unless `PROJECT.md` names it there, thus that type carries the marker.
 
 | The language | The marker of a type that is not the public API |
 | --- | --- |
@@ -44,7 +44,7 @@ Each other file is internal: the code of an application, and the code below the 
 
 Call the Skill tool with "rules-code-tooling" after you change a type or a member, and run each check that it names.
 
-Name `.hod/PROJECT.md`, say whether that file calls this project a package or an application, and name the file that holds the public API, each time that you wrote a type or changed a type.
+Name `PROJECT.md`, say whether that file calls this project a package or an application, and name the file that holds the public API, each time that you wrote a type or changed a type.
 
 Name each type that you marked with the marker of section 1, and name each member that you made private. Name each type that you left without that marker, and give the reason.
 

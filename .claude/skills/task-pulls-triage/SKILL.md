@@ -12,7 +12,7 @@ Propose an action for each open pull request, then run the actions that the user
 
 Run `gh repo view --json nameWithOwner,url` and `gh api user --jq .login`. Stop and tell the user to run `gh auth login` when a command fails.
 
-Read `.hod/PROJECT.md` and `CONTRIBUTING.md`.
+Read `PROJECT.md` and `CONTRIBUTING.md`.
 
 Ask the user for the number of days after which a pull request that waits for its author is stale, and use 30 days when the user gives none.
 

@@ -11,11 +11,11 @@ A check is a command that gives a fault of the code back: the static analyser, t
 
 ## 1. Run each check of this project
 
-Read `.hod/PROJECT.md` for the command of each check. Run each of those commands after your last change and before your report. Read the configuration file of each check, such as `phpstan.neon`, `tsconfig.json` or `.golangci.yml`, for the level of that check and for the marker that it reads.
+Read `PROJECT.md` for the command of each check. Run each of those commands after your last change and before your report. Read the configuration file of each check, such as `phpstan.neon`, `tsconfig.json` or `.golangci.yml`, for the level of that check and for the marker that it reads.
 
 Run the command of the project, and not the binary of the tool. The command of the project carries the configuration, the paths and the arguments of this project, thus the result of it agrees with the result of the pipeline.
 
-Read the scripts of the manifest of the project for a check that `.hod/PROJECT.md` does not name: `composer.json`, `package.json`, `Makefile`, `Cargo.toml`, `pyproject.toml`, `Rakefile` and `build.gradle.kts`. Tell the user to run `hod init` when `.hod/PROJECT.md` names no check.
+Read the scripts of the manifest of the project for a check that `PROJECT.md` does not name: `composer.json`, `package.json`, `Makefile`, `Cargo.toml`, `pyproject.toml`, `Rakefile` and `build.gradle.kts`. Tell the user to run `hod init` when `PROJECT.md` names no check.
 
 ## 2. Weaken no check to make it pass
 
@@ -83,7 +83,13 @@ Read the fault and read your change. The fault came before your work when no lin
 
 Repair that fault with the rules of this file, then run each check again. Ask the user no question about it. Turn no check off to continue.
 
-## 6. Report
+## 6. Stop when a check cannot reach its service
+
+When a check needs a service that is not available, such as a database, a queue, a server of the application or the browser extension of the client, stop the task. Tell the user the name of the service and the command that failed, and ask the user to start or connect it.
+
+Do not replace the check with a different check, such as a request with `curl` in place of the browser. Do not skip the check, and do not report the task as finished. Continue the task only when the service is available.
+
+## 7. Report
 
 Name each check that you ran, and give the command and the result of each one.
 
@@ -98,6 +104,8 @@ Name each level that you raised, and give the value before and the value after.
 Name each check that you added, give the level that you set, and name the script that runs it.
 
 Name each check that failed for a reason outside your change, give the command and the output of it, and name the repair.
+
+Name each service that a check could not reach, and give the command that failed.
 
 Say that you weakened no check.
 

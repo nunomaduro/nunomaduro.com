@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Security"
+  short_description: "Prove what an attacker can do"
+policy:
+  allow_implicit_invocation: false

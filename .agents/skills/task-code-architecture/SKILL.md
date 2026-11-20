@@ -14,7 +14,7 @@ Run `git log --since="1 year ago" --name-only --pretty=format:@ --no-merges`. Ea
 
 Count, for each pair of files, the commits that change the two files. Keep each pair that five commits or more change together, and that sits in two different directories.
 
-Read `.hod/PROJECT.md`.
+Read `PROJECT.md`.
 
 ## 2. Find the shared decision
 

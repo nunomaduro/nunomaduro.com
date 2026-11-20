@@ -12,7 +12,7 @@ Turn the request into a plan that a different session can build. Write no code o
 
 Ask the user for the request and wait for the answer when the user gives none.
 
-Read `.hod/PROJECT.md` and the code that the request touches. Take each fact from a file, and ask the user no question that a file answers.
+Read `PROJECT.md` and the code that the request touches. Take each fact from a file, and ask the user no question that a file answers.
 
 ## 2. Write a draft with your assumptions
 
