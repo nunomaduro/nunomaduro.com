@@ -2,6 +2,7 @@ pub mod api;
 
 mod about;
 mod feed;
+mod media_kit;
 mod not_found;
 mod post;
 mod posts;
@@ -13,6 +14,7 @@ mod talks;
 
 pub use about::About;
 pub use feed::Feed;
+pub use media_kit::MediaKit;
 pub use not_found::NotFound;
 pub use post::Post;
 pub use posts::Posts;

@@ -71,6 +71,24 @@ mod tests {
     }
 
     #[test]
+    fn gives_the_details_of_each_package_an_anchor_that_the_media_kit_links_to() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        for (anchor, package) in [
+            ("recurring-logo-and-link", "Recurring monthly logo + top link"),
+            ("ad-in-4-videos", "20-second ad in 4 videos"),
+            ("dedicated-video", "Dedicated video"),
+            ("studio-live-build-sprint", "Studio live build sprint"),
+            ("on-site-live-build-sprint", "On-site live build sprint"),
+        ] {
+            let start = html.find(&format!("<div id=\"{anchor}\"")).unwrap_or_else(|| panic!("{anchor}"));
+            let end = start + html[start..].find("</dt>").unwrap();
+
+            assert!(html[start..end].contains(package), "{package}");
+        }
+    }
+
+    #[test]
     fn writes_nunomaduro_as_one_word() {
         let html = SponsorshipsTemplate::default().render().unwrap();
 
