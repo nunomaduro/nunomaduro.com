@@ -24,7 +24,6 @@ const PAGES = [
   { id: 'posts', title: 'Posts' },
   { id: 'talks', title: 'Talks' },
   { id: 'sponsorships', title: 'Sponsorships' },
-  { id: 'media-kit', title: 'Media kit' },
   { id: 'not-found', title: 'Page not found' },
 ];
 

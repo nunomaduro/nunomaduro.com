@@ -1,6 +1,5 @@
 mod about;
 mod feed;
-mod media_kit;
 mod not_found;
 mod post;
 mod posts;
@@ -10,7 +9,6 @@ mod talks;
 
 pub use about::AboutTemplate;
 pub use feed::FeedTemplate;
-pub use media_kit::MediaKitTemplate;
 pub use not_found::NotFoundTemplate;
 pub use post::PostTemplate;
 pub use posts::PostsTemplate;
@@ -58,7 +56,6 @@ mod tests {
             PostsTemplate::new(Vec::new()).render().unwrap(),
             TalksTemplate::default().render().unwrap(),
             SponsorshipsTemplate::default().render().unwrap(),
-            MediaKitTemplate::default().render().unwrap(),
         ];
 
         let mut titles: Vec<String> = pages
@@ -88,7 +85,7 @@ mod tests {
         for list in [&mut titles, &mut descriptions, &mut cards] {
             list.sort();
             list.dedup();
-            assert_eq!(list.len(), 5, "{list:?}");
+            assert_eq!(list.len(), 4, "{list:?}");
         }
     }
 }

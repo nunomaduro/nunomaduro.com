@@ -9,7 +9,8 @@
  *     located by `data-stat` attributes and rewritten in place; if a source is
  *     unavailable the card is left exactly as-is.
  *   - the same followers total in the Sponsorships page intro
- *     (presentation/templates/support.html), via its own `data-stat` span.
+ *     (presentation/templates/support.html), via its own `data-stat` span,
+ *     and the per-platform counts of the social links on that page.
  *
  * Usage:
  *   node scripts/update-social.js          # fetch + update the template
@@ -640,6 +641,8 @@ async function main() {
     }
 
     html = res.html;
+    const supportRes = setCount(supportHtml, acc.href, formatted);
+    if (supportRes && supportRes.action !== 'insert') supportHtml = supportRes.html;
     if (res.action === 'unchanged') {
       console.log(`=  ${pad} ${formatted} (unchanged, raw ${count})`);
     } else if (res.action === 'insert') {

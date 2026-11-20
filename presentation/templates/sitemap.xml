@@ -19,11 +19,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nunomaduro.com/media-kit</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://nunomaduro.com/talks</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
