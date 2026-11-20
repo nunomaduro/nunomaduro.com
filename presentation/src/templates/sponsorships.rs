@@ -11,7 +11,7 @@ impl SponsorshipsPage {
         Self {
             id: "sponsorships".to_string(),
             title: "nunomaduro · Sponsorships".to_string(),
-            description: "Sponsor nunomaduro: a monthly logo and link, ads in YouTube videos, a dedicated video, or a two-day live build sprint with your developer tool."
+            description: "Sponsor nunomaduro: the audience, five packages from a monthly logo to a two-day live build sprint, and the results of past campaigns."
                 .to_string(),
         }
     }
@@ -56,11 +56,11 @@ mod tests {
         for (price, link) in [
             ("$1,000", "https://buy.stripe.com/28E28scOAcXMb8m9nw0Jq01"),
             ("$8,000", "https://buy.stripe.com/3cI6oI4i49LA3FUczI0Jq03"),
-            ("$16,000", "https://buy.stripe.com/5kQ7sM15Se1Qdgu0R00Jq00"),
+            ("$12,000", "https://buy.stripe.com/5kQ7sM15Se1Qdgu0R00Jq00"),
             ("$24,000", "https://buy.stripe.com/fZu00k01O7DsgsG57g0Jq08"),
             ("$36,000", "https://buy.stripe.com/7sYfZi6qc4rg7WaarA0Jq09"),
         ] {
-            let card = format!("<a href=\"{link}\" class=\"group");
+            let card = format!("<a href=\"{link}\" class=\"group card ");
             let start = html.find(&card).unwrap_or_else(|| panic!("{link}"));
             let end = start + html[start..].find("</a>").unwrap();
 
@@ -71,7 +71,7 @@ mod tests {
     }
 
     #[test]
-    fn gives_the_details_of_each_package_an_anchor_that_the_media_kit_links_to() {
+    fn gives_the_details_of_each_package_an_anchor() {
         let html = SponsorshipsTemplate::default().render().unwrap();
 
         for (anchor, package) in [
@@ -91,6 +91,218 @@ mod tests {
 
             assert!(html[start..end].contains(package), "{package}");
         }
+    }
+
+    #[test]
+    fn renders_each_section_of_the_page_with_a_link_to_it() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        for section in ["audience", "packages", "case-studies"] {
+            assert!(
+                html.contains(&format!("<a href=\"#{section}\"")),
+                "{section}"
+            );
+            assert!(
+                html.contains(&format!("<section id=\"{section}\"")),
+                "{section}"
+            );
+        }
+    }
+
+    #[test]
+    fn puts_the_audience_then_the_packages_with_their_terms_then_the_case_studies() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+        let position = |section: &str| html.find(&format!("<section id=\"{section}\"")).unwrap();
+
+        assert!(position("audience") < position("packages"));
+        assert!(position("packages") < html.find(">Terms<").unwrap());
+        assert!(html.find(">Terms<").unwrap() < html.find("For individuals:").unwrap());
+        assert!(html.find("For individuals:").unwrap() < position("case-studies"));
+    }
+
+    #[test]
+    fn asks_for_confirmation_once_and_leaves_out_the_removed_notes() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        assert_eq!(
+            html.matches("require confirmation before purchase").count(),
+            1
+        );
+        assert!(!html.contains("Before you pay"));
+        assert!(!html.contains("Exclusivity:"));
+        assert!(!html.contains("Where the channel is heading"));
+        assert!(!html.contains("Average view duration<"));
+        assert!(!html.contains("Impressions per video"));
+    }
+
+    #[test]
+    fn leaves_the_overview_of_the_about_page_out() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        assert!(!html.contains("id=\"overview\""));
+        assert!(!html.contains("2.22B+"));
+        assert!(!html.contains("153K+"));
+    }
+
+    #[test]
+    fn renders_each_top_country_with_its_share_of_views() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        for (country, share, width) in [
+            ("United States", "12.31%", "100%"),
+            ("Germany", "7.33%", "60%"),
+            ("India", "5.97%", "48%"),
+            ("Brazil", "5.40%", "44%"),
+            ("United Kingdom", "4.94%", "40%"),
+        ] {
+            let start = html
+                .find(&format!(">{country}<"))
+                .unwrap_or_else(|| panic!("{country}"));
+            let end = start + html[start..].find("</li>").unwrap();
+
+            assert!(html[start..end].contains(share), "{share}");
+            assert!(
+                html[start..end].contains(&format!("width: {width}")),
+                "{width}"
+            );
+        }
+    }
+
+    #[test]
+    fn renders_the_top_10_videos_of_the_last_12_months_in_order_below_the_last_90_days() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+        let start = html.find("Top 10 most-watched videos").unwrap();
+        let mut position = start;
+
+        assert!(html.find("YouTube · last 90 days").unwrap() < start);
+        assert!(start < html.find("Who watches").unwrap());
+        for (video, views) in [
+            ("Q7TBEL7vZ5A", "71,700"),
+            ("3Z1yJdV4DpU", "61,829"),
+            ("NBUW3YoO3Dw", "59,665"),
+            ("6EAnFU2HSc4", "45,181"),
+            ("7vLvtM2conY", "38,284"),
+            ("U0xF6TecrjI", "34,604"),
+            ("ceQcmhUl3Xw", "34,405"),
+            ("bIZYkYEUghw", "28,787"),
+            ("6zCNQa3hNm0", "28,086"),
+            ("6moPS3AAbe4", "27,919"),
+        ] {
+            let card = html[position..]
+                .find(&format!("watch?v={video}"))
+                .unwrap_or_else(|| panic!("{video}"));
+            position += card;
+            let end = position + html[position..].find("</li>").unwrap();
+
+            assert!(
+                html[position..end].contains(&format!("/top-video.{video}.jpg")),
+                "{video}"
+            );
+            assert!(
+                html[position..end].contains(&format!("{views} views")),
+                "{views}"
+            );
+            assert_eq!(
+                html[position..end].contains("Livestream replay"),
+                video == "6zCNQa3hNm0",
+                "{video}"
+            );
+        }
+    }
+
+    #[test]
+    fn lists_the_followers_of_each_main_platform_between_the_top_10_and_the_audience() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+        let start = html.find("Followers by platform").unwrap();
+        let end = html.find("Who watches").unwrap();
+
+        assert!(html.find("Top 10 most-watched videos").unwrap() < start);
+        assert_eq!(html[start..end].matches("data-count>").count(), 7);
+        for platform in [
+            "X",
+            "YouTube",
+            "LinkedIn",
+            "GitHub",
+            "Instagram",
+            "TikTok",
+            "Twitch",
+        ] {
+            assert!(
+                html[start..end].contains(&format!("</span>{platform}</a>")),
+                "{platform}"
+            );
+        }
+        assert!(!html[start..end].contains("Threads"));
+        assert_eq!(
+            include_str!("../../templates/support.html")
+                .matches("href=\"https://twitter.com/enunomaduro\"")
+                .count(),
+            1
+        );
+    }
+
+    #[test]
+    fn renders_each_photo_from_the_public_directory_with_a_description() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+        let photos: Vec<&str> = html.split("<img src=\"/").skip(1).collect();
+
+        assert_eq!(photos.len(), 21);
+        for photo in photos {
+            let tag = &photo[..photo.find('>').unwrap()];
+            let path = &tag[..tag.find('"').unwrap()];
+
+            assert!(
+                std::path::Path::new("../public").join(path).exists(),
+                "{path}"
+            );
+            assert!(
+                tag.contains("alt=\"") && !tag.contains("alt=\"\""),
+                "{path}"
+            );
+            assert!(tag.contains("loading=\"lazy\""), "{path}");
+            assert!(tag.contains("rounded-2xl"), "{path}");
+        }
+    }
+
+    #[test]
+    fn mentions_no_former_partner_bento() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        assert!(!html.to_lowercase().contains("bento"));
+    }
+
+    #[test]
+    fn links_to_no_media_kit_page() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        assert!(!html.contains("href=\"/media-kit\""));
+        assert!(!html.contains(">Media kit<"));
+    }
+
+    #[test]
+    fn marks_the_sponsorships_as_the_current_page_in_the_navigation() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+
+        assert_eq!(
+            html.matches("href=\"/sponsorships\" aria-current=\"page\"")
+                .count(),
+            2
+        );
+    }
+
+    #[test]
+    fn describes_the_sponsorships_page_with_a_breadcrumb() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+        let graph = crate::templates::structured_data(&html);
+        let page = crate::templates::node(&graph, "WebPage");
+
+        assert!(
+            html.contains("<link rel=\"canonical\" href=\"https://nunomaduro.com/sponsorships\">")
+        );
+        assert_eq!(
+            page["breadcrumb"]["itemListElement"][1]["name"],
+            "Sponsorships"
+        );
     }
 
     #[test]

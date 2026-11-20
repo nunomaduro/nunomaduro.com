@@ -17,7 +17,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nunomaduro.com/" },
-          { "@type": "ListItem", "position": 2, "name": "{% if page.id() == "media-kit" %}Media kit{% else %}{{ page.id()|capitalize }}{% endif %}", "item": "https://nunomaduro.com{{ url }}" }
+          { "@type": "ListItem", "position": 2, "name": "{{ page.id()|capitalize }}", "item": "https://nunomaduro.com{{ url }}" }
         ]
       },{% endif %}
       "primaryImageOfPage": {

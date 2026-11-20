@@ -148,3 +148,29 @@ fn answers_a_path_that_does_not_exist_with_the_page_not_found() {
         assert!(response.contains("<title>nunomaduro · Page not found</title>"));
     }
 }
+
+#[test]
+fn moves_the_media_kit_into_the_sponsorships_page() {
+    let port = free_port();
+    let mut server = server()
+        .env("PORT", port.to_string())
+        .spawn()
+        .expect("the server starts");
+    let stdout = server.stdout.take().expect("the server has a stdout");
+    BufReader::new(stdout)
+        .lines()
+        .next()
+        .expect("the server writes its url")
+        .expect("the server writes text");
+
+    let response = get(port, "/media-kit");
+    server.kill().expect("the server stops");
+    server.wait().expect("the server exits");
+
+    assert!(response.starts_with("HTTP/1.1 301 Moved Permanently"));
+    assert!(
+        response
+            .to_lowercase()
+            .contains("location: /sponsorships\r\n")
+    );
+}
