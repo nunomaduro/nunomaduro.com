@@ -56,7 +56,7 @@ mod tests {
         for (price, link) in [
             ("$1,000", "https://buy.stripe.com/28E28scOAcXMb8m9nw0Jq01"),
             ("$8,000", "https://buy.stripe.com/3cI6oI4i49LA3FUczI0Jq03"),
-            ("$12,000", "https://buy.stripe.com/5kQ7sM15Se1Qdgu0R00Jq00"),
+            ("$12,000", "https://buy.stripe.com/fZu6oI8ykaPE6S67fo0Jq0a"),
             ("$24,000", "https://buy.stripe.com/fZu00k01O7DsgsG57g0Jq08"),
             ("$36,000", "https://buy.stripe.com/7sYfZi6qc4rg7WaarA0Jq09"),
         ] {
@@ -124,14 +124,33 @@ mod tests {
     }
 
     #[test]
-    fn puts_the_audience_then_the_packages_with_their_terms_then_the_case_studies() {
+    fn puts_the_packages_with_their_terms_then_the_audience_then_the_case_studies() {
         let html = SponsorshipsTemplate::default().render().unwrap();
         let position = |section: &str| html.find(&format!("<section id=\"{section}\"")).unwrap();
 
-        assert!(position("audience") < position("packages"));
+        assert!(html.find("Most popular").unwrap() > position("packages"));
+        assert!(html.find("Most popular").unwrap() < position("audience"));
         assert!(position("packages") < html.find(">Terms<").unwrap());
         assert!(html.find(">Terms<").unwrap() < html.find("For individuals:").unwrap());
-        assert!(html.find("For individuals:").unwrap() < position("case-studies"));
+        assert!(html.find("For individuals:").unwrap() < position("audience"));
+        assert!(position("audience") < position("case-studies"));
+    }
+
+    #[test]
+    fn links_to_the_packages_then_the_audience_then_the_case_studies_on_top_of_the_page() {
+        let html = SponsorshipsTemplate::default().render().unwrap();
+        let start = html.find("<nav aria-label=\"On this page\"").unwrap();
+        let end = start + html[start..].find("</nav>").unwrap();
+        let navigation = &html[start..end];
+        let position = |section: &str| {
+            navigation
+                .find(&format!("<a href=\"#{section}\""))
+                .unwrap_or_else(|| panic!("{section}"))
+        };
+
+        assert!(position("packages") < position("audience"));
+        assert!(position("audience") < position("case-studies"));
+        assert!(html[..start].contains("Pick a package, see who watches"));
     }
 
     #[test]

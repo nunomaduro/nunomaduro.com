@@ -201,6 +201,15 @@
         border-radius: 1rem;
     }
 
+    :where(iframe) {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 0;
+        border-radius: 1rem;
+        margin-block: 0 1.5em;
+    }
+
     :where(table) {
         font-family: var(--font-sans);
         font-size: 0.8em;

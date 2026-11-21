@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-11-21T12:01:24.274Z",
+        "reason": "user confirmed: keep Geist as the text font of the site"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-11-21T12:01:24.302Z",
+        "reason": "user confirmed: keep Geist Mono as the code font of the site"
+      }
+    ]
+  }
+}

@@ -6,6 +6,8 @@ published_at: October 31, 2026
 
 PHP 8.6 ships on November 19, 2026. The headline is partial function application, and it changes how every PHP developer writes callbacks.
 
+<iframe src="https://www.youtube-nocookie.com/embed/xs4lMLw_yiA" title="Everything New in PHP 8.6" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 I compiled the `PHP-8.5` and `PHP-8.6` branches of `php-src` and diffed them, so everything below comes from the source, not from a list of RFCs. The feature freeze passed in September, so the list won't change before the release.
 
 The features are in order: the ones I'm most excited about first, the small details last.

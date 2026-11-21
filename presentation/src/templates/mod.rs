@@ -50,6 +50,30 @@ mod tests {
     }
 
     #[test]
+    fn links_the_style_and_the_script_with_the_version_of_the_assets() {
+        let pages = [
+            AboutTemplate::new(Vec::new()).render().unwrap(),
+            PostsTemplate::new(Vec::new()).render().unwrap(),
+            TalksTemplate::default().render().unwrap(),
+            SponsorshipsTemplate::default().render().unwrap(),
+        ];
+
+        assert_eq!(crate::ASSET_VERSION.len(), 16);
+        assert!(
+            crate::ASSET_VERSION
+                .chars()
+                .all(|character| character.is_ascii_hexdigit())
+        );
+        for html in pages {
+            assert!(html.contains(&format!(
+                "href=\"/dist/style.css?v={}\"",
+                crate::ASSET_VERSION
+            )));
+            assert!(html.contains(&format!("src=\"/dist/app.js?v={}\"", crate::ASSET_VERSION)));
+        }
+    }
+
+    #[test]
     fn gives_each_page_its_own_title_description_and_social_card() {
         let pages = [
             AboutTemplate::new(Vec::new()).render().unwrap(),
