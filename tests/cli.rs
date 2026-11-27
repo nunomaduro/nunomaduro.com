@@ -174,3 +174,25 @@ fn moves_the_media_kit_into_the_sponsorships_page() {
             .contains("location: /sponsorships\r\n")
     );
 }
+
+#[test]
+fn serves_the_partners_page() {
+    let port = free_port();
+    let mut server = server()
+        .env("PORT", port.to_string())
+        .spawn()
+        .expect("the server starts");
+    let stdout = server.stdout.take().expect("the server has a stdout");
+    BufReader::new(stdout)
+        .lines()
+        .next()
+        .expect("the server writes its url")
+        .expect("the server writes text");
+
+    let response = get(port, "/partners");
+    server.kill().expect("the server stops");
+    server.wait().expect("the server exits");
+
+    assert!(response.starts_with("HTTP/1.1 200 OK"));
+    assert!(response.contains("<title>nunomaduro · Partners</title>"));
+}

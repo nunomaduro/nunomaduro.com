@@ -43,6 +43,15 @@
         </div>
     </div>
 
+    <a href="/partners" class="group mt-5 -ml-2 inline-flex min-h-11 flex-wrap items-center gap-x-4 gap-y-2 rounded-xl px-2 text-[13px] text-zinc-500 hover:text-zinc-900">
+        <span>Supported by</span>
+        <span class="flex items-center gap-2.5">
+            {% for sponsorship in sponsors %}
+                <img src="{{ sponsorship.partner().logo() }}" alt="{{ sponsorship.partner().name() }}" width="20" height="20" loading="lazy" class="size-5 rounded-[5px] opacity-60 grayscale transition group-hover:opacity-100 group-hover:grayscale-0">
+            {% endfor %}
+        </span>
+    </a>
+
     <section aria-labelledby="latest-posts" class="mt-14">
         <div class="mb-4 flex items-baseline justify-between gap-4">
             <h2 id="latest-posts" class="text-2xl font-bold tracking-tight">Latest posts</h2>

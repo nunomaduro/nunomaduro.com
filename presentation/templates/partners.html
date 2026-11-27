@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+{% import "components/partner.html" as cards %}
+
+{% block page %}
+    <div class="pt-6 pb-2">
+        <h1 class="text-[40px] leading-none font-bold tracking-[-0.05em] sm:text-[52px]">Partners</h1>
+        <p class="mt-3.5 mb-8 max-w-[52ch] text-lg text-pretty text-zinc-600">{{ page.description() }} Want to join them? See the <a href="/sponsorships" class="link">sponsorships</a>.</p>
+    </div>
+
+    <section id="current-sponsors" aria-labelledby="current-sponsors-heading">
+        <h2 id="current-sponsors-heading" class="mb-4 text-2xl font-bold tracking-tight">Current sponsors</h2>
+
+        <ul role="list" class="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+            {% for sponsorship in current_sponsors %}
+                {% call cards::partner_card(sponsorship.partner(), sponsorship.full_years_until(today)) %}{% endcall %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="part-of-the-journey" aria-labelledby="part-of-the-journey-heading" class="mt-14">
+        <h2 id="part-of-the-journey-heading" class="text-2xl font-bold tracking-tight">Part of the journey</h2>
+        <p class="mt-2 mb-4 max-w-[60ch] text-[15px] text-pretty text-zinc-600">The brands that sponsored my YouTube channel before.</p>
+
+        <ul role="list" class="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+            {% for partner in past_partners %}
+                {% call cards::partner_card(partner, 0) %}{% endcall %}
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
