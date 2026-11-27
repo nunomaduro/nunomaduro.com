@@ -1,3 +1,4 @@
+use super::partners::{CURRENT_SPONSORS, Sponsorship};
 use askama::Template;
 use domain::value_objects::{Page, Post};
 
@@ -38,6 +39,7 @@ pub struct AboutTemplate {
     page: AboutPage,
     url: String,
     posts: Vec<Post>,
+    sponsors: &'static [Sponsorship],
 }
 
 impl AboutTemplate {
@@ -46,6 +48,7 @@ impl AboutTemplate {
             page: AboutPage::new(),
             url: "/".to_string(),
             posts: posts.into_iter().take(LATEST_POSTS).collect(),
+            sponsors: &CURRENT_SPONSORS,
         }
     }
 }
@@ -91,6 +94,29 @@ mod tests {
 
         assert!(html.contains("No posts yet. Stay tuned."));
         assert!(!html.contains("href=\"/posts/"));
+    }
+
+    #[test]
+    fn links_the_logo_of_each_current_sponsor_to_the_partners_page() {
+        let html = AboutTemplate::new(Vec::new()).render().unwrap();
+        let start = html.find("<a href=\"/partners\" class=\"group").unwrap();
+        let link = &html[start..start + html[start..].find("</a>").unwrap()];
+
+        assert!(link.contains(">Supported by<"));
+        for sponsorship in &CURRENT_SPONSORS {
+            let partner = sponsorship.partner();
+
+            assert!(
+                link.contains(&format!(
+                    "src=\"{}\" alt=\"{}\"",
+                    partner.logo(),
+                    partner.name()
+                )),
+                "{}",
+                partner.name()
+            );
+        }
+        assert!(html.find(">Supported by<").unwrap() < html.find(">Latest posts<").unwrap());
     }
 
     #[test]

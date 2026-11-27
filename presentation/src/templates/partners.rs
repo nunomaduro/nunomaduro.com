@@ -108,7 +108,7 @@ impl Sponsorship {
     }
 }
 
-const CURRENT_SPONSORS: [Sponsorship; 7] = [
+pub(crate) const CURRENT_SPONSORS: [Sponsorship; 7] = [
     Sponsorship {
         partner: Partner {
             name: "JetBrains",
