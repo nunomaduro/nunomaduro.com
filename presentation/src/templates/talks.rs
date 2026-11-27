@@ -50,21 +50,40 @@ mod tests {
     use super::*;
 
     #[test]
-    fn renders_each_featured_talk_as_a_lazy_video_with_its_name() {
+    fn renders_each_featured_talk_as_a_thumbnail_that_links_to_its_video() {
         let html = TalksTemplate::default().render().unwrap();
+        let end = html.find("id=\"past-talks\"").unwrap();
+        let cards: Vec<&str> = html[..end]
+            .split("<a href=\"https://www.youtube.com/watch?v=")
+            .skip(1)
+            .collect();
 
-        assert_eq!(html.matches("<iframe").count(), 8);
-        assert_eq!(html.matches("loading=\"lazy\"").count(), 8);
-        assert!(html.contains("title=\"Strict AI engineering\" loading=\"lazy\""));
-        assert!(!html.contains("title=\"YouTube video player\""));
+        assert!(!html.contains("<iframe"));
+        assert_eq!(cards.len(), 8);
+        for card in cards {
+            let video = &card[..card.find('"').unwrap()];
+            let image = format!("src=\"/talk.{video}.jpg\"");
+
+            assert!(card.contains(&image), "{video}");
+            assert!(
+                std::path::Path::new("../public")
+                    .join(format!("talk.{video}.jpg"))
+                    .exists(),
+                "{video}"
+            );
+            assert!(card.contains("loading=\"lazy\""), "{video}");
+        }
+        assert!(html.contains("alt=\"Thumbnail of Strict AI engineering\""));
     }
 
     #[test]
     fn renders_each_past_talk_as_a_link_to_its_video() {
         let html = TalksTemplate::default().render().unwrap();
+        let start = html.find("id=\"past-talks\"").unwrap();
 
         assert_eq!(
-            html.matches("href=\"https://www.youtube.com/watch?v=")
+            html[start..]
+                .matches("href=\"https://www.youtube.com/watch?v=")
                 .count(),
             15
         );
