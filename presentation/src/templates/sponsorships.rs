@@ -210,16 +210,16 @@ mod tests {
         assert!(html.find("YouTube · last 90 days").unwrap() < start);
         assert!(start < html.find("Who watches").unwrap());
         for (video, views) in [
-            ("Q7TBEL7vZ5A", "71,700"),
-            ("3Z1yJdV4DpU", "61,829"),
-            ("NBUW3YoO3Dw", "59,665"),
-            ("6EAnFU2HSc4", "45,181"),
-            ("7vLvtM2conY", "38,284"),
-            ("U0xF6TecrjI", "34,604"),
-            ("ceQcmhUl3Xw", "34,405"),
-            ("bIZYkYEUghw", "28,787"),
-            ("6zCNQa3hNm0", "28,086"),
-            ("6moPS3AAbe4", "27,919"),
+            ("Q7TBEL7vZ5A", "73,461"),
+            ("3Z1yJdV4DpU", "61,904"),
+            ("NBUW3YoO3Dw", "60,627"),
+            ("6EAnFU2HSc4", "45,281"),
+            ("7vLvtM2conY", "38,313"),
+            ("ceQcmhUl3Xw", "35,717"),
+            ("U0xF6TecrjI", "34,617"),
+            ("bIZYkYEUghw", "29,440"),
+            ("6moPS3AAbe4", "28,227"),
+            ("6zCNQa3hNm0", "28,184"),
         ] {
             let card = html[position..]
                 .find(&format!("watch?v={video}"))
