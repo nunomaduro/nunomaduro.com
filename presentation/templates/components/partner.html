@@ -1,0 +1,12 @@
+{% macro partner_card(partner, years) %}
+<li>
+    <a href="{{ partner.url() }}" class="group card flex h-full items-start gap-4 p-5{% if years >= 1 %} ring-2 ring-amber-500{% endif %}">
+        <img src="{{ partner.logo() }}" alt="" width="48" height="48" loading="lazy" class="size-12 shrink-0 rounded-xl">
+        <div>
+            {% if years >= 1 %}<span class="mb-2 inline-block rounded-full bg-amber-500 px-2.5 py-0.5 text-xs font-semibold text-zinc-900">Sponsor for {{ years }} {% if years == 1 %}year{% else %}years{% endif %}</span>{% endif %}
+            <h3 class="text-[15px] font-bold tracking-tight text-balance group-hover:text-amber-700">{{ partner.name() }}</h3>
+            <p class="mt-0.5 text-[13px] text-pretty text-zinc-600">{{ partner.description() }}</p>
+        </div>
+    </a>
+</li>
+{% endmacro %}

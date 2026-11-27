@@ -24,6 +24,7 @@ const PAGES = [
   { id: 'posts', title: 'Posts' },
   { id: 'talks', title: 'Talks' },
   { id: 'sponsorships', title: 'Sponsorships' },
+  { id: 'partners', title: 'Partners' },
   { id: 'not-found', title: 'Page not found' },
 ];
 
