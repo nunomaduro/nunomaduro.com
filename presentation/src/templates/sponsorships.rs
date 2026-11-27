@@ -202,44 +202,28 @@ mod tests {
     }
 
     #[test]
-    fn renders_the_top_10_videos_of_the_last_12_months_in_order_below_the_last_90_days() {
+    fn renders_the_top_10_videos_by_views_below_the_last_90_days() {
         let html = SponsorshipsTemplate::default().render().unwrap();
         let start = html.find("Top 10 most-watched videos").unwrap();
-        let mut position = start;
+        let end = start + html[start..].find("</ol>").unwrap();
+        let items: Vec<&str> = html[start..end].split("<li>").skip(1).collect();
 
         assert!(html.find("YouTube · last 90 days").unwrap() < start);
         assert!(start < html.find("Who watches").unwrap());
-        for (video, views) in [
-            ("Q7TBEL7vZ5A", "71,700"),
-            ("3Z1yJdV4DpU", "61,829"),
-            ("NBUW3YoO3Dw", "59,665"),
-            ("6EAnFU2HSc4", "45,181"),
-            ("7vLvtM2conY", "38,284"),
-            ("U0xF6TecrjI", "34,604"),
-            ("ceQcmhUl3Xw", "34,405"),
-            ("bIZYkYEUghw", "28,787"),
-            ("6zCNQa3hNm0", "28,086"),
-            ("6moPS3AAbe4", "27,919"),
-        ] {
-            let card = html[position..]
-                .find(&format!("watch?v={video}"))
-                .unwrap_or_else(|| panic!("{video}"));
-            position += card;
-            let end = position + html[position..].find("</li>").unwrap();
+        assert_eq!(items.len(), 10);
+        let mut previous_views = u32::MAX;
+        for item in items {
+            let video = &item[item.find("watch?v=").unwrap() + 8..];
+            let video = &video[..video.find('"').unwrap()];
+            let views = &item[..item.find(" views</span>").unwrap()];
+            let views: u32 = views[views.rfind('>').unwrap() + 1..]
+                .replace(',', "")
+                .parse()
+                .unwrap();
 
-            assert!(
-                html[position..end].contains(&format!("/top-video.{video}.jpg")),
-                "{video}"
-            );
-            assert!(
-                html[position..end].contains(&format!("{views} views")),
-                "{views}"
-            );
-            assert_eq!(
-                html[position..end].contains("Livestream replay"),
-                video == "6zCNQa3hNm0",
-                "{video}"
-            );
+            assert!(item.contains(&format!("/top-video.{video}.jpg")), "{video}");
+            assert!(views <= previous_views, "{video}");
+            previous_views = views;
         }
     }
 

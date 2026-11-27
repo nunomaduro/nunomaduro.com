@@ -13,4 +13,4 @@ Write each text of the site, the posts included, with correct grammar and normal
 - `presentation/` — the crate of the `askama` templates, with the CSS and the JavaScript that Vite builds
 - `content/` — the posts, in Markdown
 - `public/` — the static files, the images and the build output of Vite in `public/dist/`
-- `scripts/` — the Node scripts that generate the Open Graph images and update the social numbers
+- `scripts/` — the Node scripts that generate the Open Graph images and update the social numbers and the top videos
