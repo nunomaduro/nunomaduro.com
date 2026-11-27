@@ -106,6 +106,17 @@ mod tests {
     }
 
     #[test]
+    fn anchors_the_profile_photo_to_the_bottom_left_corner_without_a_fade() {
+        let html = AboutTemplate::new(Vec::new()).render().unwrap();
+        let start = html.find("<img src=\"/profile.webp\"").unwrap();
+        let photo = &html[start..start + html[start..].find('>').unwrap()];
+
+        assert!(photo.contains("absolute bottom-0 left-0"));
+        assert!(!photo.contains("mask-"));
+        assert!(!photo.contains("gradient"));
+    }
+
+    #[test]
     fn renders_each_social_account_with_its_number() {
         let html = AboutTemplate::new(Vec::new()).render().unwrap();
 
