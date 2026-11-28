@@ -7,10 +7,9 @@
 
             <nav aria-label="Main" class="hidden sm:block">
                 <ul role="list" class="flex gap-0.5">
-                    <li><a href="/" {% if page.id() == "about" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "about" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">About</a></li>
-                    <li><a href="/posts" {% if page.id() == "posts" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "posts" || page.id() == "post" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Posts</a></li>
-                    <li><a href="/talks" {% if page.id() == "talks" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "talks" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Talks</a></li>
-                    <li><a href="/sponsorships" {% if page.id() == "sponsorships" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if page.id() == "sponsorships" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Sponsorships</a></li>
+                    {% for link in crate::navigation::NAVIGATION_LINKS %}
+                    <li><a href="{{ link.path }}" {% if link.is_current(page.id()) %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3.5 text-sm font-medium {% if link.is_highlighted(page.id()) %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">{{ link.label }}</a></li>
+                    {% endfor %}
                 </ul>
             </nav>
 
@@ -22,10 +21,9 @@
 
         <nav id="mobile-navigation" aria-label="Main" x-show="open" x-cloak class="border-t border-zinc-200 p-1.5 sm:hidden">
             <ul role="list" class="flex flex-col gap-0.5">
-                <li><a href="/" {% if page.id() == "about" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "about" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">About</a></li>
-                <li><a href="/posts" {% if page.id() == "posts" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "posts" || page.id() == "post" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Posts</a></li>
-                <li><a href="/talks" {% if page.id() == "talks" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "talks" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Talks</a></li>
-                <li><a href="/sponsorships" {% if page.id() == "sponsorships" %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if page.id() == "sponsorships" %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">Sponsorships</a></li>
+                {% for link in crate::navigation::NAVIGATION_LINKS %}
+                <li><a href="{{ link.path }}" {% if link.is_current(page.id()) %}aria-current="page"{% endif %} class="flex min-h-11 items-center rounded-xl px-3 text-base font-medium {% if link.is_highlighted(page.id()) %}bg-canvas text-zinc-900{% else %}text-zinc-600 hover:bg-canvas hover:text-zinc-900{% endif %}">{{ link.label }}</a></li>
+                {% endfor %}
             </ul>
         </nav>
     </div>

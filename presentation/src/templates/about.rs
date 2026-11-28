@@ -101,7 +101,7 @@ mod tests {
             html.contains("nunomaduro<span class=\"text-amber-500\" aria-hidden=\"true\">.</span>")
         );
         assert!(html.contains("<h1 class=\"relative text-[40px] leading-none font-bold tracking-[-0.045em] sm:text-[44px]\">nunomaduro</h1>"));
-        assert!(html.contains("&copy; nunomaduro"));
+        assert!(html.contains(&format!("&copy; {} nunomaduro", crate::current_year())));
         assert!(!html.to_lowercase().contains("nuno maduro"));
     }
 

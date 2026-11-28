@@ -59,6 +59,23 @@ mod tests {
     }
 
     #[test]
+    fn renders_the_footer_with_each_link_of_the_navigation_and_without_the_social_accounts() {
+        let html = NotFoundTemplate::default().render().unwrap();
+        let footer = &html[html.find("<footer").unwrap()..];
+
+        assert!(footer.contains("aria-label=\"Footer\""));
+        for link in crate::navigation::NAVIGATION_LINKS {
+            assert!(footer.contains(&format!(
+                "href=\"{}\" class=\"flex min-h-11 items-center rounded-lg px-2 hover:text-zinc-900\">{}</a>",
+                link.path, link.label
+            )));
+        }
+        assert!(footer.contains(&format!("&copy; {} nunomaduro", crate::current_year())));
+        assert!(!footer.contains("aria-label=\"Social\""));
+        assert!(!footer.contains("tiktok.com"));
+    }
+
+    #[test]
     fn keeps_the_page_not_found_out_of_the_search_index() {
         let html = NotFoundTemplate::default().render().unwrap();
 
